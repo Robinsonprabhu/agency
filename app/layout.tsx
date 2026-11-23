@@ -1,43 +1,28 @@
 import type { Metadata } from "next";
-import { Barlow_Condensed, Karla, IBM_Plex_Mono } from "next/font/google";
+import { Barlow_Condensed, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 
 const barlowCondensed = Barlow_Condensed({
   variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["600", "700"],
   display: "swap",
 });
 
-const karla = Karla({
+const hankenGrotesk = Hanken_Grotesk({
   variable: "--font-body",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
   display: "swap",
 });
 
-const ibmPlexMono = IBM_Plex_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  display: "swap",
-});
-
 export const metadata: Metadata = {
-  title: "FORM & FUNCTION — Digital Agency",
+  title: "FORM & FUNCTION — Creative Studio (Est. 2019)",
   description:
     "We combine strategy, design and technology to create meaningful digital experiences for ambitious brands.",
-  keywords: [
-    "Design Studio",
-    "Digital Agency",
-    "UI/UX Design",
-    "Web Development",
-    "Brand Identity",
-    "Digital Strategy",
-  ],
   authors: [{ name: "FORM & FUNCTION" }],
   openGraph: {
-    title: "FORM & FUNCTION — Digital Agency",
+    title: "FORM & FUNCTION — Creative Studio",
     description:
       "Digital experiences, made with purpose. Strategy, design and modern engineering.",
     type: "website",
@@ -52,9 +37,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${barlowCondensed.variable} ${karla.variable} ${ibmPlexMono.variable} scroll-smooth antialiased`}
+      className={`${barlowCondensed.variable} ${hankenGrotesk.variable} scroll-smooth antialiased`}
     >
-      <body className="min-h-screen bg-[#FFFFFF] text-[#111111] font-body selection:bg-[#111111] selection:text-[#FFFFFF] overflow-x-hidden">
+      <body className="min-h-screen bg-[#FFFFFF] text-[#0A0A0A] font-body selection:bg-[#0A0A0A] selection:text-[#FFFFFF] overflow-x-hidden">
         {children}
       </body>
     </html>

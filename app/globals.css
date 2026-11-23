@@ -2,113 +2,175 @@
 
 @theme {
   --color-bg-primary: #FFFFFF;
-  --color-bg-secondary: #F7F7F5;
-  --color-text-primary: #111111;
-  --color-text-secondary: #666666;
-  --color-border-subtle: #E5E5E5;
-  --color-btn-bg: #111111;
-  --color-btn-text: #FFFFFF;
+  --color-bg-panel: #F5F5F2;
+  --color-text-main: #0A0A0A;
+  --color-text-muted: #6B6B66;
+  --color-border-hairline: #E4E4DF;
+  --color-black-solid: #0A0A0A;
 
   --font-heading: var(--font-heading), "Barlow Condensed", sans-serif;
-  --font-body: var(--font-body), "Karla", sans-serif;
-  --font-mono: var(--font-mono), "IBM Plex Mono", monospace;
+  --font-body: var(--font-body), "Hanken Grotesk", sans-serif;
 }
 
 :root {
   --bg-primary: #FFFFFF;
-  --bg-secondary: #F7F7F5;
-  --text-primary: #111111;
-  --text-secondary: #666666;
-  --border: #E5E5E5;
-  --btn-bg: #111111;
-  --btn-text: #FFFFFF;
+  --bg-panel: #F5F5F2;
+  --text-main: #0A0A0A;
+  --text-muted: #6B6B66;
+  --border-hairline: #E4E4DF;
+  --black-solid: #0A0A0A;
+}
+
+* {
+  border-radius: 0 !important;
+  box-shadow: none !important;
 }
 
 html {
   scroll-behavior: smooth;
   background-color: #FFFFFF;
-  color: #111111;
-  font-family: var(--font-body), "Karla", sans-serif;
+  color: #0A0A0A;
+  font-family: var(--font-body), "Hanken Grotesk", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   background-color: #FFFFFF;
-  color: #111111;
-  font-family: var(--font-body), "Karla", sans-serif;
-  overflow-x: hidden;
+  color: #0A0A0A;
+  font-family: var(--font-body), "Hanken Grotesk", sans-serif;
   font-size: 17px;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
-/* Distinctive Typography System */
+/* Headings: Barlow Condensed, UPPERCASE, line-height 0.86 - 1, slight negative letter spacing */
 .font-heading {
   font-family: var(--font-heading), "Barlow Condensed", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
 }
 
 .font-body {
-  font-family: var(--font-body), "Karla", sans-serif;
+  font-family: var(--font-body), "Hanken Grotesk", sans-serif;
 }
 
-.font-mono {
-  font-family: var(--font-mono), "IBM Plex Mono", monospace;
-}
-
-/* Typography Scales */
-.hero-display,
-.hero-heading {
+/* Exact responsive clamp scales specified */
+.headline-huge {
   font-family: var(--font-heading), "Barlow Condensed", sans-serif;
-  font-size: clamp(3.2rem, 7vw, 6.2rem);
-  line-height: 0.96;
+  font-size: clamp(64px, 11.5vw, 176px);
+  line-height: 0.88;
+  letter-spacing: -0.025em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-family: var(--font-heading), "Barlow Condensed", sans-serif;
+  font-size: clamp(44px, 6vw, 88px);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.row-title {
+  font-family: var(--font-heading), "Barlow Condensed", sans-serif;
+  font-size: clamp(30px, 3.4vw, 48px);
+  line-height: 1;
   letter-spacing: -0.015em;
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
 }
 
-.section-display,
-.section-heading {
-  font-family: var(--font-heading), "Barlow Condensed", sans-serif;
-  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
-  line-height: 1.02;
-  letter-spacing: -0.01em;
-  font-weight: 500;
-  text-transform: uppercase;
+/* Standardized Button Styles per spec: height 52px, padding 0 26px, 15px semi-bold, square corners */
+.btn-solid {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 52px;
+  padding: 0 26px;
+  font-size: 15px;
+  font-weight: 600;
+  background-color: #0A0A0A;
+  color: #FFFFFF;
+  border: 1px solid #0A0A0A;
+  transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
-.card-display,
-.service-heading,
-.project-heading {
-  font-family: var(--font-heading), "Barlow Condensed", sans-serif;
-  font-size: clamp(1.6rem, 2.2vw, 2.1rem);
-  line-height: 1.1;
-  letter-spacing: -0.01em;
-  font-weight: 500;
+.btn-solid:hover {
+  background-color: #FFFFFF;
+  color: #0A0A0A;
 }
 
-.meta-code,
-.meta-label {
-  font-family: var(--font-mono), "IBM Plex Mono", monospace;
-  font-size: 12px;
-  line-height: 1.4;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: #666666;
+.btn-outlined {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 52px;
+  padding: 0 26px;
+  font-size: 15px;
+  font-weight: 600;
+  background-color: transparent;
+  color: #0A0A0A;
+  border: 1px solid #0A0A0A;
+  transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
-/* Subtle architectural grid pattern overlay */
-.editorial-grid-bg {
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
-  background-size: 48px 48px;
+.btn-outlined:hover {
+  background-color: #0A0A0A;
+  color: #FFFFFF;
+}
+
+/* Clipping mask animation for headline: slide up on load (0.9s, 120ms stagger) */
+.headline-mask {
+  overflow: hidden;
+  display: block;
+}
+
+@keyframes slideUpMask {
+  0% {
+    transform: translateY(115%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-line-1 {
+  animation: slideUpMask 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0ms forwards;
+}
+
+.animate-line-2 {
+  animation: slideUpMask 0.9s cubic-bezier(0.16, 1, 0.3, 1) 120ms forwards;
+}
+
+.animate-line-3 {
+  animation: slideUpMask 0.9s cubic-bezier(0.16, 1, 0.3, 1) 240ms forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-line-1,
+  .animate-line-2,
+  .animate-line-3 {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
 }
 
 *:focus-visible {
-  outline: 1.5px solid #111111;
+  outline: 1.5px solid #0A0A0A;
   outline-offset: 2px;
 }
 
 ::selection {
-  background-color: #111111;
+  background-color: #0A0A0A;
   color: #FFFFFF;
 }

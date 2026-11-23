@@ -1,137 +1,48 @@
-# FORM & FUNCTION — Creative Studio Agency Website
+# FORM & FUNCTION — Creative Studio (Est. 2019)
 
-A complete, production-quality creative agency homepage built for the **Next.js Developer Internship Task**, implementing the exact required **four-section architecture** with **IBM Plex Sans**, modern Swiss-inspired typography, and responsive component design.
+A bespoke digital practice website built with Next.js 16 (App Router), TypeScript, and Tailwind CSS.
 
----
+## Design System Specifications
 
-## ✦ 1. Design Direction & Art Direction
+### 1. Visual Theme (White, Editorial, Minimal)
+- **Background**: `#FFFFFF`
+- **Primary Text**: `#0A0A0A`
+- **Muted Text**: `#6B6B66`
+- **Hairline Borders**: `#E4E4DF` (1px borders only)
+- **Soft Panel Background**: `#F5F5F2`
+- **Geometry**: Sharp 90-degree corners everywhere (`border-radius: 0`). Zero shadows, no gradients, no glow effects, and no glassmorphism.
 
-- **Visual Style**: Minimal editorial, modern Swiss-inspired aesthetics.
-- **Colour Palette**:
-  - Background: `#FFFFFF`
-  - Secondary Background: `#F7F7F5`
-  - Primary Text: `#111111`
-  - Secondary Text: `#666666`
-  - Borders: `#E5E5E5`
-  - Buttons: `#111111`
-  - Button Text: `#FFFFFF`
-- **Zero Generic AI Artifacts**: Strictly no gradients, no glassmorphism, no purple/blue/orange neon accents, no glowing elements, and no decorative blobs.
+### 2. Typographic Art Direction
+- **Headings & Wordmark**: `Barlow Condensed` (weights 600/700, UPPERCASE, line-height 0.86–1.0, slight negative letter spacing).
+- **Body & Paragraphs**: `Hanken Grotesk` (weights 400/500/600, 17px base, line-height 1.6).
+- **Typography Scales**:
+  - Hero Headline: `clamp(64px, 11.5vw, 176px)`
+  - Section Titles: `clamp(44px, 6vw, 88px)`
+  - Card & Row Titles: `clamp(30px, 3.4vw, 48px)`
 
----
+### 3. Layout Structure
+- **Container**: Max `1320px` with 24px side margin (`px-6`).
+- **Header**: Sticky 80px bar, white at 94% opacity with subtle backdrop blur, hairline bottom border. Logo `FORM & FUNCTION` (Barlow Condensed 30px bold) with `Est. 2019`. Right navigation links (`Work`, `Services`, `Contact`) and a solid black `Contact ↗` button.
+- **Hero**: Faint warm architectural plaster background (90% white overlay, 20px gentle parallax), small gray `Creative studio` indicator, huge 3-line uppercase headline with clipped mask slide-up animation (`0.9s, 120ms stagger`), 1px black dividing rule, 26px editorial narrative paragraph (max 30ch wide), and side-by-side action buttons.
+- **Featured Project**: Bordered block split `1.6fr / 1fr`. Left edge-to-edge photograph of garments on a wooden rail (slightly desaturated). Right `#F5F5F2` panel with archive label, condensed title `Vahlen Atelier — Luxury goods digital flagship`, description, outlined `View project` button, and bottom metadata `Scope: Strategy • UI/UX • Web` / `Ref. 01`.
+- **Services**: Section title `What we do` with hairline rule, 3 full-width interactive rows (`Strategy`, `UI / UX design`, `Web development`) under a 1px black top rule. Subtle 7% linen background on the right half. Hover transition nudges row 20px right, switches background to `#F5F5F2`, and translates the arrow.
+- **Closing Section**: `#F5F5F2` band with 10% studio interior backdrop, condensed headline `Have a project in mind?`, and black `Start a conversation` button.
+- **Footer**: Hairline border, `© 2026 Form & Function` left, tagline right.
 
-## ✦ 2. Typographic System (IBM Plex Sans)
+### 4. Button Standards
+- **Height**: 52px, padding `0 26px`, 15px semi-bold, square corners.
+- **Solid**: `#0A0A0A` background, white text. Hover inverts to white with black text.
+- **Outlined**: 1px `#0A0A0A` border, transparent background. Hover fills solid black with white text.
 
-- **Primary Typeface**: `IBM Plex Sans` loaded via `next/font/google` (`IBM_Plex_Sans`).
-- **Weights**:
-  - Regular (`400`): Large headlines, body copy, and narrative text.
-  - Medium (`500`): Section headings, project titles, service titles, and navigation.
-  - Semibold (`600`): Specific emphasis and active states.
-- **Fluid Scale (`clamp()`)**:
-  - **Hero Heading**: `clamp(2.5rem, 5.2vw, 4.5rem)` (64–76px desktop, 40px mobile).
-  - **Section Headings**: `clamp(2rem, 3.5vw, 3.25rem)` (42–52px desktop, 32px mobile).
-  - **Project Headings**: `clamp(1.35rem, 1.8vw, 1.75rem)` (22–28px).
-  - **Service Titles**: `clamp(1.25rem, 1.6vw, 1.5rem)` (20–24px).
-  - **Body Copy**: Fixed `16px` (`line-height: 1.6`, natural reading widths).
-  - **Navigation**: Fixed `14px` (`font-medium`).
-  - **Small Labels**: Fixed `12px` (`uppercase`, tracking `0.04em`).
-
----
-
-## ✦ 3. Exact Four-Section Architecture
-
-The application strictly implements the four required sections:
-
-### 01. Header (`components/Header.tsx`)
-- Left: `FORM & FUNCTION` wordmark.
-- Right: Navigation links (Work, Services, Contact) and a primary "Contact" action button.
-- Accessible skip-to-main-content link (`#main-content`).
-- Responsive mobile drawer navigation with body-scroll locking.
-
-### 02. Section 01 — Hero (`components/Hero.tsx`)
-- Brand name: `FORM & FUNCTION`.
-- Headline: *"Digital experiences, made with purpose."*
-- Supporting copy: *"We combine strategy, design and technology to create meaningful digital experiences for ambitious brands."*
-- Primary CTA: *"Explore Our Work"* (`#work`) and secondary CTA: *"Contact"* (`#contact`).
-- Asymmetric editorial composition with featured case preview (*Vahlen Atelier*).
-- Subtle entrance animation via Framer Motion.
-
-### 03. Section 02 — Services (`components/Services.tsx`)
-- Section heading: *"Services crafted for distinction."*
-- 4 core agency services:
-  1. **UI/UX Design**
-  2. **Web Development**
-  3. **Brand Identity**
-  4. **Digital Strategy**
-- Editorial numbered list with hairline `#E5E5E5` dividers, clean Lucide icons, and deliverables checklists.
-- Polished hover transitions: Service title shifts (`translate-x-1.5`), arrow moves right (`translate-x-2`), background shifts to `#FFFFFF`, smooth 300ms duration.
-
-### 04. Section 03 — Portfolio (`components/Portfolio.tsx` & `components/ProjectModal.tsx`)
-- Section heading: *"Selected work."*
-- 4 conceptual case studies with mixed image proportions (7-col wide, 5-col portrait, 5-col landscape, 7-col wide):
-  1. **Premium Fashion E-commerce** (*Vahlen Atelier*)
-  2. **Fintech Digital Experience** (*Strata Capital*)
-  3. **Hospitality Website** (*Kinetic Haven*)
-  4. **Technology Startup Platform** (*Synapse Quantum*)
-- Clearly labeled as conceptual work.
-- Gentle image zoom on hover (`scale-[1.03]`), arrow appearance, and subtle title shift.
-- Accessible case study detail modal dialog with keyboard `Escape` support.
-
-### 05. Section 04 — Contact (`components/Contact.tsx`)
-- Heading: *"Have a project in mind?"*
-- Supporting copy: *"Let's turn your next idea into something meaningful."*
-- Required input fields: **Name**, **Email**, **Message**, and **Submit button**.
-- Full client-side validation with real-time error states, loading indicator, and success confirmation payload card.
-- Transparent note confirming client-side verification without fake server email spoofing.
-
-### 06. Footer (`components/Footer.tsx`)
-- `FORM & FUNCTION` wordmark, site directory, studio locations (Zürich, London, Tokyo), social links, and smooth *"Back to top"* scroll button.
-
----
-
-## ✦ 4. Interactive & Hover System
-
-- **Link Underline Animation**: Micro-borders transition smoothly across desktop navigation.
-- **Button Micro-Interactions**: Subtle arrow translations on hover.
-- **Image Hover Scaling**: Curated images scale gently to ~1.03 over 500ms without dark muddy overlays.
-- **Keyboard Accessibility**: Visible focus outlines (`outline: 1.5px solid #111111`) across interactive elements.
-- **Respect for User Preferences**: Animations honor `prefers-reduced-motion`.
-
----
-
-## ✦ 5. Responsive Breakpoint Validation
-
-The responsive layout is tested and validated across:
-- **1440px / 1280px Desktop**: Full asymmetric grid, comfortable white space, multi-column editorial pairings.
-- **1024px / 768px Tablet**: Adaptive column spans, balanced typography line heights.
-- **375px Mobile**: Single-column vertical stacks, touch-friendly touch targets (min 44px), working navigation drawer, zero horizontal overflow.
-
----
-
-## ✦ 6. Getting Started
-
-### Prerequisites
-
-- Node.js `18.18+` or `20+` (Tested on Node `v24`)
-- npm, pnpm, or yarn
-
-### Installation & Run
+## Getting Started
 
 ```bash
-# Clone and navigate to workspace
-cd internship
-
 # Install dependencies
 npm install
 
-# Run development server
+# Start development server
 npm run dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-### Production Build
-
-```bash
+# Run production build
 npm run build
-npm start
 ```
