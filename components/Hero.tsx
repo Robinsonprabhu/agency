@@ -9,12 +9,18 @@ interface HeroProps {
   onOpenContact?: () => void;
 }
 
+const METRICS = [
+  { label: "Studio Practice", value: "Est. 2019", detail: "Zürich & London" },
+  { label: "Recognition", value: "34 Accolades", detail: "Awwwards, FWA, D&AD" },
+  { label: "Engineering", value: "99.8% Speed", detail: "Sub-second Page Loads" },
+  { label: "Philosophy", value: "Zero Templates", detail: "Bespoke Architectures" },
+];
+
 export default function Hero({ onOpenContact }: HeroProps) {
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      // Gentle parallax of at most 20px
       const offset = Math.min(20, window.scrollY * 0.05);
       setScrollY(offset);
     };
@@ -24,7 +30,7 @@ export default function Hero({ onOpenContact }: HeroProps) {
   }, []);
 
   return (
-    <section className="relative pt-[88px] pb-[88px] sm:pb-[110px] overflow-hidden bg-white">
+    <section className="relative pt-[72px] pb-[88px] sm:pb-[110px] overflow-hidden bg-white">
       {/* Background Image: soft daylight on plaster wall with window shadow */}
       <div
         className="absolute inset-0 pointer-events-none z-0 overflow-hidden"
@@ -41,14 +47,14 @@ export default function Hero({ onOpenContact }: HeroProps) {
           sizes="100vw"
           className="object-cover object-center contrast-[1.08] saturate-[0.9]"
         />
-        {/* Balanced warm overlay so the architectural image is clearly visible while black text remains 100% readable */}
         <div className="absolute inset-0 bg-white/60" />
       </div>
 
       <div className="relative z-10 max-w-[1320px] mx-auto px-6">
-        {/* Small Gray Line */}
-        <div className="text-[#6B6B66] text-[15px] font-normal mb-8 tracking-normal">
-          Creative studio
+        {/* Top Tag & Studio Dispatch */}
+        <div className="flex items-center justify-between text-[#6B6B66] text-[13px] uppercase tracking-wider font-medium mb-8">
+          <span>Creative Studio // Independent Digital Architecture</span>
+          <span className="hidden sm:inline-block">Vol. IV // Edition 2026</span>
         </div>
 
         {/* Huge 3-line Uppercase Headline with Clipped Mask Slide-Up Animation */}
@@ -74,7 +80,7 @@ export default function Hero({ onOpenContact }: HeroProps) {
         <div className="w-full border-b border-[#0A0A0A] mt-10 mb-12 sm:mt-14 sm:mb-14" />
 
         {/* Two Columns Under the Rule */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start mb-16 sm:mb-20">
           {/* Left Column: 26px paragraph, max 30 characters wide */}
           <div className="lg:col-span-7">
             <p className="text-[22px] sm:text-[26px] leading-[1.3] text-[#0A0A0A] font-normal max-w-[30ch]">
@@ -97,6 +103,23 @@ export default function Hero({ onOpenContact }: HeroProps) {
               <ArrowUpRight className="w-4 h-4" />
             </button>
           </div>
+        </div>
+
+        {/* Architectural Studio Metrics Ledger */}
+        <div className="border-t border-[#E4E4DF] pt-8 grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+          {METRICS.map((metric, idx) => (
+            <div key={metric.label} className="space-y-1">
+              <span className="text-[11px] uppercase tracking-wider text-[#6B6B66] block">
+                [ 0{idx + 1} ] {metric.label}
+              </span>
+              <div className="font-heading text-[22px] sm:text-[26px] font-bold text-[#0A0A0A] uppercase leading-tight">
+                {metric.value}
+              </div>
+              <span className="text-[13px] text-[#6B6B66] block">
+                {metric.detail}
+              </span>
+            </div>
+          ))}
         </div>
       </div>
     </section>

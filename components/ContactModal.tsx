@@ -6,14 +6,24 @@ import { X, ArrowUpRight, Check } from "lucide-react";
 interface ContactModalProps {
   isOpen: boolean;
   onClose: () => void;
+  presetTopic?: string;
 }
 
-export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
+export default function ContactModal({ isOpen, onClose, presetTopic }: ContactModalProps) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: "",
+    message: presetTopic ? `We would like to commission FORM & FUNCTION for: ${presetTopic}. ` : "",
   });
+
+  React.useEffect(() => {
+    if (presetTopic) {
+      setFormData((prev) => ({
+        ...prev,
+        message: `We would like to commission FORM & FUNCTION for: ${presetTopic}. `,
+      }));
+    }
+  }, [presetTopic]);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
 

@@ -12,25 +12,31 @@ import CaseStudyModal from "@/components/CaseStudyModal";
 
 export default function Home() {
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const [contactTopic, setContactTopic] = useState<string | undefined>(undefined);
   const [isCaseStudyOpen, setIsCaseStudyOpen] = useState(false);
+
+  const openContactWithTopic = (topic?: string) => {
+    setContactTopic(topic);
+    setIsContactOpen(true);
+  };
 
   return (
     <div className="relative min-h-screen bg-[#FFFFFF] text-[#0A0A0A] flex flex-col font-body">
       {/* STICKY HEADER */}
-      <Header onOpenContact={() => setIsContactOpen(true)} />
+      <Header onOpenContact={() => openContactWithTopic(undefined)} />
 
       <main id="main-content" className="flex-grow">
         {/* HERO SECTION */}
-        <Hero onOpenContact={() => setIsContactOpen(true)} />
+        <Hero onOpenContact={() => openContactWithTopic("General Inquiries")} />
 
         {/* FEATURED PROJECT SECTION */}
         <FeaturedProject onSelectProject={() => setIsCaseStudyOpen(true)} />
 
         {/* SERVICES SECTION */}
-        <Services onSelectService={() => setIsContactOpen(true)} />
+        <Services onSelectService={(service) => openContactWithTopic(service.title)} />
 
         {/* CLOSING SECTION */}
-        <Closing onOpenContact={() => setIsContactOpen(true)} />
+        <Closing onOpenContact={(topic) => openContactWithTopic(topic)} />
       </main>
 
       {/* FOOTER */}
@@ -39,12 +45,16 @@ export default function Home() {
       {/* INTERACTIVE MODALS */}
       <ContactModal
         isOpen={isContactOpen}
-        onClose={() => setIsContactOpen(false)}
+        presetTopic={contactTopic}
+        onClose={() => {
+          setIsContactOpen(false);
+          setContactTopic(undefined);
+        }}
       />
       <CaseStudyModal
         isOpen={isCaseStudyOpen}
         onClose={() => setIsCaseStudyOpen(false)}
-        onOpenContact={() => setIsContactOpen(true)}
+        onOpenContact={() => openContactWithTopic("Vahlen Atelier Flagship Scope")}
       />
     </div>
   );
