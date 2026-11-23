@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
 interface HeaderProps {
   onOpenContact?: () => void;
@@ -30,7 +31,7 @@ export default function Header({ onOpenContact }: HeaderProps) {
       // Reading progress line
       l.style.transform = `scaleX(${max > 0 ? y / max : 0})`;
 
-      // Solid background border
+      // Solid background state
       h.classList.toggle("solid", y > 20);
 
       // Hide on scroll down after 300px, reveal on scroll up
@@ -75,14 +76,19 @@ export default function Header({ onOpenContact }: HeaderProps) {
     <>
       <header ref={headerRef} className="hd" id="hd">
         <div className="hd-bar">
-          <Link
-            className="hd-logo"
-            href="/"
-            aria-label="Form and Function, home"
-            onClick={() => toggleSheet(false)}
-          >
-            Form <i className="hd-mark" aria-hidden="true" /> Function
-          </Link>
+          <div className="flex items-baseline gap-3">
+            <Link
+              className="hd-logo"
+              href="/"
+              aria-label="Form and Function, home"
+              onClick={() => toggleSheet(false)}
+            >
+              Form <i className="hd-mark" aria-hidden="true" /> Function
+            </Link>
+            <span className="text-[12px] uppercase font-medium text-[#6B6B66] hidden sm:inline-block border-l border-[#E4E4DF] pl-2.5">
+              Est. 2019
+            </span>
+          </div>
 
           <ul className="hd-nav">
             <li>
@@ -106,7 +112,8 @@ export default function Header({ onOpenContact }: HeaderProps) {
                   onOpenContact?.();
                 }}
               >
-                Inquire
+                <span>Inquire</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
               </button>
             </li>
           </ul>
