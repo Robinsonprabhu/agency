@@ -85,7 +85,7 @@ export default function Header({ onOpenContact }: HeaderProps) {
             >
               Form <i className="hd-mark" aria-hidden="true" /> Function
             </Link>
-            <span className="text-[12px] uppercase font-medium text-[#6B6B66] hidden sm:inline-block border-l border-[#E4E4DF] pl-2.5">
+            <span className="text-[12px] uppercase font-medium text-[#999994] hidden sm:inline-block border-l border-[#333333] pl-2.5">
               Est. 2019
             </span>
           </div>
