@@ -1,8 +1,6 @@
 "use client";
 
 import React from "react";
-import { ArrowUpRight } from "lucide-react";
-import { SERVICES } from "@/data/content";
 
 interface ServicesProps {
   onSelectService?: (service: { title: string }) => void;
@@ -10,50 +8,117 @@ interface ServicesProps {
 
 export default function Services({ onSelectService }: ServicesProps) {
   return (
-    <section className="py-[120px] bg-white border-b border-[#E4E4DF]" id="services">
-      <div className="max-w-[1320px] mx-auto px-6">
-        {/* Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-10 border-b border-[#0A0A0A] mb-14">
-          <div className="space-y-3">
-            <span className="text-[12px] uppercase tracking-[0.08em] font-medium text-[#6B6B66] block">
-              WHAT WE DO
-            </span>
-            <h2 className="section-title text-[#0A0A0A]">
-              Ideas into digital experiences.
-            </h2>
+    <section className="sv border-t border-[#E4E4DF]" id="services" aria-labelledby="sv-title">
+      <div className="sv-head">
+        <h2 id="sv-title">What we do</h2>
+        <p>Three disciplines, one team, from the first workshop to launch day.</p>
+      </div>
+
+      <div className="sv-grid">
+        <a
+          className="sv-card"
+          href="#contact"
+          onClick={() => {
+            if (onSelectService) {
+              onSelectService({ title: "Strategy" });
+            }
+          }}
+          style={
+            {
+              "--img":
+                "url(https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=1000&q=80)",
+            } as React.CSSProperties
+          }
+        >
+          <div className="sv-img">
+            <i />
           </div>
-          <p className="max-w-[34ch] text-[16px] text-[#6B6B66] leading-relaxed">
-            From the first idea to the final product, we bring design and technology together to create experiences that work.
-          </p>
-        </div>
+          <div className="sv-body">
+            <h3>Strategy</h3>
+            <p>Brand positioning, digital architecture and market discovery for ambitious companies.</p>
+            <ul>
+              <li>Brand positioning</li>
+              <li>Market research</li>
+              <li>Product roadmap</li>
+            </ul>
+            <span className="sv-more">
+              See scope{" "}
+              <svg viewBox="0 0 20 20" aria-hidden="true">
+                <path d="M3 17 17 3M7 3h10v10" fill="none" stroke="currentColor" strokeWidth="1.6" />
+              </svg>
+            </span>
+          </div>
+        </a>
 
-        {/* 4 Service Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {SERVICES.map((service) => (
-            <div
-              key={service.id}
-              onClick={() => onSelectService?.({ title: service.title })}
-              className="group relative flex flex-col justify-between p-8 bg-[#F5F5F2] border border-[#E4E4DF] hover:border-[#0A0A0A] transition-colors duration-300 cursor-pointer min-h-[320px]"
-            >
-              <div>
-                <span className="text-[12px] font-mono text-[#6B6B66] tracking-wider block mb-6">
-                  {service.number} //
-                </span>
-                <h3 className="font-heading text-[26px] sm:text-[28px] font-bold text-[#0A0A0A] uppercase leading-tight mb-4">
-                  {service.title}
-                </h3>
-                <p className="text-[15px] text-[#6B6B66] leading-relaxed">
-                  {service.description}
-                </p>
-              </div>
+        <a
+          className="sv-card"
+          href="#contact"
+          onClick={() => {
+            if (onSelectService) {
+              onSelectService({ title: "UI / UX design" });
+            }
+          }}
+          style={
+            {
+              "--img":
+                "url(https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=1000&q=80)",
+            } as React.CSSProperties
+          }
+        >
+          <div className="sv-img">
+            <i />
+          </div>
+          <div className="sv-body">
+            <h3>UI / UX design</h3>
+            <p>Art direction, design systems and interfaces built around real people.</p>
+            <ul>
+              <li>Art direction</li>
+              <li>Design systems</li>
+              <li>Prototypes and testing</li>
+            </ul>
+            <span className="sv-more">
+              See scope{" "}
+              <svg viewBox="0 0 20 20" aria-hidden="true">
+                <path d="M3 17 17 3M7 3h10v10" fill="none" stroke="currentColor" strokeWidth="1.6" />
+              </svg>
+            </span>
+          </div>
+        </a>
 
-              <div className="pt-8 mt-6 border-t border-[#E4E4DF] flex items-center justify-between text-[13px] text-[#0A0A0A] font-medium">
-                <span className="group-hover:underline">Commission Discipline</span>
-                <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </div>
-            </div>
-          ))}
-        </div>
+        <a
+          className="sv-card"
+          href="#contact"
+          onClick={() => {
+            if (onSelectService) {
+              onSelectService({ title: "Web development" });
+            }
+          }}
+          style={
+            {
+              "--img":
+                "url(https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1000&q=80)",
+            } as React.CSSProperties
+          }
+        >
+          <div className="sv-img">
+            <i />
+          </div>
+          <div className="sv-body">
+            <h3>Web development</h3>
+            <p>Fast front-end builds, headless CMS integrations and clean, durable code.</p>
+            <ul>
+              <li>Front-end engineering</li>
+              <li>Headless CMS</li>
+              <li>Performance and SEO</li>
+            </ul>
+            <span className="sv-more">
+              See scope{" "}
+              <svg viewBox="0 0 20 20" aria-hidden="true">
+                <path d="M3 17 17 3M7 3h10v10" fill="none" stroke="currentColor" strokeWidth="1.6" />
+              </svg>
+            </span>
+          </div>
+        </a>
       </div>
     </section>
   );
