@@ -1,61 +1,42 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import FeaturedProject from "@/components/FeaturedProject";
 import Services from "@/components/Services";
-import Closing from "@/components/Closing";
+import Portfolio from "@/components/Portfolio";
+import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import ContactModal from "@/components/ContactModal";
-import CaseStudyModal from "@/components/CaseStudyModal";
 
 export default function Home() {
-  const [isContactOpen, setIsContactOpen] = useState(false);
-  const [contactTopic, setContactTopic] = useState<string | undefined>(undefined);
-  const [isCaseStudyOpen, setIsCaseStudyOpen] = useState(false);
-
-  const openContactWithTopic = (topic?: string) => {
-    setContactTopic(topic);
-    setIsContactOpen(true);
+  const scrollToContact = () => {
+    const el = document.getElementById("contact");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
     <div className="relative min-h-screen bg-[#FFFFFF] text-[#0A0A0A] flex flex-col font-body">
-      {/* STICKY HEADER */}
-      <Header onOpenContact={() => openContactWithTopic(undefined)} />
+      {/* HEADER */}
+      <Header onOpenContact={scrollToContact} />
 
       <main id="main-content" className="flex-grow">
-        {/* HERO SECTION */}
-        <Hero onOpenContact={() => openContactWithTopic("General Inquiries")} />
+        {/* 1. HERO */}
+        <Hero onOpenContact={scrollToContact} />
 
-        {/* FEATURED PROJECT SECTION */}
-        <FeaturedProject onSelectProject={() => setIsCaseStudyOpen(true)} />
+        {/* 2. SERVICES */}
+        <Services onSelectService={() => scrollToContact()} />
 
-        {/* SERVICES SECTION */}
-        <Services onSelectService={(service) => openContactWithTopic(service.title)} />
+        {/* 3. PORTFOLIO */}
+        <Portfolio />
 
-        {/* CLOSING SECTION */}
-        <Closing onOpenContact={(topic) => openContactWithTopic(topic)} />
+        {/* 4. CONTACT */}
+        <Contact />
       </main>
 
       {/* FOOTER */}
       <Footer />
-
-      {/* INTERACTIVE MODALS */}
-      <ContactModal
-        isOpen={isContactOpen}
-        presetTopic={contactTopic}
-        onClose={() => {
-          setIsContactOpen(false);
-          setContactTopic(undefined);
-        }}
-      />
-      <CaseStudyModal
-        isOpen={isCaseStudyOpen}
-        onClose={() => setIsCaseStudyOpen(false)}
-        onOpenContact={() => openContactWithTopic("Vahlen Atelier Flagship Scope")}
-      />
     </div>
   );
 }

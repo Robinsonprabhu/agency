@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { ArrowUpRight, CheckCircle2, AlertCircle, RefreshCw } from "lucide-react";
+import { ArrowUpRight, Check } from "lucide-react";
 
 interface FormState {
   name: string;
@@ -26,7 +26,6 @@ export default function Contact() {
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [submittedData, setSubmittedData] = useState<FormState | null>(null);
 
   const validate = (data: FormState): FormErrors => {
     const errs: FormErrors = {};
@@ -45,9 +44,9 @@ export default function Contact() {
     }
 
     if (!data.message.trim()) {
-      errs.message = "Please include a project message.";
+      errs.message = "Please include your project details.";
     } else if (data.message.trim().length < 10) {
-      errs.message = "Message must be at least 10 characters.";
+      errs.message = "Project details must be at least 10 characters.";
     }
 
     return errs;
@@ -83,7 +82,6 @@ export default function Contact() {
       setTimeout(() => {
         setIsLoading(false);
         setIsSuccess(true);
-        setSubmittedData({ ...formData });
       }, 400);
     }
   };
@@ -93,207 +91,133 @@ export default function Contact() {
     setErrors({});
     setTouched({});
     setIsSuccess(false);
-    setSubmittedData(null);
   };
 
   return (
-    <section id="contact" className="py-24 sm:py-32 bg-[#F7F7F5] border-b border-[#E5E5E5]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    <section id="contact" className="py-[120px] bg-[#F5F5F2] border-b border-[#E4E4DF]">
+      <div className="max-w-[1320px] mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Left Column: Heading and Narrative */}
+          {/* Left Column: Headings & Intro */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="meta-label">
-              04 // Contact
-            </div>
-
-            <h2 className="section-heading text-[#111111]">
-              Have a project in mind?
+            <span className="text-[12px] uppercase tracking-[0.08em] font-medium text-[#6B6B66] block">
+              HAVE A PROJECT IN MIND?
+            </span>
+            <h2 className="section-title text-[#0A0A0A]">
+              Let&apos;s create something meaningful.
             </h2>
-
-            <p className="text-[16px] text-[#666666] leading-relaxed font-normal max-w-md">
-              Let&apos;s turn your next idea into something meaningful. Reach out to discuss timelines, scope, or collaboration opportunities.
+            <p className="text-[17px] text-[#6B6B66] leading-relaxed max-w-md">
+              Have an idea, a project or a challenge? We&apos;d love to hear about it. Tell us what you&apos;re thinking.
             </p>
-
-            <div className="pt-6 border-t border-[#E5E5E5] space-y-3 text-[13px] text-[#666666]">
-              <div>
-                <span className="text-[#999999] text-[11px] uppercase tracking-wider block mb-1">Direct Communication</span>
-                <a
-                  href="mailto:hello@formandfunction.agency"
-                  className="text-[15px] font-medium text-[#111111] hover:text-[#666666] transition-colors"
-                >
-                  hello@formandfunction.agency
-                </a>
-              </div>
-              <div className="pt-2 text-[12px] text-[#666666]">
-                Response time: Usually within 24 business hours.
-              </div>
+            <div className="pt-8 border-t border-[#E4E4DF]">
+              <p className="font-heading text-[22px] font-semibold text-[#0A0A0A] uppercase tracking-tight">
+                Good ideas deserve thoughtful execution.
+              </p>
             </div>
           </div>
 
-          {/* Right Column: Clean Form Fields */}
-          <div className="lg:col-span-7">
-            <div className="bg-white border border-[#E5E5E5] p-8 sm:p-10">
-              {isSuccess && submittedData ? (
-                <div className="space-y-6 py-4 animate-in fade-in duration-200">
-                  <div className="w-10 h-10 bg-[#F7F7F5] border border-[#E5E5E5] flex items-center justify-center">
-                    <CheckCircle2 className="w-5 h-5 text-emerald-600" />
-                  </div>
-
-                  <div>
-                    <h3 className="project-heading text-[#111111]">
-                      Inquiry Validated
-                    </h3>
-                    <p className="mt-2 text-[15px] text-[#666666] leading-relaxed">
-                      Thank you, <span className="font-medium text-[#111111]">{submittedData.name}</span>. Your project brief has passed all client-side checks.
-                    </p>
-                  </div>
-
-                  <div className="p-4 bg-[#F7F7F5] border border-[#E5E5E5] text-[12px] font-mono space-y-2">
-                    <div className="text-[#999999] uppercase tracking-wider text-[10px] pb-2 border-b border-[#E5E5E5]">
-                      Client Submission Payload
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-[#666666]">Email:</span>
-                      <span className="text-[#111111]">{submittedData.email}</span>
-                    </div>
-                    <div className="pt-2 border-t border-[#E5E5E5]">
-                      <span className="text-[#666666] block mb-1">Message:</span>
-                      <span className="text-[#111111] text-[13px] leading-relaxed block">
-                        &ldquo;{submittedData.message}&rdquo;
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="p-3 bg-[#F7F7F5] border border-[#E5E5E5] text-[12px] text-[#666666]">
-                    <strong>Note:</strong> Client-side form validation is fully functional. In accordance with system instructions, no simulated emails were dispatched without an active backend.
-                  </div>
-
-                  <button
-                    onClick={handleReset}
-                    className="inline-flex items-center gap-2 text-[13px] font-medium bg-[#111111] text-white hover:bg-[#333333] px-5 py-2.5 rounded-[2px] transition-colors cursor-pointer"
-                  >
-                    <RefreshCw className="w-3.5 h-3.5" />
-                    <span>Submit another inquiry</span>
+          {/* Right Column: Contact Form */}
+          <div className="lg:col-span-7 bg-white p-8 sm:p-12 border border-[#E4E4DF]">
+            {isSuccess ? (
+              <div className="py-12 text-center space-y-5 bg-[#F5F5F2] p-8 border border-[#E4E4DF]">
+                <div className="w-12 h-12 mx-auto border border-[#0A0A0A] bg-white flex items-center justify-center text-[#0A0A0A]">
+                  <Check className="w-6 h-6" />
+                </div>
+                <h3 className="font-heading text-[28px] uppercase text-[#0A0A0A]">
+                  Thank you, {formData.name}
+                </h3>
+                <p className="text-[16px] text-[#6B6B66] max-w-md mx-auto">
+                  Your project message has been logged. We will review your requirements and respond within one business day.
+                </p>
+                <div className="pt-4">
+                  <button onClick={handleReset} className="btn-solid">
+                    Send another inquiry
                   </button>
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} noValidate className="space-y-5">
-                  <div>
-                    <label
-                      htmlFor="contact-name"
-                      className="block text-[12px] uppercase tracking-wider text-[#111111] mb-2 font-normal"
-                    >
-                      Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="contact-name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      onBlur={() => handleBlur("name")}
-                      placeholder="e.g. Maya Lin"
-                      aria-required="true"
-                      aria-invalid={touched.name && !!errors.name}
-                      className={`w-full px-4 py-3 bg-[#F7F7F5] border text-[14px] text-[#111111] placeholder-[#999999] rounded-[2px] focus:outline-none transition-colors ${
-                        touched.name && errors.name
-                          ? "border-red-500"
-                          : "border-[#E5E5E5] focus:border-[#111111]"
-                      }`}
-                    />
-                    {touched.name && errors.name && (
-                      <div className="mt-1.5 flex items-center gap-1.5 text-[12px] text-red-600">
-                        <AlertCircle className="w-3.5 h-3.5" />
-                        <span>{errors.name}</span>
-                      </div>
-                    )}
-                  </div>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} noValidate className="space-y-6">
+                <div>
+                  <label htmlFor="name" className="block text-[13px] uppercase tracking-wider text-[#0A0A0A] font-semibold mb-2">
+                    Your Name
+                  </label>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    value={formData.name}
+                    onChange={handleChange}
+                    onBlur={() => handleBlur("name")}
+                    placeholder="Jane Doe"
+                    className={`w-full h-[52px] px-4 text-[16px] bg-[#F5F5F2] border transition-colors focus:outline-none ${
+                      touched.name && errors.name
+                        ? "border-red-600 focus:border-red-600"
+                        : "border-[#E4E4DF] focus:border-[#0A0A0A]"
+                    }`}
+                  />
+                  {touched.name && errors.name && (
+                    <p className="text-[12px] text-red-600 mt-1.5">{errors.name}</p>
+                  )}
+                </div>
 
-                  <div>
-                    <label
-                      htmlFor="contact-email"
-                      className="block text-[12px] uppercase tracking-wider text-[#111111] mb-2 font-normal"
-                    >
-                      Email *
-                    </label>
-                    <input
-                      type="email"
-                      id="contact-email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      onBlur={() => handleBlur("email")}
-                      placeholder="name@organization.com"
-                      aria-required="true"
-                      aria-invalid={touched.email && !!errors.email}
-                      className={`w-full px-4 py-3 bg-[#F7F7F5] border text-[14px] text-[#111111] placeholder-[#999999] rounded-[2px] focus:outline-none transition-colors ${
-                        touched.email && errors.email
-                          ? "border-red-500"
-                          : "border-[#E5E5E5] focus:border-[#111111]"
-                      }`}
-                    />
-                    {touched.email && errors.email && (
-                      <div className="mt-1.5 flex items-center gap-1.5 text-[12px] text-red-600">
-                        <AlertCircle className="w-3.5 h-3.5" />
-                        <span>{errors.email}</span>
-                      </div>
-                    )}
-                  </div>
+                <div>
+                  <label htmlFor="email" className="block text-[13px] uppercase tracking-wider text-[#0A0A0A] font-semibold mb-2">
+                    Your Email
+                  </label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    onBlur={() => handleBlur("email")}
+                    placeholder="jane@company.com"
+                    className={`w-full h-[52px] px-4 text-[16px] bg-[#F5F5F2] border transition-colors focus:outline-none ${
+                      touched.email && errors.email
+                        ? "border-red-600 focus:border-red-600"
+                        : "border-[#E4E4DF] focus:border-[#0A0A0A]"
+                    }`}
+                  />
+                  {touched.email && errors.email && (
+                    <p className="text-[12px] text-red-600 mt-1.5">{errors.email}</p>
+                  )}
+                </div>
 
-                  <div>
-                    <label
-                      htmlFor="contact-message"
-                      className="block text-[12px] uppercase tracking-wider text-[#111111] mb-2 font-normal"
-                    >
-                      Message *
-                    </label>
-                    <textarea
-                      id="contact-message"
-                      name="message"
-                      rows={4}
-                      value={formData.message}
-                      onChange={handleChange}
-                      onBlur={() => handleBlur("message")}
-                      placeholder="Tell us about your project, timeline, and goals..."
-                      aria-required="true"
-                      aria-invalid={touched.message && !!errors.message}
-                      className={`w-full px-4 py-3 bg-[#F7F7F5] border text-[14px] text-[#111111] placeholder-[#999999] rounded-[2px] focus:outline-none transition-colors ${
-                        touched.message && errors.message
-                          ? "border-red-500"
-                          : "border-[#E5E5E5] focus:border-[#111111]"
-                      }`}
-                    />
-                    {touched.message && errors.message && (
-                      <div className="mt-1.5 flex items-center gap-1.5 text-[12px] text-red-600">
-                        <AlertCircle className="w-3.5 h-3.5" />
-                        <span>{errors.message}</span>
-                      </div>
-                    )}
-                  </div>
+                <div>
+                  <label htmlFor="message" className="block text-[13px] uppercase tracking-wider text-[#0A0A0A] font-semibold mb-2">
+                    Project Details
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={5}
+                    value={formData.message}
+                    onChange={handleChange}
+                    onBlur={() => handleBlur("message")}
+                    placeholder="Tell us about your brand goals, target timeline, and key requirements..."
+                    className={`w-full p-4 text-[16px] bg-[#F5F5F2] border transition-colors focus:outline-none resize-none ${
+                      touched.message && errors.message
+                        ? "border-red-600 focus:border-red-600"
+                        : "border-[#E4E4DF] focus:border-[#0A0A0A]"
+                    }`}
+                  />
+                  {touched.message && errors.message && (
+                    <p className="text-[12px] text-red-600 mt-1.5">{errors.message}</p>
+                  )}
+                </div>
 
-                  <div>
-                    <button
-                      type="submit"
-                      disabled={isLoading}
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-[14px] font-medium bg-[#111111] text-white hover:bg-[#333333] px-7 py-3.5 rounded-[2px] transition-colors cursor-pointer disabled:opacity-50"
-                    >
-                      {isLoading ? (
-                        <span>Validating...</span>
-                      ) : (
-                        <>
-                          <span>Submit message</span>
-                          <ArrowUpRight className="w-4 h-4" />
-                        </>
-                      )}
-                    </button>
-                  </div>
-                </form>
-              )}
-            </div>
+                <button
+                  type="submit"
+                  disabled={isLoading}
+                  className="btn-solid w-full cursor-pointer disabled:opacity-50"
+                >
+                  <span>{isLoading ? "Validating..." : "Send Message"}</span>
+                  <ArrowUpRight className="w-4 h-4" />
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </div>
     </section>
   );
 }
-
