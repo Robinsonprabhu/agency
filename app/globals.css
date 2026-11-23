@@ -10,8 +10,7 @@
   --color-btn-bg: #111111;
   --color-btn-text: #FFFFFF;
 
-  --font-serif: var(--font-serif), Georgia, Cambria, "Times New Roman", Times, serif;
-  --font-sans: var(--font-sans), Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans: "Neue Montreal", "Helvetica Neue", var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 :root {
@@ -23,34 +22,68 @@
   --accent: #222222;
   --btn-bg: #111111;
   --btn-text: #FFFFFF;
+
+  --font-swiss: "Neue Montreal", "Helvetica Neue", var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
-  background-color: var(--bg-main);
-  color: var(--text-primary);
+  background-color: #FFFFFF;
+  color: #111111;
+  font-family: var(--font-swiss);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background-color: var(--bg-main);
-  color: var(--text-primary);
-  font-family: var(--font-sans), sans-serif;
+  background-color: #FFFFFF;
+  color: #111111;
+  font-family: var(--font-swiss);
   overflow-x: hidden;
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.55;
+  letter-spacing: -0.012em;
 }
 
-.font-serif {
-  font-family: var(--font-serif), Georgia, serif;
+/* Swiss Editorial Responsive Typography Utilities */
+.hero-heading {
+  font-size: clamp(2.5rem, 5.2vw, 4.25rem);
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+  font-weight: 400;
 }
 
-.font-sans {
-  font-family: var(--font-sans), sans-serif;
+.section-heading {
+  font-size: clamp(1.85rem, 3.2vw, 2.75rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  font-weight: 400;
 }
 
-/* Subtle focus ring for accessibility */
+.sub-heading {
+  font-size: clamp(1.25rem, 1.8vw, 1.5rem);
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  font-weight: 400;
+}
+
+.card-heading {
+  font-size: clamp(1.15rem, 1.4vw, 1.35rem);
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  font-weight: 500;
+}
+
+.label-meta {
+  font-size: 11px;
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #666666;
+}
+
 *:focus-visible {
-  outline: 2px solid #111111;
+  outline: 1.5px solid #111111;
   outline-offset: 2px;
 }
 

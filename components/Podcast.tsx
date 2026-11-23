@@ -16,10 +16,10 @@ export default function Podcast() {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Header */}
         <div className="mb-16 md:mb-20 pb-8 border-b border-[#E5E5E5]">
-          <div className="text-xs font-mono uppercase tracking-wider text-[#666666] mb-4">
+          <div className="label-meta mb-3">
             PODCAST
           </div>
-          <h2 className="font-serif text-4xl sm:text-6xl font-normal leading-[1.08] tracking-[-0.02em] text-[#111111]">
+          <h2 className="section-heading text-[#111111]">
             Conversations around design and technology.
           </h2>
         </div>
@@ -39,18 +39,18 @@ export default function Podcast() {
                     className="relative aspect-[16/9] w-full bg-[#F7F7F5] border border-dashed border-[#E5E5E5] flex items-center justify-center p-6 mb-6 text-center"
                     style={{ position: "relative" }}
                   >
-                    <span className="text-xs font-mono text-[#666666]">
+                    <span className="text-[12px] text-[#666666]">
                       [PLACEHOLDER: Thumbnail 0{i + 1}]
                     </span>
                   </div>
 
-                  <div className="flex items-center gap-3 text-xs font-mono text-[#666666] mb-2">
+                  <div className="flex items-center gap-2 text-[12px] text-[#666666] mb-2 font-mono">
                     <span>{ep.date}</span>
                     <span>•</span>
                     <span>{ep.duration}</span>
                   </div>
 
-                  <h3 className="font-serif text-2xl font-normal text-[#111111] leading-snug">
+                  <h3 className="card-heading text-[#111111]">
                     {ep.title}
                   </h3>
                 </div>
@@ -59,7 +59,7 @@ export default function Podcast() {
                   <button
                     type="button"
                     onClick={() => togglePlay(ep.id)}
-                    className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider bg-[#111111] text-white hover:bg-[#333333] px-4 py-2.5 rounded-[2px] transition-colors cursor-pointer"
+                    className="inline-flex items-center gap-2 text-[13px] font-medium bg-[#111111] text-white hover:bg-[#333333] px-4 py-2.5 rounded-[2px] transition-colors cursor-pointer"
                     aria-label={isPlaying ? `Pause ${ep.title}` : `Play preview of ${ep.title}`}
                   >
                     {isPlaying ? (
@@ -75,7 +75,7 @@ export default function Podcast() {
                     )}
                   </button>
 
-                  <span className="text-[11px] font-mono text-[#666666]">
+                  <span className="text-[11px] text-[#666666]">
                     Audio Demo Control
                   </span>
                 </div>

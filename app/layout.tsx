@@ -1,18 +1,12 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-serif",
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
-});
-
 const inter = Inter({
-  variable: "--font-sans",
+  variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  weight: ["400", "500", "600"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -42,11 +36,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${instrumentSerif.variable} ${inter.variable} scroll-smooth antialiased`}
-    >
-      <body className="min-h-screen bg-[#FFFFFF] text-[#171717] font-sans selection:bg-[#171717] selection:text-[#FFFFFF] overflow-x-hidden">
+    <html lang="en" className={`${inter.variable} scroll-smooth antialiased`}>
+      <body className="min-h-screen bg-[#FFFFFF] text-[#111111] font-sans selection:bg-[#111111] selection:text-[#FFFFFF] overflow-x-hidden">
         {children}
       </body>
     </html>

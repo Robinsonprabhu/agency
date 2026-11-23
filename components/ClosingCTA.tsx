@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
 import { ArrowUpRight, CheckCircle2, AlertCircle, RefreshCw } from "lucide-react";
 
 interface FormState {
@@ -85,7 +84,7 @@ export default function ClosingCTA() {
         setIsLoading(false);
         setIsSuccess(true);
         setSubmittedData({ ...formData });
-      }, 500);
+      }, 450);
     }
   };
 
@@ -103,13 +102,12 @@ export default function ClosingCTA() {
         {/* Large Clean Editorial Closing Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           <div className="lg:col-span-6 space-y-6">
-            <div className="text-xs font-mono uppercase tracking-wider text-[#666666]">
+            <div className="label-meta">
               11 // Closing CTA &amp; Inquiries
             </div>
 
-            <h2 className="font-serif text-5xl sm:text-7xl font-normal leading-[1.04] tracking-[-0.02em] text-[#111111]">
-              Have a good idea?{" "}
-              <span className="italic font-normal">Let&apos;s build something great</span>.
+            <h2 className="section-heading text-[#111111]">
+              Have a good idea? Let&apos;s build something great.
             </h2>
 
             <p className="text-[16px] text-[#666666] leading-relaxed font-normal max-w-lg">
@@ -119,10 +117,10 @@ export default function ClosingCTA() {
             <div className="pt-2">
               <a
                 href="#inquiry-form"
-                className="inline-flex items-center gap-2 text-sm font-medium bg-[#111111] text-white hover:bg-[#333333] px-7 py-3.5 rounded-[2px] transition-colors"
+                className="inline-flex items-center gap-2 text-[14px] font-medium bg-[#111111] text-white hover:bg-[#333333] px-6 py-3 rounded-[2px] transition-colors"
               >
                 <span>Contact</span>
-                <ArrowUpRight className="w-4 h-4" />
+                <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
             </div>
           </div>
@@ -137,7 +135,7 @@ export default function ClosingCTA() {
                   </div>
 
                   <div>
-                    <h3 className="font-serif text-2xl font-normal text-[#111111]">
+                    <h3 className="card-heading text-[#111111]">
                       Inquiry Validated
                     </h3>
                     <p className="mt-2 text-[15px] text-[#666666] leading-relaxed">
@@ -145,7 +143,7 @@ export default function ClosingCTA() {
                     </p>
                   </div>
 
-                  <div className="p-4 bg-[#F7F7F5] border border-[#E5E5E5] text-xs font-mono space-y-2">
+                  <div className="p-4 bg-[#F7F7F5] border border-[#E5E5E5] text-[12px] font-mono space-y-2">
                     <div className="text-[#999999] uppercase tracking-wider text-[10px] pb-2 border-b border-[#E5E5E5]">
                       Client Submission Payload
                     </div>
@@ -155,19 +153,19 @@ export default function ClosingCTA() {
                     </div>
                     <div className="pt-2 border-t border-[#E5E5E5]">
                       <span className="text-[#666666] block mb-1">Message:</span>
-                      <span className="text-[#111111] font-sans italic text-xs leading-relaxed block">
+                      <span className="text-[#111111] text-[13px] leading-relaxed block">
                         &ldquo;{submittedData.message}&rdquo;
                       </span>
                     </div>
                   </div>
 
-                  <div className="p-3 bg-[#F7F7F5] border border-[#E5E5E5] text-xs text-[#666666]">
+                  <div className="p-3 bg-[#F7F7F5] border border-[#E5E5E5] text-[12px] text-[#666666]">
                     <strong>Note:</strong> Client-side validation active. In accordance with system instructions, no backend email spoofing is performed.
                   </div>
 
                   <button
                     onClick={handleReset}
-                    className="inline-flex items-center gap-2 text-xs font-medium bg-[#111111] text-white hover:bg-[#333333] px-5 py-2.5 rounded-[2px] transition-colors cursor-pointer"
+                    className="inline-flex items-center gap-2 text-[13px] font-medium bg-[#111111] text-white hover:bg-[#333333] px-5 py-2.5 rounded-[2px] transition-colors cursor-pointer"
                   >
                     <RefreshCw className="w-3.5 h-3.5" />
                     <span>Submit another inquiry</span>
@@ -178,7 +176,7 @@ export default function ClosingCTA() {
                   <div>
                     <label
                       htmlFor="contact-name"
-                      className="block text-xs font-mono uppercase tracking-wider text-[#111111] mb-2 font-normal"
+                      className="block text-[12px] uppercase tracking-wider text-[#111111] mb-2 font-normal"
                     >
                       Your name *
                     </label>
@@ -192,14 +190,14 @@ export default function ClosingCTA() {
                       placeholder="e.g. Maya Lin"
                       aria-required="true"
                       aria-invalid={touched.name && !!errors.name}
-                      className={`w-full px-4 py-3 bg-[#F7F7F5] border text-sm text-[#111111] placeholder-[#999999] rounded-[2px] focus:outline-none transition-colors ${
+                      className={`w-full px-4 py-3 bg-[#F7F7F5] border text-[14px] text-[#111111] placeholder-[#999999] rounded-[2px] focus:outline-none transition-colors ${
                         touched.name && errors.name
                           ? "border-red-500"
                           : "border-[#E5E5E5] focus:border-[#111111]"
                       }`}
                     />
                     {touched.name && errors.name && (
-                      <div className="mt-1.5 flex items-center gap-1.5 text-xs text-red-600">
+                      <div className="mt-1.5 flex items-center gap-1.5 text-[12px] text-red-600">
                         <AlertCircle className="w-3.5 h-3.5" />
                         <span>{errors.name}</span>
                       </div>
@@ -209,7 +207,7 @@ export default function ClosingCTA() {
                   <div>
                     <label
                       htmlFor="contact-email"
-                      className="block text-xs font-mono uppercase tracking-wider text-[#111111] mb-2 font-normal"
+                      className="block text-[12px] uppercase tracking-wider text-[#111111] mb-2 font-normal"
                     >
                       Email address *
                     </label>
@@ -223,14 +221,14 @@ export default function ClosingCTA() {
                       placeholder="name@organization.com"
                       aria-required="true"
                       aria-invalid={touched.email && !!errors.email}
-                      className={`w-full px-4 py-3 bg-[#F7F7F5] border text-sm text-[#111111] placeholder-[#999999] rounded-[2px] focus:outline-none transition-colors ${
+                      className={`w-full px-4 py-3 bg-[#F7F7F5] border text-[14px] text-[#111111] placeholder-[#999999] rounded-[2px] focus:outline-none transition-colors ${
                         touched.email && errors.email
                           ? "border-red-500"
                           : "border-[#E5E5E5] focus:border-[#111111]"
                       }`}
                     />
                     {touched.email && errors.email && (
-                      <div className="mt-1.5 flex items-center gap-1.5 text-xs text-red-600">
+                      <div className="mt-1.5 flex items-center gap-1.5 text-[12px] text-red-600">
                         <AlertCircle className="w-3.5 h-3.5" />
                         <span>{errors.email}</span>
                       </div>
@@ -240,7 +238,7 @@ export default function ClosingCTA() {
                   <div>
                     <label
                       htmlFor="contact-message"
-                      className="block text-xs font-mono uppercase tracking-wider text-[#111111] mb-2 font-normal"
+                      className="block text-[12px] uppercase tracking-wider text-[#111111] mb-2 font-normal"
                     >
                       Message *
                     </label>
@@ -254,14 +252,14 @@ export default function ClosingCTA() {
                       placeholder="Tell us about your project, timeline, and goals..."
                       aria-required="true"
                       aria-invalid={touched.message && !!errors.message}
-                      className={`w-full px-4 py-3 bg-[#F7F7F5] border text-sm text-[#111111] placeholder-[#999999] rounded-[2px] focus:outline-none transition-colors ${
+                      className={`w-full px-4 py-3 bg-[#F7F7F5] border text-[14px] text-[#111111] placeholder-[#999999] rounded-[2px] focus:outline-none transition-colors ${
                         touched.message && errors.message
                           ? "border-red-500"
                           : "border-[#E5E5E5] focus:border-[#111111]"
                       }`}
                     />
                     {touched.message && errors.message && (
-                      <div className="mt-1.5 flex items-center gap-1.5 text-xs text-red-600">
+                      <div className="mt-1.5 flex items-center gap-1.5 text-[12px] text-red-600">
                         <AlertCircle className="w-3.5 h-3.5" />
                         <span>{errors.message}</span>
                       </div>
@@ -272,14 +270,14 @@ export default function ClosingCTA() {
                     <button
                       type="submit"
                       disabled={isLoading}
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-medium bg-[#111111] text-white hover:bg-[#333333] px-7 py-3.5 rounded-[2px] transition-colors cursor-pointer disabled:opacity-50"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-[14px] font-medium bg-[#111111] text-white hover:bg-[#333333] px-6 py-3 rounded-[2px] transition-colors cursor-pointer disabled:opacity-50"
                     >
                       {isLoading ? (
                         <span>Validating...</span>
                       ) : (
                         <>
                           <span>Send inquiry</span>
-                          <ArrowUpRight className="w-4 h-4" />
+                          <ArrowUpRight className="w-3.5 h-3.5" />
                         </>
                       )}
                     </button>

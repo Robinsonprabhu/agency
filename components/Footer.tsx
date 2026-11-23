@@ -22,19 +22,19 @@ export default function Footer() {
     <footer className="bg-white text-[#111111] pt-20 pb-12 border-t border-[#E5E5E5]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Top Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between pb-14 border-b border-[#E5E5E5] gap-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between pb-12 border-b border-[#E5E5E5] gap-8">
           <div>
-            <span className="text-xs font-mono uppercase tracking-wider text-[#666666] block mb-3">
+            <div className="label-meta block mb-2">
               12 // Studio Footer
-            </span>
-            <div className="font-serif text-4xl sm:text-6xl font-normal tracking-[-0.02em] text-[#111111]">
+            </div>
+            <div className="text-[clamp(1.75rem,3vw,2.5rem)] font-medium tracking-tight text-[#111111]">
               FORM &amp; FUNCTION
             </div>
           </div>
 
           <button
             onClick={scrollToTop}
-            className="self-start md:self-end flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#666666] hover:text-[#111111] border border-[#E5E5E5] hover:border-[#111111] px-4 py-2.5 rounded-[2px] transition-colors cursor-pointer"
+            className="self-start md:self-end flex items-center gap-2 text-[12px] uppercase tracking-wider text-[#666666] hover:text-[#111111] border border-[#E5E5E5] hover:border-[#111111] px-4 py-2.5 rounded-[2px] transition-colors cursor-pointer"
             aria-label="Scroll back to top"
           >
             <span>Back to top</span>
@@ -43,13 +43,13 @@ export default function Footer() {
         </div>
 
         {/* Directory & Placeholder Company Coordinates */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 py-14 border-b border-[#E5E5E5] text-xs font-mono">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 py-12 border-b border-[#E5E5E5] text-[13px]">
           {/* Navigation */}
           <div>
-            <div className="text-[#999999] uppercase tracking-wider mb-4">
+            <div className="text-[#999999] text-[11px] uppercase tracking-wider mb-4">
               Navigation
             </div>
-            <ul className="space-y-2.5">
+            <ul className="space-y-2">
               {navLinks.map((item) => (
                 <li key={item.label}>
                   <Link
@@ -63,9 +63,9 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact Coordinates (Strict Placeholder Rule) */}
+          {/* Contact Coordinates */}
           <div>
-            <div className="text-[#999999] uppercase tracking-wider mb-4">
+            <div className="text-[#999999] text-[11px] uppercase tracking-wider mb-4">
               Company Coordinates
             </div>
             <div className="space-y-2 text-[#666666]">
@@ -83,12 +83,12 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Social Links & Icons (Placeholder) */}
+          {/* Social Links & Icons */}
           <div>
-            <div className="text-[#999999] uppercase tracking-wider mb-4">
+            <div className="text-[#999999] text-[11px] uppercase tracking-wider mb-4">
               Social Networks
             </div>
-            <ul className="space-y-2.5">
+            <ul className="space-y-2">
               {["Platform 01", "Platform 02", "Platform 03", "Platform 04"].map((item) => (
                 <li key={item}>
                   <a
@@ -105,7 +105,7 @@ export default function Footer() {
 
           {/* Legal Information */}
           <div>
-            <div className="text-[#999999] uppercase tracking-wider mb-4">
+            <div className="text-[#999999] text-[11px] uppercase tracking-wider mb-4">
               Legal &amp; Policy
             </div>
             <ul className="space-y-2 text-[#666666]">
@@ -129,12 +129,12 @@ export default function Footer() {
         </div>
 
         {/* Bottom Attribution */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#666666]">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[12px] text-[#666666]">
           <div>
             © {new Date().getFullYear()} FORM &amp; FUNCTION Studio. All rights reserved.
           </div>
           <div>
-            Independent Digital Agency Architecture • Next.js &amp; Tailwind CSS
+            Swiss Editorial Typographic Architecture • Next.js &amp; Tailwind CSS
           </div>
         </div>
       </div>

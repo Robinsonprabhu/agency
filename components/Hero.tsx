@@ -10,47 +10,46 @@ export default function Hero() {
   return (
     <section className="bg-white pt-16 pb-20 sm:pt-24 sm:pb-28 border-b border-[#E5E5E5]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        {/* Large Editorial Headline & Supporting Paragraph */}
+        {/* Editorial Headline & Paragraph */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-end mb-16 sm:mb-20">
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-8"
           >
-            <h1 className="font-serif text-5xl sm:text-7xl lg:text-[5.5rem] xl:text-[6rem] font-normal leading-[1.04] tracking-[-0.02em] text-[#111111] uppercase">
-              We build digital experiences that move{" "}
-              <span className="italic font-normal">businesses forward</span>.
+            <h1 className="hero-heading text-[#111111]">
+              We build digital experiences that move businesses forward.
             </h1>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.45, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-4 flex flex-col justify-end space-y-6"
           >
             <p className="text-[16px] text-[#666666] leading-relaxed font-normal max-w-md">
               We combine strategy, design and technology to create meaningful digital experiences for ambitious brands.
             </p>
 
-            <div className="pt-2">
+            <div className="pt-1">
               <Link
                 href="#contact"
-                className="inline-flex items-center justify-center gap-2 text-sm font-medium bg-[#111111] text-white hover:bg-[#333333] px-7 py-3.5 rounded-[2px] transition-colors"
+                className="inline-flex items-center justify-center gap-2 text-[14px] font-medium bg-[#111111] text-white hover:bg-[#333333] px-6 py-3 rounded-[2px] transition-colors"
               >
                 <span>Contact</span>
-                <ArrowUpRight className="w-4 h-4" />
+                <ArrowUpRight className="w-3.5 h-3.5" />
               </Link>
             </div>
           </motion.div>
         </div>
 
-        {/* Carefully Positioned Project Image Visual */}
+        {/* Quiet Editorial Composition */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.5, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           className="border border-[#E5E5E5] bg-[#F7F7F5]"
         >
           <div className="grid grid-cols-1 lg:grid-cols-12">
@@ -69,20 +68,20 @@ export default function Hero() {
             </div>
 
             <div className="lg:col-span-4 p-8 sm:p-10 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-[#E5E5E5] bg-[#F7F7F5]">
-              <div className="space-y-4">
-                <span className="text-xs font-mono uppercase tracking-wider text-[#666666] block">
+              <div className="space-y-3">
+                <span className="label-meta block">
                   Studio Focus
                 </span>
-                <h2 className="font-serif text-2xl sm:text-3xl font-normal text-[#111111] leading-snug">
-                  Intentional digital design &amp; engineering.
+                <h2 className="sub-heading text-[#111111]">
+                  Intentional digital design &amp; engineering
                 </h2>
-                <p className="text-[15px] text-[#666666] leading-relaxed">
+                <p className="text-[15px] text-[#666666] leading-relaxed font-normal">
                   We shape websites, applications, and visual identities with structural discipline, high typographic fidelity, and enduring performance.
                 </p>
               </div>
 
-              <div className="pt-8 mt-8 border-t border-[#E5E5E5] flex items-center justify-between text-xs font-mono text-[#666666]">
-                <span>Scope: Strategy • Design • Web</span>
+              <div className="pt-6 mt-8 border-t border-[#E5E5E5] flex items-center justify-between text-[12px] text-[#666666]">
+                <span>Strategy • Design • Web</span>
                 <span>Ref. 01</span>
               </div>
             </div>

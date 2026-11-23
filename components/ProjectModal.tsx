@@ -37,16 +37,16 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-project-title"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 bg-black/60 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 bg-black/50 backdrop-blur-sm"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-4xl max-h-[90vh] bg-white border border-[#E5E5E5] text-[#111111] shadow-xl flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200"
+        className="relative w-full max-w-4xl max-h-[90vh] bg-white border border-[#E5E5E5] text-[#111111] shadow-lg flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-150"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Top Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-[#E5E5E5] bg-white">
-          <div className="text-xs font-mono uppercase tracking-wider text-[#666666]">
+          <div className="text-[12px] uppercase tracking-wider text-[#666666]">
             Case Archive // {project.category}
           </div>
           <button
@@ -74,14 +74,14 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pt-2">
-            <div className="md:col-span-8 space-y-4">
-              <div className="font-mono text-xs text-[#666666]">
+            <div className="md:col-span-8 space-y-3">
+              <div className="text-[12px] text-[#666666]">
                 Case {project.number} • Conceptual Case Study
               </div>
 
               <h2
                 id="modal-project-title"
-                className="font-serif text-3xl sm:text-4xl font-normal text-[#111111]"
+                className="sub-heading font-medium text-[#111111]"
               >
                 {project.title}
               </h2>
@@ -91,14 +91,14 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               </p>
 
               <div className="pt-4">
-                <span className="text-xs font-mono uppercase tracking-wider text-[#666666] block mb-2">
+                <span className="text-[11px] uppercase tracking-wider text-[#666666] block mb-2 font-medium">
                   Delivered Scope
                 </span>
                 <ul className="flex flex-wrap gap-2">
                   {project.deliverables.map((item) => (
                     <li
                       key={item}
-                      className="px-3 py-1 bg-[#F7F7F5] border border-[#E5E5E5] text-xs font-sans text-[#111111]"
+                      className="px-3 py-1 bg-[#F7F7F5] border border-[#E5E5E5] text-[12px] text-[#111111]"
                     >
                       {item}
                     </li>
@@ -107,7 +107,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               </div>
             </div>
 
-            <div className="md:col-span-4 bg-[#F7F7F5] p-6 border border-[#E5E5E5] space-y-4 text-xs font-mono">
+            <div className="md:col-span-4 bg-[#F7F7F5] p-6 border border-[#E5E5E5] space-y-4 text-[12px]">
               <div>
                 <span className="text-[#666666] block mb-1">CLIENT CONTEXT</span>
                 <span className="text-[#111111] font-medium">Conceptual Studio Exploration</span>
@@ -126,20 +126,20 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
         {/* Modal Bottom Bar */}
         <div className="px-6 py-4 bg-[#F7F7F5] border-t border-[#E5E5E5] flex flex-wrap items-center justify-between gap-4">
-          <span className="text-xs font-mono text-[#666666]">
+          <span className="text-[12px] text-[#666666]">
             FF-ARCHIVE-{project.number}
           </span>
           <div className="flex items-center gap-3">
             <button
               onClick={onClose}
-              className="px-4 py-2 text-xs font-mono uppercase tracking-wider text-[#666666] hover:text-[#111111] cursor-pointer"
+              className="px-4 py-2 text-[12px] uppercase tracking-wider text-[#666666] hover:text-[#111111] cursor-pointer"
             >
               Close
             </button>
             <Link
               href="#contact"
               onClick={onClose}
-              className="inline-flex items-center gap-2 text-xs font-medium bg-[#111111] text-white hover:bg-[#333333] px-4 py-2.5 rounded-[2px] transition-colors"
+              className="inline-flex items-center gap-2 text-[13px] font-medium bg-[#111111] text-white hover:bg-[#333333] px-4 py-2 rounded-[2px] transition-colors"
             >
               <span>Discuss similar project</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
