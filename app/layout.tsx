@@ -1,11 +1,25 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans } from "next/font/google";
+import { Barlow_Condensed, Karla, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
-const ibmPlexSans = IBM_Plex_Sans({
-  variable: "--font-ibm-plex",
+const barlowCondensed = Barlow_Condensed({
+  variable: "--font-heading",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+const karla = Karla({
+  variable: "--font-body",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
+  display: "swap",
+});
+
+const ibmPlexMono = IBM_Plex_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
+  weight: ["400", "500"],
   display: "swap",
 });
 
@@ -36,8 +50,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${ibmPlexSans.variable} scroll-smooth antialiased`}>
-      <body className="min-h-screen bg-[#FFFFFF] text-[#111111] font-sans selection:bg-[#111111] selection:text-[#FFFFFF] overflow-x-hidden">
+    <html
+      lang="en"
+      className={`${barlowCondensed.variable} ${karla.variable} ${ibmPlexMono.variable} scroll-smooth antialiased`}
+    >
+      <body className="min-h-screen bg-[#FFFFFF] text-[#111111] font-body selection:bg-[#111111] selection:text-[#FFFFFF] overflow-x-hidden">
         {children}
       </body>
     </html>

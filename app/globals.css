@@ -9,7 +9,9 @@
   --color-btn-bg: #111111;
   --color-btn-text: #FFFFFF;
 
-  --font-sans: var(--font-ibm-plex), "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-heading: var(--font-heading), "Barlow Condensed", sans-serif;
+  --font-body: var(--font-body), "Karla", sans-serif;
+  --font-mono: var(--font-mono), "IBM Plex Mono", monospace;
 }
 
 :root {
@@ -20,15 +22,13 @@
   --border: #E5E5E5;
   --btn-bg: #111111;
   --btn-text: #FFFFFF;
-
-  --font-family: var(--font-ibm-plex), "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
   background-color: #FFFFFF;
   color: #111111;
-  font-family: var(--font-family);
+  font-family: var(--font-body), "Karla", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -36,48 +36,71 @@ html {
 body {
   background-color: #FFFFFF;
   color: #111111;
-  font-family: var(--font-family);
+  font-family: var(--font-body), "Karla", sans-serif;
   overflow-x: hidden;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.6;
-  letter-spacing: -0.012em;
 }
 
-/* Fluid responsive typography utilities via clamp() */
+/* Distinctive Typography System */
+.font-heading {
+  font-family: var(--font-heading), "Barlow Condensed", sans-serif;
+}
+
+.font-body {
+  font-family: var(--font-body), "Karla", sans-serif;
+}
+
+.font-mono {
+  font-family: var(--font-mono), "IBM Plex Mono", monospace;
+}
+
+/* Typography Scales */
+.hero-display,
 .hero-heading {
-  font-size: clamp(2.5rem, 5.2vw, 4.5rem);
-  line-height: 1.08;
-  letter-spacing: -0.025em;
-  font-weight: 400;
+  font-family: var(--font-heading), "Barlow Condensed", sans-serif;
+  font-size: clamp(3.2rem, 7vw, 6.2rem);
+  line-height: 0.96;
+  letter-spacing: -0.015em;
+  font-weight: 500;
+  text-transform: uppercase;
 }
 
+.section-display,
 .section-heading {
-  font-size: clamp(2rem, 3.5vw, 3.25rem);
-  line-height: 1.12;
-  letter-spacing: -0.02em;
+  font-family: var(--font-heading), "Barlow Condensed", sans-serif;
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
   font-weight: 500;
+  text-transform: uppercase;
 }
 
+.card-display,
+.service-heading,
 .project-heading {
-  font-size: clamp(1.35rem, 1.8vw, 1.75rem);
-  line-height: 1.25;
-  letter-spacing: -0.015em;
+  font-family: var(--font-heading), "Barlow Condensed", sans-serif;
+  font-size: clamp(1.6rem, 2.2vw, 2.1rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
   font-weight: 500;
 }
 
-.service-heading {
-  font-size: clamp(1.25rem, 1.6vw, 1.5rem);
-  line-height: 1.3;
-  letter-spacing: -0.015em;
-  font-weight: 500;
-}
-
+.meta-code,
 .meta-label {
+  font-family: var(--font-mono), "IBM Plex Mono", monospace;
   font-size: 12px;
-  letter-spacing: 0.04em;
+  line-height: 1.4;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: #666666;
-  font-weight: 500;
+}
+
+/* Subtle architectural grid pattern overlay */
+.editorial-grid-bg {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
 }
 
 *:focus-visible {
