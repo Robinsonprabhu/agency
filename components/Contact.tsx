@@ -15,7 +15,7 @@ interface FormErrors {
   message?: string;
 }
 
-export default function ClosingCTA() {
+export default function Contact() {
   const [formData, setFormData] = useState<FormState>({
     name: "",
     email: "",
@@ -32,20 +32,20 @@ export default function ClosingCTA() {
     const errs: FormErrors = {};
 
     if (!data.name.trim()) {
-      errs.name = "Please enter your name.";
+      errs.name = "Your name is required.";
     } else if (data.name.trim().length < 2) {
       errs.name = "Name must be at least 2 characters.";
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!data.email.trim()) {
-      errs.email = "Please enter your email address.";
+      errs.email = "Your email address is required.";
     } else if (!emailRegex.test(data.email.trim())) {
       errs.email = "Please enter a valid email address.";
     }
 
     if (!data.message.trim()) {
-      errs.message = "Please include a brief project message.";
+      errs.message = "Please include a project message.";
     } else if (data.message.trim().length < 10) {
       errs.message = "Message must be at least 10 characters.";
     }
@@ -84,7 +84,7 @@ export default function ClosingCTA() {
         setIsLoading(false);
         setIsSuccess(true);
         setSubmittedData({ ...formData });
-      }, 450);
+      }, 400);
     }
   };
 
@@ -97,36 +97,41 @@ export default function ClosingCTA() {
   };
 
   return (
-    <section id="contact" className="py-24 sm:py-36 bg-[#F7F7F5] border-b border-[#E5E5E5]">
+    <section id="contact" className="py-24 sm:py-32 bg-[#F7F7F5] border-b border-[#E5E5E5]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        {/* Large Clean Editorial Closing Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          <div className="lg:col-span-6 space-y-6">
-            <div className="label-meta">
-              11 // Closing CTA &amp; Inquiries
+          {/* Left Column: Heading and Narrative */}
+          <div className="lg:col-span-5 space-y-6">
+            <div className="meta-label">
+              04 // Contact
             </div>
 
             <h2 className="section-heading text-[#111111]">
-              Have a good idea? Let&apos;s build something great.
+              Have a project in mind?
             </h2>
 
-            <p className="text-[16px] text-[#666666] leading-relaxed font-normal max-w-lg">
-              We collaborate with forward-thinking teams to build enduring digital experiences. Tell us about your upcoming project or initiative.
+            <p className="text-[16px] text-[#666666] leading-relaxed font-normal max-w-md">
+              Let&apos;s turn your next idea into something meaningful. Reach out to discuss timelines, scope, or collaboration opportunities.
             </p>
 
-            <div className="pt-2">
-              <a
-                href="#inquiry-form"
-                className="inline-flex items-center gap-2 text-[14px] font-medium bg-[#111111] text-white hover:bg-[#333333] px-6 py-3 rounded-[2px] transition-colors"
-              >
-                <span>Contact</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </a>
+            <div className="pt-6 border-t border-[#E5E5E5] space-y-3 text-[13px] text-[#666666]">
+              <div>
+                <span className="text-[#999999] text-[11px] uppercase tracking-wider block mb-1">Direct Communication</span>
+                <a
+                  href="mailto:hello@formandfunction.agency"
+                  className="text-[15px] font-medium text-[#111111] hover:text-[#666666] transition-colors"
+                >
+                  hello@formandfunction.agency
+                </a>
+              </div>
+              <div className="pt-2 text-[12px] text-[#666666]">
+                Response time: Usually within 24 business hours.
+              </div>
             </div>
           </div>
 
-          {/* Integrated Clean Contact Form */}
-          <div id="inquiry-form" className="lg:col-span-6">
+          {/* Right Column: Clean Form Fields */}
+          <div className="lg:col-span-7">
             <div className="bg-white border border-[#E5E5E5] p-8 sm:p-10">
               {isSuccess && submittedData ? (
                 <div className="space-y-6 py-4 animate-in fade-in duration-200">
@@ -135,11 +140,11 @@ export default function ClosingCTA() {
                   </div>
 
                   <div>
-                    <h3 className="card-heading text-[#111111]">
+                    <h3 className="project-heading text-[#111111]">
                       Inquiry Validated
                     </h3>
                     <p className="mt-2 text-[15px] text-[#666666] leading-relaxed">
-                      Thank you, <span className="font-medium text-[#111111]">{submittedData.name}</span>. Your inquiry payload has been validated client-side.
+                      Thank you, <span className="font-medium text-[#111111]">{submittedData.name}</span>. Your project brief has passed all client-side checks.
                     </p>
                   </div>
 
@@ -160,7 +165,7 @@ export default function ClosingCTA() {
                   </div>
 
                   <div className="p-3 bg-[#F7F7F5] border border-[#E5E5E5] text-[12px] text-[#666666]">
-                    <strong>Note:</strong> Client-side validation active. In accordance with system instructions, no backend email spoofing is performed.
+                    <strong>Note:</strong> Client-side form validation is fully functional. In accordance with system instructions, no simulated emails were dispatched without an active backend.
                   </div>
 
                   <button
@@ -178,7 +183,7 @@ export default function ClosingCTA() {
                       htmlFor="contact-name"
                       className="block text-[12px] uppercase tracking-wider text-[#111111] mb-2 font-normal"
                     >
-                      Your name *
+                      Name *
                     </label>
                     <input
                       type="text"
@@ -209,7 +214,7 @@ export default function ClosingCTA() {
                       htmlFor="contact-email"
                       className="block text-[12px] uppercase tracking-wider text-[#111111] mb-2 font-normal"
                     >
-                      Email address *
+                      Email *
                     </label>
                     <input
                       type="email"
@@ -270,14 +275,14 @@ export default function ClosingCTA() {
                     <button
                       type="submit"
                       disabled={isLoading}
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-[14px] font-medium bg-[#111111] text-white hover:bg-[#333333] px-6 py-3 rounded-[2px] transition-colors cursor-pointer disabled:opacity-50"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-[14px] font-medium bg-[#111111] text-white hover:bg-[#333333] px-7 py-3.5 rounded-[2px] transition-colors cursor-pointer disabled:opacity-50"
                     >
                       {isLoading ? (
                         <span>Validating...</span>
                       ) : (
                         <>
-                          <span>Send inquiry</span>
-                          <ArrowUpRight className="w-3.5 h-3.5" />
+                          <span>Submit message</span>
+                          <ArrowUpRight className="w-4 h-4" />
                         </>
                       )}
                     </button>

@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const ibmPlexSans = IBM_Plex_Sans({
+  variable: "--font-ibm-plex",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "FORM & FUNCTION — Digital Experiences That Move Businesses Forward",
+  title: "FORM & FUNCTION — Digital Agency",
   description:
-    "We combine strategy, design and technology to create meaningful digital experiences for ambitious brands. Independent digital design and development agency.",
+    "We combine strategy, design and technology to create meaningful digital experiences for ambitious brands.",
   keywords: [
     "Design Studio",
     "Digital Agency",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "FORM & FUNCTION — Digital Agency",
     description:
-      "We combine strategy, design and technology to create meaningful digital experiences for ambitious brands.",
+      "Digital experiences, made with purpose. Strategy, design and modern engineering.",
     type: "website",
   },
 };
@@ -36,7 +36,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} scroll-smooth antialiased`}>
+    <html lang="en" className={`${ibmPlexSans.variable} scroll-smooth antialiased`}>
       <body className="min-h-screen bg-[#FFFFFF] text-[#111111] font-sans selection:bg-[#111111] selection:text-[#FFFFFF] overflow-x-hidden">
         {children}
       </body>

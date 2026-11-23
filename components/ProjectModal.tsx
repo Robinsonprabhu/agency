@@ -47,7 +47,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         {/* Top Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-[#E5E5E5] bg-white">
           <div className="text-[12px] uppercase tracking-wider text-[#666666]">
-            Case Archive // {project.category}
+            Case Study // {project.category}
           </div>
           <button
             onClick={onClose}
@@ -81,7 +81,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
               <h2
                 id="modal-project-title"
-                className="sub-heading font-medium text-[#111111]"
+                className="project-heading text-[#111111]"
               >
                 {project.title}
               </h2>
@@ -109,7 +109,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
             <div className="md:col-span-4 bg-[#F7F7F5] p-6 border border-[#E5E5E5] space-y-4 text-[12px]">
               <div>
-                <span className="text-[#666666] block mb-1">CLIENT CONTEXT</span>
+                <span className="text-[#666666] block mb-1">PROJECT TYPE</span>
                 <span className="text-[#111111] font-medium">Conceptual Studio Exploration</span>
               </div>
               <div className="border-t border-[#E5E5E5] pt-3">
@@ -118,7 +118,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               </div>
               <div className="border-t border-[#E5E5E5] pt-3">
                 <span className="text-[#666666] block mb-1">CLASSIFICATION</span>
-                <span className="text-[#111111]">Original Conceptual Work</span>
+                <span className="text-[#111111]">Original Conceptual Commission</span>
               </div>
             </div>
           </div>

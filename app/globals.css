@@ -1,36 +1,34 @@
 @import "tailwindcss";
 
 @theme {
-  --color-main-bg: #FFFFFF;
-  --color-alt-bg: #F7F7F5;
-  --color-primary-text: #111111;
-  --color-secondary-text: #666666;
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #F7F7F5;
+  --color-text-primary: #111111;
+  --color-text-secondary: #666666;
   --color-border-subtle: #E5E5E5;
-  --color-accent: #222222;
   --color-btn-bg: #111111;
   --color-btn-text: #FFFFFF;
 
-  --font-sans: "Neue Montreal", "Helvetica Neue", var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-sans: var(--font-ibm-plex), "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 :root {
-  --bg-main: #FFFFFF;
-  --bg-alt: #F7F7F5;
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F7F7F5;
   --text-primary: #111111;
   --text-secondary: #666666;
   --border: #E5E5E5;
-  --accent: #222222;
   --btn-bg: #111111;
   --btn-text: #FFFFFF;
 
-  --font-swiss: "Neue Montreal", "Helvetica Neue", var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-family: var(--font-ibm-plex), "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
   background-color: #FFFFFF;
   color: #111111;
-  font-family: var(--font-swiss);
+  font-family: var(--font-family);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -38,48 +36,48 @@ html {
 body {
   background-color: #FFFFFF;
   color: #111111;
-  font-family: var(--font-swiss);
+  font-family: var(--font-family);
   overflow-x: hidden;
   font-size: 16px;
-  line-height: 1.55;
+  line-height: 1.6;
   letter-spacing: -0.012em;
 }
 
-/* Swiss Editorial Responsive Typography Utilities */
+/* Fluid responsive typography utilities via clamp() */
 .hero-heading {
-  font-size: clamp(2.5rem, 5.2vw, 4.25rem);
-  line-height: 1.06;
+  font-size: clamp(2.5rem, 5.2vw, 4.5rem);
+  line-height: 1.08;
   letter-spacing: -0.025em;
   font-weight: 400;
 }
 
 .section-heading {
-  font-size: clamp(1.85rem, 3.2vw, 2.75rem);
+  font-size: clamp(2rem, 3.5vw, 3.25rem);
   line-height: 1.12;
   letter-spacing: -0.02em;
-  font-weight: 400;
+  font-weight: 500;
 }
 
-.sub-heading {
-  font-size: clamp(1.25rem, 1.8vw, 1.5rem);
+.project-heading {
+  font-size: clamp(1.35rem, 1.8vw, 1.75rem);
   line-height: 1.25;
   letter-spacing: -0.015em;
-  font-weight: 400;
+  font-weight: 500;
 }
 
-.card-heading {
-  font-size: clamp(1.15rem, 1.4vw, 1.35rem);
+.service-heading {
+  font-size: clamp(1.25rem, 1.6vw, 1.5rem);
   line-height: 1.3;
   letter-spacing: -0.015em;
   font-weight: 500;
 }
 
-.label-meta {
-  font-size: 11px;
-  line-height: 1.4;
+.meta-label {
+  font-size: 12px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #666666;
+  font-weight: 500;
 }
 
 *:focus-visible {

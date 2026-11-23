@@ -1,146 +1,129 @@
-# FORM & FUNCTION — European Creative Agency Website
+# FORM & FUNCTION — Creative Studio Agency Website
 
-A complete, production-quality digital agency homepage designed with the layout structure, UX patterns, spacing rhythm, and component styling of a professionally art-directed European digital agency website.
-
-Built using **Next.js 15+ (App Router)**, **TypeScript**, and **Tailwind CSS**.
+A complete, production-quality creative agency homepage built for the **Next.js Developer Internship Task**, implementing the exact required **four-section architecture** with **IBM Plex Sans**, modern Swiss-inspired typography, and responsive component design.
 
 ---
 
-## ✦ 1. Visual Identity & Design Principles
+## ✦ 1. Design Direction & Art Direction
 
-- **White & Warm-White Editorial Theme**:
-  - Main background: `#FFFFFF`
-  - Alternate background: `#F7F7F5`
-  - Primary text: `#111111`
-  - Secondary text: `#666666`
+- **Visual Style**: Minimal editorial, modern Swiss-inspired aesthetics.
+- **Colour Palette**:
+  - Background: `#FFFFFF`
+  - Secondary Background: `#F7F7F5`
+  - Primary Text: `#111111`
+  - Secondary Text: `#666666`
   - Borders: `#E5E5E5`
-  - Accent: `#222222`
-  - Button background: `#111111`
-  - Button text: `#FFFFFF`
-- **Zero Decorative Noise**: Strictly no purple/blue/orange gradients, glassmorphism, glowing shapes, floating orbs, or unnecessary drop shadows.
-- **Content Authenticity**: Fictional portfolio projects are strictly marked as conceptual work. Unverified team photos, facts, testimonials, products, articles, podcast metadata, and company coordinates use explicit `[PLACEHOLDER]` markers instead of fabricated information.
+  - Buttons: `#111111`
+  - Button Text: `#FFFFFF`
+- **Zero Generic AI Artifacts**: Strictly no gradients, no glassmorphism, no purple/blue/orange neon accents, no glowing elements, and no decorative blobs.
 
 ---
 
-## ✦ 2. Typography System
+## ✦ 2. Typographic System (IBM Plex Sans)
 
-- **Headings**: `Instrument Serif` (Google Fonts via `next/font/google`), selectively applied for expressive editorial headlines.
-- **Body, Navigation & Controls**: `Inter` (Google Fonts via `next/font/google`) with comfortable 15–16px sizing, natural line lengths, and regular weights.
-
----
-
-## ✦ 3. Page Structure & Implemented Sections
-
-The homepage follows the exact requested 12-section hierarchy:
-
-1. **01. Header (`components/Header.tsx`)**
-   - FORM & FUNCTION wordmark on the left.
-   - Navigation links: Team, Services, Products, Podcast, Blog, Contact.
-   - DE / EN language toggle.
-   - Accessible skip-to-main-content link (`#main-content`).
-   - Compact sticky design with thin `#E5E5E5` bottom border.
-   - Mobile navigation drawer.
-
-2. **02. Hero (`components/Hero.tsx`)**
-   - Editorial headline: *"WE BUILD DIGITAL EXPERIENCES THAT MOVE BUSINESSES FORWARD."*
-   - Supporting narrative: *"We combine strategy, design and technology to create meaningful digital experiences for ambitious brands."*
-   - Primary button: *"Contact"*.
-   - Left-aligned composition with generous whitespace and selected project imagery.
-
-3. **03. Introduction / Team (`components/IntroTeam.tsx`)**
-   - Section heading: *"GOOD DESIGN ISN'T DECORATION. IT'S DIRECTION."*
-   - Description: *"FORM & FUNCTION brings together strategic thinking, thoughtful design and modern engineering to create digital experiences with purpose."*
-   - Button: *"Our team"*.
-   - Two-column editorial composition with dedicated layout space for 3 team photographs and 3 square fact graphics with `[PLACEHOLDER]` markers.
-
-4. **04. Selected Work (`components/Portfolio.tsx` & `components/ProjectModal.tsx`)**
-   - Section heading: *"Selected work."*
-   - Supporting copy: *"Explore a selection of digital concepts focused on thoughtful design, usability and modern technology."*
-   - Four original conceptual projects:
-     - `01` **Premium Fashion E-commerce**
-     - `02` **Fintech Digital Experience**
-     - `03` **Hospitality Website**
-     - `04` **Technology Startup Platform**
-   - Large images with varied proportions, titles, categories, one-line descriptions, and interactive *"Read case study"* modal viewer.
-   - Includes *"All case studies"* action link.
-
-5. **05. Services (`components/Services.tsx`)**
-   - Section heading: *"What we do."*
-   - Description: *"We turn ideas into useful digital experiences through strategy, design and development."*
-   - Six service tiles separated by thin `#E5E5E5` dividers:
-     1. UI/UX Design
-     2. Web Development
-     3. Brand Identity
-     4. Digital Strategy
-     5. Frontend Development
-     6. Digital Experiences
-   - Clean typography with concrete descriptions and *"More"* links.
-
-6. **06. Testimonials (`components/Testimonials.tsx`)**
-   - Accessible testimonial slider with previous / next navigation controls and slide index indicator.
-   - Formatted for portrait photograph, quote, person's name, role, and company using `[PLACEHOLDER]` markers.
-
-7. **07. Products (`components/Products.tsx`)**
-   - Heading: *"Things we're building."*
-   - Three editorial product blocks with product title, two-line description, and link using `[PLACEHOLDER]` markers.
-   - Includes *"All products"* link.
-
-8. **08. Blog (`components/Blog.tsx`)**
-   - Heading: *"Thoughts and perspectives."*
-   - Description: *"Ideas, observations and practical insights on design, technology and digital experiences."*
-   - Two editorial cards supporting featured image, article title, short description, and *"Read more"* links using `[PLACEHOLDER]` markers.
-   - Includes *"All articles"* link.
-
-9. **09. Podcast (`components/Podcast.tsx`)**
-   - Section label: *PODCAST*.
-   - Title: *"Conversations around design and technology."*
-   - Two episode cards supporting thumbnail, title, publication date, duration, and tactile audio play toggle using `[PLACEHOLDER]` markers.
-
-10. **10. Newsletter (`components/Newsletter.tsx`)**
-    - Section label: *STAY IN THE LOOP*.
-    - Heading: *"Good ideas, delivered occasionally."*
-    - Email input with client-side validation, submit button, privacy policy note, and frontend confirmation state.
-
-11. **11. Closing CTA (`components/ClosingCTA.tsx`)**
-    - Headline: *"Have a good idea? Let's build something great."*
-    - Button: *"Contact"*.
-    - Generous whitespace and restrained layout, integrating a clean client-validated inquiry form.
-
-12. **12. Footer (`components/Footer.tsx`)**
-    - FORM & FUNCTION wordmark.
-    - Studio navigation and company coordinates with `[PLACEHOLDER]` markers (address, phone, email, career openings, social links).
-    - Privacy Policy, Terms of Service, and Legal Notice / Impressum links.
-    - Smooth scroll *"Back to top"* action.
+- **Primary Typeface**: `IBM Plex Sans` loaded via `next/font/google` (`IBM_Plex_Sans`).
+- **Weights**:
+  - Regular (`400`): Large headlines, body copy, and narrative text.
+  - Medium (`500`): Section headings, project titles, service titles, and navigation.
+  - Semibold (`600`): Specific emphasis and active states.
+- **Fluid Scale (`clamp()`)**:
+  - **Hero Heading**: `clamp(2.5rem, 5.2vw, 4.5rem)` (64–76px desktop, 40px mobile).
+  - **Section Headings**: `clamp(2rem, 3.5vw, 3.25rem)` (42–52px desktop, 32px mobile).
+  - **Project Headings**: `clamp(1.35rem, 1.8vw, 1.75rem)` (22–28px).
+  - **Service Titles**: `clamp(1.25rem, 1.6vw, 1.5rem)` (20–24px).
+  - **Body Copy**: Fixed `16px` (`line-height: 1.6`, natural reading widths).
+  - **Navigation**: Fixed `14px` (`font-medium`).
+  - **Small Labels**: Fixed `12px` (`uppercase`, tracking `0.04em`).
 
 ---
 
-## ✦ 4. Technical Architecture
+## ✦ 3. Exact Four-Section Architecture
 
-- **Framework**: Next.js 16 (App Router with Turbopack)
-- **Styling**: Tailwind CSS v4 with CSS custom properties
-- **Fonts**: `Instrument_Serif` & `Inter` via `next/font/google`
-- **Icons**: Lucide React
-- **Motion**: Framer Motion for subtle, restrained entrance transitions
+The application strictly implements the four required sections:
+
+### 01. Header (`components/Header.tsx`)
+- Left: `FORM & FUNCTION` wordmark.
+- Right: Navigation links (Work, Services, Contact) and a primary "Contact" action button.
+- Accessible skip-to-main-content link (`#main-content`).
+- Responsive mobile drawer navigation with body-scroll locking.
+
+### 02. Section 01 — Hero (`components/Hero.tsx`)
+- Brand name: `FORM & FUNCTION`.
+- Headline: *"Digital experiences, made with purpose."*
+- Supporting copy: *"We combine strategy, design and technology to create meaningful digital experiences for ambitious brands."*
+- Primary CTA: *"Explore Our Work"* (`#work`) and secondary CTA: *"Contact"* (`#contact`).
+- Asymmetric editorial composition with featured case preview (*Vahlen Atelier*).
+- Subtle entrance animation via Framer Motion.
+
+### 03. Section 02 — Services (`components/Services.tsx`)
+- Section heading: *"Services crafted for distinction."*
+- 4 core agency services:
+  1. **UI/UX Design**
+  2. **Web Development**
+  3. **Brand Identity**
+  4. **Digital Strategy**
+- Editorial numbered list with hairline `#E5E5E5` dividers, clean Lucide icons, and deliverables checklists.
+- Polished hover transitions: Service title shifts (`translate-x-1.5`), arrow moves right (`translate-x-2`), background shifts to `#FFFFFF`, smooth 300ms duration.
+
+### 04. Section 03 — Portfolio (`components/Portfolio.tsx` & `components/ProjectModal.tsx`)
+- Section heading: *"Selected work."*
+- 4 conceptual case studies with mixed image proportions (7-col wide, 5-col portrait, 5-col landscape, 7-col wide):
+  1. **Premium Fashion E-commerce** (*Vahlen Atelier*)
+  2. **Fintech Digital Experience** (*Strata Capital*)
+  3. **Hospitality Website** (*Kinetic Haven*)
+  4. **Technology Startup Platform** (*Synapse Quantum*)
+- Clearly labeled as conceptual work.
+- Gentle image zoom on hover (`scale-[1.03]`), arrow appearance, and subtle title shift.
+- Accessible case study detail modal dialog with keyboard `Escape` support.
+
+### 05. Section 04 — Contact (`components/Contact.tsx`)
+- Heading: *"Have a project in mind?"*
+- Supporting copy: *"Let's turn your next idea into something meaningful."*
+- Required input fields: **Name**, **Email**, **Message**, and **Submit button**.
+- Full client-side validation with real-time error states, loading indicator, and success confirmation payload card.
+- Transparent note confirming client-side verification without fake server email spoofing.
+
+### 06. Footer (`components/Footer.tsx`)
+- `FORM & FUNCTION` wordmark, site directory, studio locations (Zürich, London, Tokyo), social links, and smooth *"Back to top"* scroll button.
 
 ---
 
-## ✦ 5. Getting Started
+## ✦ 4. Interactive & Hover System
+
+- **Link Underline Animation**: Micro-borders transition smoothly across desktop navigation.
+- **Button Micro-Interactions**: Subtle arrow translations on hover.
+- **Image Hover Scaling**: Curated images scale gently to ~1.03 over 500ms without dark muddy overlays.
+- **Keyboard Accessibility**: Visible focus outlines (`outline: 1.5px solid #111111`) across interactive elements.
+- **Respect for User Preferences**: Animations honor `prefers-reduced-motion`.
+
+---
+
+## ✦ 5. Responsive Breakpoint Validation
+
+The responsive layout is tested and validated across:
+- **1440px / 1280px Desktop**: Full asymmetric grid, comfortable white space, multi-column editorial pairings.
+- **1024px / 768px Tablet**: Adaptive column spans, balanced typography line heights.
+- **375px Mobile**: Single-column vertical stacks, touch-friendly touch targets (min 44px), working navigation drawer, zero horizontal overflow.
+
+---
+
+## ✦ 6. Getting Started
 
 ### Prerequisites
 
 - Node.js `18.18+` or `20+` (Tested on Node `v24`)
 - npm, pnpm, or yarn
 
-### Installation & Development
+### Installation & Run
 
 ```bash
-# Navigate to the workspace
+# Clone and navigate to workspace
 cd internship
 
 # Install dependencies
 npm install
 
-# Start development server
+# Run development server
 npm run dev
 ```
 

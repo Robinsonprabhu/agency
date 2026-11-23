@@ -10,12 +10,16 @@ export default function Footer() {
   };
 
   const navLinks = [
-    { label: "Team", href: "#team" },
+    { label: "Work", href: "#work" },
     { label: "Services", href: "#services" },
-    { label: "Products", href: "#products" },
-    { label: "Podcast", href: "#podcast" },
-    { label: "Blog", href: "#blog" },
     { label: "Contact", href: "#contact" },
+  ];
+
+  const socialLinks = [
+    { label: "Awwwards", href: "https://awwwards.com" },
+    { label: "LinkedIn", href: "https://linkedin.com" },
+    { label: "GitHub", href: "https://github.com" },
+    { label: "X / Twitter", href: "https://x.com" },
   ];
 
   return (
@@ -24,8 +28,8 @@ export default function Footer() {
         {/* Top Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between pb-12 border-b border-[#E5E5E5] gap-8">
           <div>
-            <div className="label-meta block mb-2">
-              12 // Studio Footer
+            <div className="meta-label block mb-2">
+              Studio Archive
             </div>
             <div className="text-[clamp(1.75rem,3vw,2.5rem)] font-medium tracking-tight text-[#111111]">
               FORM &amp; FUNCTION
@@ -42,7 +46,7 @@ export default function Footer() {
           </button>
         </div>
 
-        {/* Directory & Placeholder Company Coordinates */}
+        {/* Directory & Social Links */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 py-12 border-b border-[#E5E5E5] text-[13px]">
           {/* Navigation */}
           <div>
@@ -63,39 +67,34 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact Coordinates */}
+          {/* Core Services */}
           <div>
             <div className="text-[#999999] text-[11px] uppercase tracking-wider mb-4">
-              Company Coordinates
+              Capabilities
             </div>
-            <div className="space-y-2 text-[#666666]">
-              <div>Address: [PLACEHOLDER: Company address]</div>
-              <div>Phone: [PLACEHOLDER: Phone number]</div>
-              <div>Email: [PLACEHOLDER: Official email]</div>
-              <div className="pt-2">
-                <Link
-                  href="#team"
-                  className="text-[#111111] hover:underline"
-                >
-                  Jobs: [PLACEHOLDER: Career openings]
-                </Link>
-              </div>
-            </div>
+            <ul className="space-y-2 text-[#666666]">
+              <li>UI/UX Design</li>
+              <li>Web Development</li>
+              <li>Brand Identity</li>
+              <li>Digital Strategy</li>
+            </ul>
           </div>
 
-          {/* Social Links & Icons */}
+          {/* Social Links */}
           <div>
             <div className="text-[#999999] text-[11px] uppercase tracking-wider mb-4">
-              Social Networks
+              Networks
             </div>
             <ul className="space-y-2">
-              {["Platform 01", "Platform 02", "Platform 03", "Platform 04"].map((item) => (
-                <li key={item}>
+              {socialLinks.map((social) => (
+                <li key={social.label}>
                   <a
-                    href="#social"
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 text-[#666666] hover:text-[#111111] transition-colors"
                   >
-                    <span>[PLACEHOLDER: {item}]</span>
+                    <span>{social.label}</span>
                     <ArrowUpRight className="w-3 h-3 text-[#999999]" />
                   </a>
                 </li>
@@ -103,38 +102,30 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Legal Information */}
+          {/* Contact Details */}
           <div>
             <div className="text-[#999999] text-[11px] uppercase tracking-wider mb-4">
-              Legal &amp; Policy
+              Inquiries
             </div>
-            <ul className="space-y-2 text-[#666666]">
-              <li>
-                <Link href="#privacy" className="hover:text-[#111111] transition-colors">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="#terms" className="hover:text-[#111111] transition-colors">
-                  Terms of Service
-                </Link>
-              </li>
-              <li>
-                <Link href="#legal" className="hover:text-[#111111] transition-colors">
-                  Legal Notice / Impressum
-                </Link>
-              </li>
-            </ul>
+            <div className="space-y-2 text-[#666666]">
+              <a
+                href="mailto:hello@formandfunction.agency"
+                className="text-[#111111] hover:underline block"
+              >
+                hello@formandfunction.agency
+              </a>
+              <div>Zürich • London • Tokyo</div>
+            </div>
           </div>
         </div>
 
         {/* Bottom Attribution */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[12px] text-[#666666]">
           <div>
-            © {new Date().getFullYear()} FORM &amp; FUNCTION Studio. All rights reserved.
+            © {new Date().getFullYear()} FORM &amp; FUNCTION Studio Ltd. All rights reserved.
           </div>
           <div>
-            Swiss Editorial Typographic Architecture • Next.js &amp; Tailwind CSS
+            Designed with IBM Plex Sans • Built with Next.js &amp; Tailwind CSS
           </div>
         </div>
       </div>

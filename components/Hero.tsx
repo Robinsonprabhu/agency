@@ -3,40 +3,53 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
     <section className="bg-white pt-16 pb-20 sm:pt-24 sm:pb-28 border-b border-[#E5E5E5]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        {/* Editorial Headline & Paragraph */}
+        {/* Subtle Brand Tagline */}
+        <div className="meta-label mb-8">
+          FORM &amp; FUNCTION // Creative Studio
+        </div>
+
+        {/* Large Left-Aligned Headline & Narrative */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-end mb-16 sm:mb-20">
           <motion.div
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-8"
           >
             <h1 className="hero-heading text-[#111111]">
-              We build digital experiences that move businesses forward.
+              Digital experiences, made with purpose.
             </h1>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-4 flex flex-col justify-end space-y-6"
           >
             <p className="text-[16px] text-[#666666] leading-relaxed font-normal max-w-md">
               We combine strategy, design and technology to create meaningful digital experiences for ambitious brands.
             </p>
 
-            <div className="pt-1">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
+              <Link
+                href="#work"
+                className="inline-flex items-center justify-center gap-2 text-[14px] font-medium bg-[#111111] text-white hover:bg-[#333333] px-6 py-3.5 rounded-[2px] transition-colors group"
+              >
+                <span>Explore Our Work</span>
+                <ArrowDownRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:translate-y-0.5" />
+              </Link>
+
               <Link
                 href="#contact"
-                className="inline-flex items-center justify-center gap-2 text-[14px] font-medium bg-[#111111] text-white hover:bg-[#333333] px-6 py-3 rounded-[2px] transition-colors"
+                className="inline-flex items-center justify-center gap-2 text-[14px] font-medium bg-white text-[#111111] border border-[#111111] hover:bg-[#F7F7F5] px-6 py-3.5 rounded-[2px] transition-colors"
               >
                 <span>Contact</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
@@ -45,11 +58,11 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Quiet Editorial Composition */}
+        {/* Asymmetric Visual Composition */}
         <motion.div
-          initial={{ opacity: 0, y: 18 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.6, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
           className="border border-[#E5E5E5] bg-[#F7F7F5]"
         >
           <div className="grid grid-cols-1 lg:grid-cols-12">
@@ -69,19 +82,19 @@ export default function Hero() {
 
             <div className="lg:col-span-4 p-8 sm:p-10 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-[#E5E5E5] bg-[#F7F7F5]">
               <div className="space-y-3">
-                <span className="label-meta block">
-                  Studio Focus
+                <span className="meta-label block">
+                  Featured Archive
                 </span>
-                <h2 className="sub-heading text-[#111111]">
-                  Intentional digital design &amp; engineering
+                <h2 className="project-heading text-[#111111]">
+                  Vahlen Atelier — Luxury Goods Digital Flagship
                 </h2>
                 <p className="text-[15px] text-[#666666] leading-relaxed font-normal">
-                  We shape websites, applications, and visual identities with structural discipline, high typographic fidelity, and enduring performance.
+                  An editorial e-commerce exploration combining restrained typography, macro textile photography, and frictionless micro-interactions.
                 </p>
               </div>
 
               <div className="pt-6 mt-8 border-t border-[#E5E5E5] flex items-center justify-between text-[12px] text-[#666666]">
-                <span>Strategy • Design • Web</span>
+                <span>Scope: Strategy • UI/UX • Web</span>
                 <span>Ref. 01</span>
               </div>
             </div>

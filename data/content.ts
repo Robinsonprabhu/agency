@@ -1,11 +1,4 @@
-import {
-  ServiceItem,
-  ProjectItem,
-  TestimonialItem,
-  ProductItem,
-  ArticleItem,
-  PodcastItem,
-} from "@/types";
+import { ServiceItem, ProjectItem } from "@/types";
 
 export const SERVICES: ServiceItem[] = [
   {
@@ -13,53 +6,62 @@ export const SERVICES: ServiceItem[] = [
     number: "01",
     title: "UI/UX Design",
     description:
-      "We design intuitive, human-centered digital products and interfaces that balance functional complexity with aesthetic clarity.",
-    linkText: "More",
+      "We design intuitive, human-centered digital interfaces that balance functional complexity with structural clarity.",
+    deliverables: [
+      "User research & journey mapping",
+      "Interactive prototyping",
+      "Multi-platform design systems",
+      "Usability testing & audits",
+    ],
+    icon: "LayoutGrid",
   },
   {
     id: "web-dev",
     number: "02",
     title: "Web Development",
     description:
-      "Modern full-stack and headless web development focused on accessibility, clean codebases, and exceptional performance benchmarks.",
-    linkText: "More",
+      "Modern full-stack and headless web development focused on accessibility, clean codebases, and performance benchmarks.",
+    deliverables: [
+      "Next.js & React architectures",
+      "Headless CMS integration",
+      "Core Web Vitals optimization",
+      "Component library engineering",
+    ],
+    icon: "Code2",
   },
   {
     id: "brand-identity",
     number: "03",
     title: "Brand Identity",
     description:
-      "Cohesive visual identity systems, typographic guidelines, and digital brand toolkits designed to communicate strategic positioning.",
-    linkText: "More",
+      "Cohesive visual identity systems, typographic guidelines, and digital brand toolkits designed to communicate strategic value.",
+    deliverables: [
+      "Visual identity & logomark design",
+      "Typographic hierarchy & guidelines",
+      "Digital brand toolkits",
+      "Art direction & collateral",
+    ],
+    icon: "Compass",
   },
   {
     id: "digital-strategy",
     number: "04",
     title: "Digital Strategy",
     description:
-      "Information architecture, user journey auditing, and digital product roadmapping to align technical execution with business objectives.",
-    linkText: "More",
-  },
-  {
-    id: "frontend-dev",
-    number: "05",
-    title: "Frontend Development",
-    description:
-      "Interactive engineering, component design systems, and responsive layouts crafted with strict attention to typography and motion.",
-    linkText: "More",
-  },
-  {
-    id: "digital-experiences",
-    number: "06",
-    title: "Digital Experiences",
-    description:
-      "Engaging interactive brand platforms, editorial microsites, and immersive product presentations tailored for modern browsers.",
-    linkText: "More",
+      "Information architecture, user journey auditing, and digital product roadmapping to align technical execution with business goals.",
+    deliverables: [
+      "Product roadmap & opportunity audits",
+      "Conversion & information architecture",
+      "Technical feasibility evaluation",
+      "Lifecycle optimization",
+    ],
+    icon: "TrendingUp",
   },
 ];
 
 export const PORTFOLIO_PROJECTS: ProjectItem[] = [
   {
+    id: "fashion-ecommerce",
     number: "01",
     title: "Premium Fashion E-commerce",
     category: "Fashion E-Commerce / Concept",
@@ -71,27 +73,27 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     image:
       "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1600&q=80",
     imageAlt: "Premium Fashion E-commerce concept visual",
-    aspectClass: "aspect-[16/10]",
-    colSpanClass: "lg:col-span-7",
+    aspectRatio: "aspect-[16/10]",
     isConceptual: true,
   },
   {
+    id: "fintech-experience",
     number: "02",
     title: "Fintech Digital Experience",
     category: "Fintech & Analytics / Concept",
     shortDescription:
-      "A quantitative asset analytics dashboard translating multi-currency data into legible, calm typography.",
+      "A quantitative asset analytics dashboard translating multi-currency data into calm, legible typography.",
     fullDescription:
       "A financial software interface concept built to present complex data streams, asset distributions, and portfolio metrics with clarity and speed.",
     deliverables: ["Platform UX/UI", "Design system", "Data visualization"],
     image:
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
     imageAlt: "Fintech digital experience analytics concept",
-    aspectClass: "aspect-[4/5]",
-    colSpanClass: "lg:col-span-5",
+    aspectRatio: "aspect-[4/5]",
     isConceptual: true,
   },
   {
+    id: "hospitality-website",
     number: "03",
     title: "Hospitality Website",
     category: "Hospitality & Architecture / Concept",
@@ -103,11 +105,11 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     image:
       "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1600&q=80",
     imageAlt: "Hospitality website architectural concept visual",
-    aspectClass: "aspect-[16/11]",
-    colSpanClass: "lg:col-span-5",
+    aspectRatio: "aspect-[16/11]",
     isConceptual: true,
   },
   {
+    id: "startup-platform",
     number: "04",
     title: "Technology Startup Platform",
     category: "Developer Infrastructure / Concept",
@@ -119,88 +121,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     image:
       "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80",
     imageAlt: "Technology startup platform microarchitecture concept",
-    aspectClass: "aspect-[16/10]",
-    colSpanClass: "lg:col-span-7",
+    aspectRatio: "aspect-[16/10]",
     isConceptual: true,
-  },
-];
-
-export const TESTIMONIALS: TestimonialItem[] = [
-  {
-    id: "test-1",
-    quote: "[PLACEHOLDER: Testimonial quote will appear here once verified client feedback is supplied.]",
-    author: "[PLACEHOLDER: Name]",
-    role: "[PLACEHOLDER: Role]",
-    company: "[PLACEHOLDER: Company]",
-  },
-  {
-    id: "test-2",
-    quote: "[PLACEHOLDER: Additional client commentary and project feedback will be rendered here.]",
-    author: "[PLACEHOLDER: Name]",
-    role: "[PLACEHOLDER: Role]",
-    company: "[PLACEHOLDER: Company]",
-  },
-  {
-    id: "test-3",
-    quote: "[PLACEHOLDER: Executive endorsement and partnership reflection to be published in this space.]",
-    author: "[PLACEHOLDER: Name]",
-    role: "[PLACEHOLDER: Role]",
-    company: "[PLACEHOLDER: Company]",
-  },
-];
-
-export const PRODUCTS: ProductItem[] = [
-  {
-    id: "prod-1",
-    title: "[PLACEHOLDER: Product 01]",
-    description: "[PLACEHOLDER: Two-line description of the first internal tool or software product being engineered.]",
-    linkText: "Learn more",
-    linkHref: "#products",
-  },
-  {
-    id: "prod-2",
-    title: "[PLACEHOLDER: Product 02]",
-    description: "[PLACEHOLDER: Two-line description of the second digital product or design framework in development.]",
-    linkText: "Learn more",
-    linkHref: "#products",
-  },
-  {
-    id: "prod-3",
-    title: "[PLACEHOLDER: Product 03]",
-    description: "[PLACEHOLDER: Two-line description of the third experimental software platform under active development.]",
-    linkText: "Learn more",
-    linkHref: "#products",
-  },
-];
-
-export const ARTICLES: ArticleItem[] = [
-  {
-    id: "art-1",
-    title: "[PLACEHOLDER: Article Title 01]",
-    description: "[PLACEHOLDER: Short description outlining practical insights on digital design and engineering practices.]",
-    linkText: "Read more",
-    linkHref: "#blog",
-  },
-  {
-    id: "art-2",
-    title: "[PLACEHOLDER: Article Title 02]",
-    description: "[PLACEHOLDER: Short description examining modern headless web development and interface architectures.]",
-    linkText: "Read more",
-    linkHref: "#blog",
-  },
-];
-
-export const PODCAST_EPISODES: PodcastItem[] = [
-  {
-    id: "pod-1",
-    title: "[PLACEHOLDER: Episode 01 — Conversation Title]",
-    date: "[PLACEHOLDER: Date]",
-    duration: "[PLACEHOLDER: Duration]",
-  },
-  {
-    id: "pod-2",
-    title: "[PLACEHOLDER: Episode 02 — Conversation Title]",
-    date: "[PLACEHOLDER: Date]",
-    duration: "[PLACEHOLDER: Duration]",
   },
 ];
