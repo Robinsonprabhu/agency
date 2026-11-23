@@ -35,8 +35,8 @@ interface ServicesProps {
 export default function Services({ onSelectService }: ServicesProps) {
   return (
     <section id="services" className="relative py-[120px] bg-white border-t border-[#E4E4DF] overflow-hidden">
-      {/* Background Texture: Very light (6-8% opacity) texture, shown only to the right half */}
-      <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full pointer-events-none z-0 opacity-7">
+      {/* Background Texture: Light fixed background texture, shown on the right half */}
+      <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full pointer-events-none z-0 opacity-[0.18]">
         <Image
           src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=1200&q=80"
           alt="Subtle natural linen texture background"

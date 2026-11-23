@@ -11,8 +11,8 @@ interface ClosingProps {
 export default function Closing({ onOpenContact }: ClosingProps) {
   return (
     <section className="relative py-[120px] bg-[#F5F5F2] border-t border-[#E4E4DF] overflow-hidden">
-      {/* Background: Bright architectural photo of a studio interior at 10% opacity */}
-      <div className="absolute inset-0 pointer-events-none z-0 opacity-10">
+      {/* Background: Bright architectural photo of a studio interior */}
+      <div className="absolute inset-0 pointer-events-none z-0 opacity-[0.22]">
         <Image
           src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1800&q=80"
           alt="Minimal sunlit design and architecture studio workspace"
@@ -47,3 +47,4 @@ export default function Closing({ onOpenContact }: ClosingProps) {
     </section>
   );
 }
+

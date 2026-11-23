@@ -71,3 +71,4 @@ export default function FeaturedProject({ onSelectProject }: FeaturedProjectProp
     </section>
   );
 }
+

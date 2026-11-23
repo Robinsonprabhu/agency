@@ -94,3 +94,4 @@ export default function CaseStudyModal({ isOpen, onClose, onOpenContact }: CaseS
     </div>
   );
 }
+

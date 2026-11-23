@@ -25,9 +25,9 @@ export default function Hero({ onOpenContact }: HeroProps) {
 
   return (
     <section className="relative pt-[88px] pb-[88px] sm:pb-[110px] overflow-hidden bg-white">
-      {/* Background Image: soft daylight on plaster wall with window shadow, 88-92% white overlay */}
+      {/* Background Image: soft daylight on plaster wall with window shadow */}
       <div
-        className="absolute inset-0 pointer-events-none z-0"
+        className="absolute inset-0 pointer-events-none z-0 overflow-hidden"
         style={{
           transform: `translate3d(0, ${scrollY}px, 0)`,
           willChange: "transform",
@@ -39,10 +39,10 @@ export default function Hero({ onOpenContact }: HeroProps) {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center"
+          className="object-cover object-center contrast-[1.08] saturate-[0.9]"
         />
-        {/* Faint white overlay at 90% opacity for guaranteed AA contrast */}
-        <div className="absolute inset-0 bg-white/90" />
+        {/* Balanced warm overlay so the architectural image is clearly visible while black text remains 100% readable */}
+        <div className="absolute inset-0 bg-white/60" />
       </div>
 
       <div className="relative z-10 max-w-[1320px] mx-auto px-6">
