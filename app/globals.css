@@ -165,6 +165,183 @@ body {
   }
 }
 
+/* HEADER v3: "Form & Function" logo shape morphing square -> circle */
+.hd {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  transition: transform 0.4s ease, background 0.2s;
+  --p: 0;
+}
+.hd.solid {
+  background: #ffffff;
+  border-bottom: 1px solid var(--ink);
+}
+.hd.hide {
+  transform: translateY(-100%);
+}
+.hd-bar {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* logo: the shape between the words is the idea. Square = form, circle = function. */
+.hd-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.32em;
+  font-family: var(--font-heading), "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+}
+.hd-mark {
+  display: inline-block;
+  width: 0.5em;
+  height: 0.5em;
+  background: var(--ink);
+  border-radius: calc(var(--p) * 50%);
+  transform: rotate(calc(var(--p) * 180deg));
+  transition: border-radius 0.5s cubic-bezier(0.6, 0, 0.2, 1),
+    transform 0.5s cubic-bezier(0.6, 0, 0.2, 1);
+}
+.hd-logo:hover .hd-mark {
+  border-radius: 50%;
+  transform: rotate(180deg);
+}
+
+.hd-nav {
+  display: flex;
+  align-items: center;
+  gap: 38px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.roll {
+  display: inline-block;
+  overflow: hidden;
+  height: 1.2em;
+  vertical-align: top;
+  font-family: var(--font-heading), "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--ink);
+  text-decoration: none;
+}
+.roll span {
+  display: block;
+  transition: transform 0.35s cubic-bezier(0.6, 0, 0.2, 1);
+}
+.roll:hover span {
+  transform: translateY(-100%);
+}
+.hd-cta {
+  display: inline-block;
+  background: var(--ink);
+  color: #ffffff;
+  padding: 13px 26px;
+  border: 1px solid var(--ink);
+  font-family: var(--font-heading), "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+}
+.hd-cta:hover {
+  background: #ffffff;
+  color: var(--ink);
+}
+
+/* thin reading line: shows how far down the page you are */
+.hd-line {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 3px;
+  width: 100%;
+  background: var(--ink);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.hd-menu {
+  display: none;
+  background: none;
+  border: 0;
+  padding: 8px 0;
+  font-family: var(--font-heading), "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-weight: 600;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--ink);
+  cursor: pointer;
+}
+.hd-sheet {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 40;
+  background: #ffffff;
+  padding: 96px 24px 28px;
+  border-bottom: 1px solid var(--ink);
+  transform: translateY(-101%);
+  transition: transform 0.45s cubic-bezier(0.6, 0, 0.2, 1);
+}
+.hd-sheet.open {
+  transform: none;
+}
+.hd-sheet a,
+.hd-sheet button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: 0;
+  padding: 12px 0;
+  font-family: var(--font-heading), "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-weight: 600;
+  font-size: clamp(48px, 14vw, 80px);
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+  cursor: pointer;
+}
+
+@media (max-width: 820px) {
+  .hd-bar {
+    height: 68px;
+  }
+  .hd-logo {
+    font-size: 25px;
+  }
+  .hd-nav {
+    display: none;
+  }
+  .hd-menu {
+    display: block;
+  }
+}
+
 /* SERVICES v3: staggered cards with a black wipe on hover */
 .sv {
   --ink: #0a0a0a;

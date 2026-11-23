@@ -30,7 +30,7 @@ export default function Hero({ onOpenContact }: HeroProps) {
   }, []);
 
   return (
-    <section className="relative pt-[72px] pb-[88px] sm:pb-[110px] overflow-hidden bg-white">
+    <section className="relative pt-[112px] sm:pt-[130px] pb-[88px] sm:pb-[110px] overflow-hidden bg-white">
       {/* Background Image: soft daylight on plaster wall with window shadow */}
       <div
         className="absolute inset-0 pointer-events-none z-0 overflow-hidden"
