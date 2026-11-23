@@ -5,16 +5,7 @@ import Link from "next/link";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   useEffect(() => {
     if (mobileMenuOpen) {
@@ -28,58 +19,49 @@ export default function Header() {
   }, [mobileMenuOpen]);
 
   const navLinks = [
-    { label: "Home", href: "#" },
-    { label: "Services", href: "#services" },
     { label: "Work", href: "#work" },
+    { label: "Services", href: "#services" },
     { label: "About", href: "#about" },
     { label: "Contact", href: "#contact" },
   ];
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-[#101B2C]/95 backdrop-blur-md border-b border-[#18263A] py-3.5"
-          : "bg-transparent border-b border-white/10 py-5"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between">
-        {/* Left: FORM & FUNCTION Wordmark */}
+    <header className="sticky top-0 z-50 bg-white border-b border-[#E5E5E5]">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 h-20 flex items-center justify-between">
+        {/* Brand Wordmark */}
         <Link
           href="#"
-          className="group flex items-center gap-3 tracking-tight"
+          className="group flex items-baseline gap-2"
           aria-label="FORM & FUNCTION Homepage"
         >
-          <span className="font-display font-bold text-lg sm:text-xl tracking-tight text-[#F4F1EA] group-hover:text-[#FF642E] transition-colors">
+          <span className="font-sans font-medium text-lg tracking-tight text-[#171717]">
             FORM &amp; FUNCTION
           </span>
-          <span className="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-[#FF642E]" />
-          <span className="hidden md:inline-block text-[11px] uppercase tracking-widest text-[#A6AFBB] font-mono">
-            Digital Agency
+          <span className="text-[11px] font-sans text-[#666666] hidden sm:inline">
+            Studio
           </span>
         </Link>
 
-        {/* Right Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8 text-sm font-medium">
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center space-x-9 text-[15px] font-normal text-[#666666]">
           {navLinks.map((link) => (
             <Link
               key={link.label}
               href={link.href}
-              className="text-[#A6AFBB] hover:text-[#F4F1EA] transition-colors relative py-1 group"
+              className="hover:text-[#171717] transition-colors"
             >
-              <span>{link.label}</span>
-              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#FF642E] transition-all duration-200 group-hover:w-full" />
+              {link.label}
             </Link>
           ))}
         </nav>
 
-        {/* Prominent Let's Talk CTA with Electric Orange Styling */}
-        <div className="hidden md:flex items-center">
+        {/* Action Button: Refined Black CTA */}
+        <div className="hidden md:flex items-center space-x-6">
           <Link
             href="#contact"
-            className="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-semibold font-display bg-[#FF642E] text-[#101B2C] hover:bg-[#ff7b4d] px-5 py-2.5 transition-all duration-200 shadow-sm"
+            className="inline-flex items-center gap-2 text-sm font-medium bg-[#171717] text-white hover:bg-[#333333] px-5 py-2.5 rounded-[2px] transition-colors"
           >
-            <span>Let&apos;s Talk</span>
+            <span>Let&apos;s talk</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
           </Link>
         </div>
@@ -87,51 +69,44 @@ export default function Header() {
         {/* Mobile Hamburger Toggle */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 text-[#F4F1EA] hover:text-[#FF642E] focus:outline-none focus:ring-1 focus:ring-[#FF642E]"
+          className="md:hidden p-2 text-[#171717] hover:text-[#666666] focus:outline-none"
           aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileMenuOpen}
         >
-          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
 
-      {/* Responsive Mobile Drawer */}
+      {/* Mobile Navigation Drawer */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 top-[60px] bg-[#101B2C] z-40 md:hidden flex flex-col justify-between px-6 py-8 border-t border-[#18263A] overflow-y-auto">
-          <div className="space-y-6">
-            <div className="text-xs font-mono uppercase tracking-widest text-[#A6AFBB] pb-3 border-b border-[#18263A]">
-              Navigation
-            </div>
-            <nav className="flex flex-col space-y-4">
-              {navLinks.map((link, idx) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-between text-2xl font-display font-light text-[#F4F1EA] hover:text-[#FF642E] transition-colors py-1"
-                >
-                  <span>{link.label}</span>
-                  <span className="font-mono text-xs text-[#A6AFBB]">0{idx + 1}</span>
-                </Link>
-              ))}
-            </nav>
-
-            <div className="pt-6">
+        <div className="fixed inset-0 top-20 bg-white z-40 md:hidden flex flex-col justify-between px-6 py-10 border-t border-[#E5E5E5] overflow-y-auto">
+          <nav className="flex flex-col space-y-6">
+            {navLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-2xl font-serif text-[#171717] hover:text-[#666666] transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
+            <div className="pt-4">
               <Link
                 href="#contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full flex items-center justify-center gap-2 text-sm uppercase tracking-wider font-semibold font-display bg-[#FF642E] text-[#101B2C] hover:bg-[#ff7b4d] py-3.5 transition-colors"
+                className="inline-flex items-center justify-center gap-2 w-full text-sm font-medium bg-[#171717] text-white hover:bg-[#333333] py-3.5 rounded-[2px] transition-colors"
               >
-                <span>Let&apos;s Talk</span>
+                <span>Let&apos;s talk</span>
                 <ArrowUpRight className="w-4 h-4" />
               </Link>
             </div>
-          </div>
+          </nav>
 
-          <div className="pt-8 border-t border-[#18263A] text-xs font-mono text-[#A6AFBB] space-y-2">
+          <div className="pt-8 border-t border-[#E5E5E5] text-xs font-mono text-[#666666] space-y-2">
             <div>hello@formandfunction.agency</div>
             <div>London • Zurich • Tokyo</div>
-            <div className="text-neutral-500 pt-2">© 2026 FORM &amp; FUNCTION</div>
+            <div className="text-[#999999] pt-2">© 2026 FORM &amp; FUNCTION</div>
           </div>
         </div>
       )}

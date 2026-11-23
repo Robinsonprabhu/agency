@@ -1,44 +1,50 @@
 @import "tailwindcss";
 
 @theme {
-  --color-navy-dark: #101B2C;
-  --color-navy-surface: #18263A;
-  --color-orange-accent: #FF642E;
-  --color-warm-white: #F4F1EA;
-  --color-muted-grey: #A6AFBB;
-  --color-light-bg: #F4F1EA;
-  --color-dark-text: #18202B;
+  --color-primary-bg: #FFFFFF;
+  --color-alt-bg: #F7F7F5;
+  --color-primary-text: #171717;
+  --color-secondary-text: #666666;
+  --color-border-subtle: #E5E5E5;
+  --color-accent: #222222;
 
-  --font-display: var(--font-display), system-ui, sans-serif;
-  --font-sans: var(--font-body), system-ui, sans-serif;
+  --font-serif: var(--font-serif), Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: var(--font-sans), Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 :root {
-  --bg-primary: #101B2C;
-  --bg-secondary: #18263A;
-  --accent: #FF642E;
-  --text-primary: #F4F1EA;
-  --text-muted: #A6AFBB;
-  --bg-light: #F4F1EA;
-  --text-dark: #18202B;
+  --bg-primary: #FFFFFF;
+  --bg-alt: #F7F7F5;
+  --text-primary: #171717;
+  --text-secondary: #666666;
+  --border: #E5E5E5;
+  --accent: #222222;
 }
 
 html {
   scroll-behavior: smooth;
+  background-color: #FFFFFF;
+  color: #171717;
 }
 
 body {
-  background-color: #101B2C;
-  color: #F4F1EA;
-  font-family: var(--font-body), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #FFFFFF;
+  color: #171717;
+  font-family: var(--font-sans), sans-serif;
   overflow-x: hidden;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
-h1, h2, h3, h4, h5, h6, .font-display {
-  font-family: var(--font-display), system-ui, sans-serif;
+.font-serif {
+  font-family: var(--font-serif), Georgia, serif;
+}
+
+.font-sans {
+  font-family: var(--font-sans), sans-serif;
 }
 
 ::selection {
-  background-color: #FF642E;
-  color: #101B2C;
+  background-color: #171717;
+  color: #FFFFFF;
 }

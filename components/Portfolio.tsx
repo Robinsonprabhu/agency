@@ -12,29 +12,26 @@ export default function Portfolio() {
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
 
   return (
-    <section id="work" className="py-24 sm:py-32 bg-[#101B2C] border-b border-[#18263A]">
+    <section id="work" className="py-24 sm:py-32 bg-[#F7F7F5] border-b border-[#E5E5E5]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 md:mb-20 pb-8 border-b border-[#18263A]">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 md:mb-20 pb-8 border-b border-[#E5E5E5]">
           <div>
-            <div className="text-xs font-mono uppercase tracking-widest text-[#FF642E] mb-3 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#FF642E]" />
-              04 // PORTFOLIO ARCHIVES
+            <div className="text-xs font-mono uppercase tracking-wider text-[#666666] mb-4">
+              04 // Selected Work
             </div>
-            <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#F4F1EA] uppercase">
-              Selected work<span className="text-[#FF642E]">.</span> Real impact
-              <span className="text-[#FF642E]">.</span>
+            <h2 className="font-serif text-4xl sm:text-6xl font-normal leading-[1.08] tracking-[-0.02em] text-[#171717]">
+              Selected work. <span className="italic font-normal">Real impact</span>.
             </h2>
           </div>
-          <div className="mt-4 md:mt-0 font-mono text-xs text-[#A6AFBB] flex flex-col items-start md:items-end gap-1">
-            <span>[ 04 CONCEPTUAL COMMISSIONS ]</span>
-            <span className="text-[#FF642E]">CLICK TO EXPLORE CASE STUDY</span>
+          <div className="mt-4 md:mt-0 font-mono text-xs text-[#666666]">
+            Four conceptual case studies • Click to expand
           </div>
         </div>
 
-        {/* Bold Asymmetric Project Layout */}
-        <div className="space-y-16 lg:space-y-24">
-          {/* Row 1: Pair 1 (Vahlen Atelier: Wide Landscape 7 cols + Strata Capital: Tall Portrait 5 cols) */}
+        {/* Carefully Composed Asymmetric Image Grid */}
+        <div className="space-y-14 lg:space-y-20">
+          {/* Row 1: Pair 1 (Vahlen Atelier: Wide 7 cols + Strata Capital: Tall 5 cols) */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             {/* Project 01: Vahlen Atelier */}
             {(() => {
@@ -42,15 +39,15 @@ export default function Portfolio() {
               return (
                 <motion.article
                   key={project.number}
-                  initial={{ opacity: 0, y: 24 }}
+                  initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
+                  transition={{ duration: 0.5 }}
                   onClick={() => setSelectedProject(project)}
-                  className="lg:col-span-7 group cursor-pointer flex flex-col bg-[#18263A] border border-white/10 hover:border-[#FF642E] transition-all duration-300"
+                  className="lg:col-span-7 group cursor-pointer flex flex-col bg-white border border-[#E5E5E5] hover:border-[#171717] transition-colors duration-200"
                 >
                   <div
-                    className="relative aspect-[16/10] w-full overflow-hidden bg-[#101B2C]"
+                    className="relative aspect-[16/10] w-full overflow-hidden bg-[#E5E5E5]"
                     style={{ position: "relative" }}
                   >
                     <Image
@@ -58,43 +55,32 @@ export default function Portfolio() {
                       alt={project.imageAlt}
                       fill
                       sizes="(max-width: 1024px) 100vw, 58vw"
-                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#101B2C]/80 via-transparent to-transparent pointer-events-none" />
-
-                    <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
-                      <span className="px-3 py-1 bg-[#101B2C]/90 text-[10px] font-mono uppercase tracking-widest text-[#FF642E] border border-white/10">
+                    <div className="absolute top-4 left-4">
+                      <span className="px-2.5 py-1 bg-white/95 text-[11px] font-mono uppercase tracking-wider text-[#171717] border border-[#E5E5E5]">
                         {project.category}
                       </span>
-                      <span className="px-2.5 py-1 bg-[#FF642E] text-[#101B2C] text-xs font-mono font-bold">
-                        {project.number}
-                      </span>
-                    </div>
-
-                    <div className="absolute bottom-4 right-4 w-9 h-9 rounded-full bg-[#FF642E] text-[#101B2C] flex items-center justify-center opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-lg">
-                      <ArrowUpRight className="w-4 h-4" />
                     </div>
                   </div>
 
-                  <div className="p-8 flex flex-col justify-between flex-grow">
+                  <div className="p-7 sm:p-9 flex flex-col justify-between flex-grow">
                     <div>
-                      <div className="text-xs font-mono uppercase tracking-wider text-[#A6AFBB] mb-2 flex items-center gap-2">
-                        <span>{project.client}</span>
-                        <span className="text-[#FF642E]">•</span>
-                        <span>CONCEPT</span>
+                      <div className="text-xs font-mono text-[#666666] mb-1">
+                        {project.client}
                       </div>
-                      <h3 className="font-display text-2xl sm:text-3xl font-bold text-[#F4F1EA] tracking-tight group-hover:text-[#FF642E] transition-colors">
+                      <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#171717] group-hover:text-[#666666] transition-colors">
                         {project.title}
                       </h3>
-                      <p className="mt-3 text-sm text-[#A6AFBB] leading-relaxed">
+                      <p className="mt-3 text-[15px] text-[#666666] leading-relaxed">
                         {project.description}
                       </p>
                     </div>
 
-                    <div className="pt-6 mt-6 border-t border-white/10 flex items-center justify-between font-mono text-xs text-[#A6AFBB]">
+                    <div className="pt-6 mt-6 border-t border-[#E5E5E5] flex items-center justify-between text-xs font-mono text-[#666666]">
                       <span>{project.deliverables.join(" • ")}</span>
-                      <span className="text-[#FF642E] font-medium group-hover:underline">
-                        Explore Case →
+                      <span className="text-[#171717] font-medium flex items-center gap-1">
+                        View case study <ArrowUpRight className="w-3.5 h-3.5" />
                       </span>
                     </div>
                   </div>
@@ -102,21 +88,21 @@ export default function Portfolio() {
               );
             })()}
 
-            {/* Project 02: Strata Capital (Tall Vertical Portrait Composition) */}
+            {/* Project 02: Strata Capital (Tall Portrait Composition) */}
             {(() => {
               const project = PORTFOLIO_PROJECTS[1];
               return (
                 <motion.article
                   key={project.number}
-                  initial={{ opacity: 0, y: 24 }}
+                  initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.15 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
                   onClick={() => setSelectedProject(project)}
-                  className="lg:col-span-5 group cursor-pointer flex flex-col bg-[#18263A] border border-white/10 hover:border-[#FF642E] transition-all duration-300"
+                  className="lg:col-span-5 group cursor-pointer flex flex-col bg-white border border-[#E5E5E5] hover:border-[#171717] transition-colors duration-200"
                 >
                   <div
-                    className="relative aspect-[4/5] w-full overflow-hidden bg-[#101B2C]"
+                    className="relative aspect-[4/5] w-full overflow-hidden bg-[#E5E5E5]"
                     style={{ position: "relative" }}
                   >
                     <Image
@@ -124,43 +110,32 @@ export default function Portfolio() {
                       alt={project.imageAlt}
                       fill
                       sizes="(max-width: 1024px) 100vw, 42vw"
-                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#101B2C]/80 via-transparent to-transparent pointer-events-none" />
-
-                    <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
-                      <span className="px-3 py-1 bg-[#101B2C]/90 text-[10px] font-mono uppercase tracking-widest text-[#FF642E] border border-white/10">
+                    <div className="absolute top-4 left-4">
+                      <span className="px-2.5 py-1 bg-white/95 text-[11px] font-mono uppercase tracking-wider text-[#171717] border border-[#E5E5E5]">
                         {project.category}
                       </span>
-                      <span className="px-2.5 py-1 bg-[#FF642E] text-[#101B2C] text-xs font-mono font-bold">
-                        {project.number}
-                      </span>
-                    </div>
-
-                    <div className="absolute bottom-4 right-4 w-9 h-9 rounded-full bg-[#FF642E] text-[#101B2C] flex items-center justify-center opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-lg">
-                      <ArrowUpRight className="w-4 h-4" />
                     </div>
                   </div>
 
-                  <div className="p-8 flex flex-col justify-between flex-grow">
+                  <div className="p-7 sm:p-9 flex flex-col justify-between flex-grow">
                     <div>
-                      <div className="text-xs font-mono uppercase tracking-wider text-[#A6AFBB] mb-2 flex items-center gap-2">
-                        <span>{project.client}</span>
-                        <span className="text-[#FF642E]">•</span>
-                        <span>CONCEPT</span>
+                      <div className="text-xs font-mono text-[#666666] mb-1">
+                        {project.client}
                       </div>
-                      <h3 className="font-display text-2xl font-bold text-[#F4F1EA] tracking-tight group-hover:text-[#FF642E] transition-colors">
+                      <h3 className="font-serif text-2xl font-normal text-[#171717] group-hover:text-[#666666] transition-colors">
                         {project.title}
                       </h3>
-                      <p className="mt-3 text-sm text-[#A6AFBB] leading-relaxed">
+                      <p className="mt-3 text-[15px] text-[#666666] leading-relaxed">
                         {project.description}
                       </p>
                     </div>
 
-                    <div className="pt-6 mt-6 border-t border-white/10 flex items-center justify-between font-mono text-xs text-[#A6AFBB]">
+                    <div className="pt-6 mt-6 border-t border-[#E5E5E5] flex items-center justify-between text-xs font-mono text-[#666666]">
                       <span>{project.deliverables.slice(0, 2).join(" • ")}</span>
-                      <span className="text-[#FF642E] font-medium group-hover:underline">
-                        Explore Case →
+                      <span className="text-[#171717] font-medium flex items-center gap-1">
+                        View case study <ArrowUpRight className="w-3.5 h-3.5" />
                       </span>
                     </div>
                   </div>
@@ -169,7 +144,7 @@ export default function Portfolio() {
             })()}
           </div>
 
-          {/* Row 2: Inverted Asymmetric Pair (Kinetic Haven: 5 cols + Synapse Quantum: Wide 7 cols) */}
+          {/* Row 2: Inverted Asymmetric Pair (Kinetic Haven: 5 cols + Synapse Quantum: 7 cols) */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             {/* Project 03: Kinetic Haven */}
             {(() => {
@@ -177,15 +152,15 @@ export default function Portfolio() {
               return (
                 <motion.article
                   key={project.number}
-                  initial={{ opacity: 0, y: 24 }}
+                  initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
+                  transition={{ duration: 0.5 }}
                   onClick={() => setSelectedProject(project)}
-                  className="lg:col-span-5 group cursor-pointer flex flex-col bg-[#18263A] border border-white/10 hover:border-[#FF642E] transition-all duration-300"
+                  className="lg:col-span-5 group cursor-pointer flex flex-col bg-white border border-[#E5E5E5] hover:border-[#171717] transition-colors duration-200"
                 >
                   <div
-                    className="relative aspect-[16/11] w-full overflow-hidden bg-[#101B2C]"
+                    className="relative aspect-[16/11] w-full overflow-hidden bg-[#E5E5E5]"
                     style={{ position: "relative" }}
                   >
                     <Image
@@ -193,43 +168,32 @@ export default function Portfolio() {
                       alt={project.imageAlt}
                       fill
                       sizes="(max-width: 1024px) 100vw, 42vw"
-                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#101B2C]/80 via-transparent to-transparent pointer-events-none" />
-
-                    <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
-                      <span className="px-3 py-1 bg-[#101B2C]/90 text-[10px] font-mono uppercase tracking-widest text-[#FF642E] border border-white/10">
+                    <div className="absolute top-4 left-4">
+                      <span className="px-2.5 py-1 bg-white/95 text-[11px] font-mono uppercase tracking-wider text-[#171717] border border-[#E5E5E5]">
                         {project.category}
                       </span>
-                      <span className="px-2.5 py-1 bg-[#FF642E] text-[#101B2C] text-xs font-mono font-bold">
-                        {project.number}
-                      </span>
-                    </div>
-
-                    <div className="absolute bottom-4 right-4 w-9 h-9 rounded-full bg-[#FF642E] text-[#101B2C] flex items-center justify-center opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-lg">
-                      <ArrowUpRight className="w-4 h-4" />
                     </div>
                   </div>
 
-                  <div className="p-8 flex flex-col justify-between flex-grow">
+                  <div className="p-7 sm:p-9 flex flex-col justify-between flex-grow">
                     <div>
-                      <div className="text-xs font-mono uppercase tracking-wider text-[#A6AFBB] mb-2 flex items-center gap-2">
-                        <span>{project.client}</span>
-                        <span className="text-[#FF642E]">•</span>
-                        <span>CONCEPT</span>
+                      <div className="text-xs font-mono text-[#666666] mb-1">
+                        {project.client}
                       </div>
-                      <h3 className="font-display text-2xl font-bold text-[#F4F1EA] tracking-tight group-hover:text-[#FF642E] transition-colors">
+                      <h3 className="font-serif text-2xl font-normal text-[#171717] group-hover:text-[#666666] transition-colors">
                         {project.title}
                       </h3>
-                      <p className="mt-3 text-sm text-[#A6AFBB] leading-relaxed">
+                      <p className="mt-3 text-[15px] text-[#666666] leading-relaxed">
                         {project.description}
                       </p>
                     </div>
 
-                    <div className="pt-6 mt-6 border-t border-white/10 flex items-center justify-between font-mono text-xs text-[#A6AFBB]">
+                    <div className="pt-6 mt-6 border-t border-[#E5E5E5] flex items-center justify-between text-xs font-mono text-[#666666]">
                       <span>{project.deliverables.slice(0, 2).join(" • ")}</span>
-                      <span className="text-[#FF642E] font-medium group-hover:underline">
-                        Explore Case →
+                      <span className="text-[#171717] font-medium flex items-center gap-1">
+                        View case study <ArrowUpRight className="w-3.5 h-3.5" />
                       </span>
                     </div>
                   </div>
@@ -243,15 +207,15 @@ export default function Portfolio() {
               return (
                 <motion.article
                   key={project.number}
-                  initial={{ opacity: 0, y: 24 }}
+                  initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.15 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
                   onClick={() => setSelectedProject(project)}
-                  className="lg:col-span-7 group cursor-pointer flex flex-col bg-[#18263A] border border-white/10 hover:border-[#FF642E] transition-all duration-300"
+                  className="lg:col-span-7 group cursor-pointer flex flex-col bg-white border border-[#E5E5E5] hover:border-[#171717] transition-colors duration-200"
                 >
                   <div
-                    className="relative aspect-[16/10] w-full overflow-hidden bg-[#101B2C]"
+                    className="relative aspect-[16/10] w-full overflow-hidden bg-[#E5E5E5]"
                     style={{ position: "relative" }}
                   >
                     <Image
@@ -259,43 +223,32 @@ export default function Portfolio() {
                       alt={project.imageAlt}
                       fill
                       sizes="(max-width: 1024px) 100vw, 58vw"
-                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#101B2C]/80 via-transparent to-transparent pointer-events-none" />
-
-                    <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
-                      <span className="px-3 py-1 bg-[#101B2C]/90 text-[10px] font-mono uppercase tracking-widest text-[#FF642E] border border-white/10">
+                    <div className="absolute top-4 left-4">
+                      <span className="px-2.5 py-1 bg-white/95 text-[11px] font-mono uppercase tracking-wider text-[#171717] border border-[#E5E5E5]">
                         {project.category}
                       </span>
-                      <span className="px-2.5 py-1 bg-[#FF642E] text-[#101B2C] text-xs font-mono font-bold">
-                        {project.number}
-                      </span>
-                    </div>
-
-                    <div className="absolute bottom-4 right-4 w-9 h-9 rounded-full bg-[#FF642E] text-[#101B2C] flex items-center justify-center opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-lg">
-                      <ArrowUpRight className="w-4 h-4" />
                     </div>
                   </div>
 
-                  <div className="p-8 flex flex-col justify-between flex-grow">
+                  <div className="p-7 sm:p-9 flex flex-col justify-between flex-grow">
                     <div>
-                      <div className="text-xs font-mono uppercase tracking-wider text-[#A6AFBB] mb-2 flex items-center gap-2">
-                        <span>{project.client}</span>
-                        <span className="text-[#FF642E]">•</span>
-                        <span>CONCEPT</span>
+                      <div className="text-xs font-mono text-[#666666] mb-1">
+                        {project.client}
                       </div>
-                      <h3 className="font-display text-2xl sm:text-3xl font-bold text-[#F4F1EA] tracking-tight group-hover:text-[#FF642E] transition-colors">
+                      <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#171717] group-hover:text-[#666666] transition-colors">
                         {project.title}
                       </h3>
-                      <p className="mt-3 text-sm text-[#A6AFBB] leading-relaxed">
+                      <p className="mt-3 text-[15px] text-[#666666] leading-relaxed">
                         {project.description}
                       </p>
                     </div>
 
-                    <div className="pt-6 mt-6 border-t border-white/10 flex items-center justify-between font-mono text-xs text-[#A6AFBB]">
+                    <div className="pt-6 mt-6 border-t border-[#E5E5E5] flex items-center justify-between text-xs font-mono text-[#666666]">
                       <span>{project.deliverables.join(" • ")}</span>
-                      <span className="text-[#FF642E] font-medium group-hover:underline">
-                        Explore Case →
+                      <span className="text-[#171717] font-medium flex items-center gap-1">
+                        View case study <ArrowUpRight className="w-3.5 h-3.5" />
                       </span>
                     </div>
                   </div>

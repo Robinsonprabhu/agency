@@ -3,55 +3,53 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Compass, Code2, Layers, Target } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function About() {
-  const pillars = [
+  const principles = [
     {
-      icon: Target,
-      title: "Strategic Thinking",
-      desc: "Every design decision stems from deep organizational clarity. We challenge assumptions, clarify market positioning, and define tangible digital objectives before creating visual assets.",
+      title: "Strategic thinking",
+      description:
+        "Every design decision originates from business clarity. We clarify market positioning, user intent, and core objectives before designing interfaces.",
     },
     {
-      icon: Compass,
-      title: "Thoughtful Design",
-      desc: "Distinction without clutter. We build cohesive visual languages, meticulous typographic systems, and intuitive user experiences that elevate brands without unnecessary ornamentation.",
+      title: "Thoughtful design",
+      description:
+        "Restraint creates longevity. We develop typographic hierarchies, consistent visual systems, and clear layouts that elevate brands without unnecessary decoration.",
     },
     {
-      icon: Code2,
-      title: "Modern Engineering",
-      desc: "Clean, resilient codebases engineered for zero friction. Headless React and Next.js architectures optimized for speed, enterprise security, and long-term maintainability.",
+      title: "Modern engineering",
+      description:
+        "Clean, resilient codebases engineered for speed. Headless React and Next.js platforms optimized for accessibility, maintainability, and rapid load times.",
     },
     {
-      icon: Layers,
-      title: "Business-Focused Digital Experiences",
-      desc: "A digital flagship must drive commercial momentum. We design conversion pathways and interactive platforms that turn casual visitors into loyal brand advocates.",
+      title: "Business-focused experiences",
+      description:
+        "A digital product must create measurable value. We build intuitive journeys and conversion pathways that turn visitors into enduring brand advocates.",
     },
   ];
 
   return (
-    <section id="about" className="py-24 sm:py-32 bg-[#F4F1EA] text-[#18202B] border-b border-[#18202B]/10">
+    <section id="about" className="py-24 sm:py-32 bg-[#F7F7F5] border-b border-[#E5E5E5]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        {/* Section Index Marker */}
-        <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-widest text-[#FF642E] mb-6">
-          <span className="w-2 h-2 rounded-full bg-[#FF642E]" />
-          <span>02 // AGENCY MANIFESTO</span>
+        {/* Section Intro Label */}
+        <div className="text-xs font-mono uppercase tracking-wider text-[#666666] mb-8">
+          02 // Studio Philosophy
         </div>
 
-        {/* Asymmetric Two-Column Header & Narrative */}
+        {/* Asymmetric Two-Column Header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start mb-20">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
             className="lg:col-span-7"
           >
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#18202B] uppercase leading-[1.05] text-balance">
-              Good design isn&apos;t decoration<span className="text-[#FF642E]">.</span>
-              <br />
-              It&apos;s direction<span className="text-[#FF642E]">.</span>
+            <h2 className="font-serif text-4xl sm:text-6xl font-normal leading-[1.08] tracking-[-0.02em] text-[#171717]">
+              Good design isn&apos;t decoration.{" "}
+              <span className="italic font-normal">It&apos;s direction</span>.
             </h2>
           </motion.div>
 
@@ -59,81 +57,66 @@ export default function About() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="lg:col-span-5 space-y-6 text-base sm:text-lg text-[#18202B]/80 font-normal leading-relaxed"
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="lg:col-span-5 space-y-6 text-[16px] text-[#666666] leading-relaxed font-normal"
           >
             <p>
-              In a digital landscape crowded with disposable templates and algorithmic sameness, true
-              authority requires deliberate conviction. At FORM &amp; FUNCTION, we strip away excess to
-              reveal the core truth of your business.
+              In an industry often distracted by superficial trends and template automation, lasting distinction requires deliberate conviction. At FORM &amp; FUNCTION, we strip away excess to reveal the structural foundation of your organization.
             </p>
-            <p className="text-sm sm:text-base text-[#18202B]/70">
-              We operate as senior design and technology partners, working closely alongside leadership
-              teams to craft custom digital experiences that stand the test of time.
+            <p>
+              We operate as senior design and technology partners, collaborating directly with ambitious leadership teams to build digital flagships that perform reliably over years, not months.
             </p>
 
             <div className="pt-2">
               <Link
                 href="#contact"
-                className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider font-semibold text-[#18202B] hover:text-[#FF642E] transition-colors border-b-2 border-[#18202B] hover:border-[#FF642E] pb-1"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-[#171717] hover:text-[#666666] border-b border-[#171717] pb-0.5 transition-colors"
               >
-                <span>Discover our collaboration model</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
+                <span>Learn about our collaboration process</span>
+                <ArrowUpRight className="w-4 h-4" />
               </Link>
             </div>
           </motion.div>
         </div>
 
-        {/* Asymmetric Visual Composition & Four Core Pillars */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left Asymmetric Editorial Visual */}
+        {/* Asymmetric Content Composition: Architectural Photo & Principles Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          {/* Architectural Image */}
           <div className="lg:col-span-5 relative" style={{ position: "relative" }}>
             <div
-              className="relative aspect-[4/5] w-full overflow-hidden bg-[#18202B]/10 border border-[#18202B]/20"
+              className="relative aspect-[4/5] w-full overflow-hidden bg-white border border-[#E5E5E5]"
               style={{ position: "relative" }}
             >
               <Image
                 src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
-                alt="Architectural studio space demonstrating structural design rigor"
+                alt="Studio architectural workspace"
                 fill
-                className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-cover"
               />
-              <div className="absolute inset-0 bg-[#18202B]/10 pointer-events-none" />
             </div>
-
-            <div className="mt-4 flex items-center justify-between text-xs font-mono text-[#18202B]/60">
-              <span>STUDIO SPACE &amp; ARCHITECTURAL INSPIRATION</span>
-              <span>FIGURE 02.A</span>
+            <div className="mt-3 text-xs font-mono text-[#666666]">
+              Architectural workspace &amp; material research
             </div>
           </div>
 
-          {/* Right: The Four Disciplines of Form & Function */}
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-8">
-            {pillars.map((pillar, i) => {
-              const Icon = pillar.icon;
-              return (
-                <div
-                  key={pillar.title}
-                  className="p-6 bg-white/70 border border-[#18202B]/15 hover:border-[#FF642E] transition-colors flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="w-10 h-10 flex items-center justify-center bg-[#18202B] text-[#F4F1EA] mb-6">
-                      <Icon className="w-5 h-5 text-[#FF642E]" />
-                    </div>
-                    <span className="font-mono text-xs text-[#FF642E] uppercase tracking-wider block mb-2">
-                      PILLAR 0{i + 1}
-                    </span>
-                    <h3 className="font-display text-xl font-bold text-[#18202B] tracking-tight mb-3">
-                      {pillar.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-[#18202B]/75 leading-relaxed">
-                      {pillar.desc}
-                    </p>
-                  </div>
+          {/* Four Concrete Principles (Clean editorial list, no bubbly cards) */}
+          <div className="lg:col-span-7 divide-y divide-[#E5E5E5] border-y border-[#E5E5E5]">
+            {principles.map((item, i) => (
+              <div key={item.title} className="py-6 sm:py-8 grid grid-cols-1 sm:grid-cols-12 gap-4">
+                <div className="sm:col-span-4 font-mono text-xs text-[#666666] pt-1">
+                  0{i + 1} //
                 </div>
-              );
-            })}
+                <div className="sm:col-span-8 space-y-2">
+                  <h3 className="text-lg font-medium text-[#171717]">
+                    {item.title}
+                  </h3>
+                  <p className="text-[15px] text-[#666666] leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

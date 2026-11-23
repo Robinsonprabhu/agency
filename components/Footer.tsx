@@ -10,9 +10,8 @@ export default function Footer() {
   };
 
   const navLinks = [
-    { label: "Home", href: "#" },
-    { label: "Services", href: "#services" },
     { label: "Work", href: "#work" },
+    { label: "Services", href: "#services" },
     { label: "About", href: "#about" },
     { label: "Contact", href: "#contact" },
   ];
@@ -26,22 +25,22 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-[#101B2C] text-[#F4F1EA] pt-20 pb-12 border-t border-[#18263A]">
+    <footer className="bg-white text-[#171717] pt-20 pb-12 border-t border-[#E5E5E5]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        {/* Top Callout */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between pb-16 border-b border-[#18263A] gap-8">
+        {/* Top Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between pb-14 border-b border-[#E5E5E5] gap-8">
           <div>
-            <span className="text-xs font-mono uppercase tracking-widest text-[#FF642E] block mb-3">
-              [ DIRECT DIGITAL COLLABORATION ]
+            <span className="text-xs font-mono uppercase tracking-wider text-[#666666] block mb-3">
+              Independent Digital Studio
             </span>
-            <div className="font-display text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-[#F4F1EA]">
-              FORM &amp; FUNCTION<span className="text-[#FF642E]">.</span>
+            <div className="font-serif text-4xl sm:text-6xl font-normal tracking-[-0.02em] text-[#171717]">
+              FORM &amp; FUNCTION
             </div>
           </div>
 
           <button
             onClick={scrollToTop}
-            className="self-start md:self-end flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#A6AFBB] hover:text-[#FF642E] border border-white/10 hover:border-[#FF642E] px-4 py-3 transition-colors cursor-pointer"
+            className="self-start md:self-end flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#666666] hover:text-[#171717] border border-[#E5E5E5] hover:border-[#171717] px-4 py-2.5 rounded-[2px] transition-colors cursor-pointer"
             aria-label="Scroll back to top"
           >
             <span>Back to top</span>
@@ -50,18 +49,18 @@ export default function Footer() {
         </div>
 
         {/* Directory Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 py-16 border-b border-[#18263A] text-xs font-mono">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 py-14 border-b border-[#E5E5E5] text-xs font-mono">
           {/* Navigation */}
           <div>
-            <div className="text-[#A6AFBB] uppercase tracking-widest mb-4">
-              DIRECTORY
+            <div className="text-[#999999] uppercase tracking-wider mb-4">
+              Directory
             </div>
-            <ul className="space-y-3">
+            <ul className="space-y-2.5">
               {navLinks.map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="text-[#F4F1EA] hover:text-[#FF642E] transition-colors"
+                    className="text-[#666666] hover:text-[#171717] transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -70,35 +69,35 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Core Practices */}
+          {/* Capabilities */}
           <div>
-            <div className="text-[#A6AFBB] uppercase tracking-widest mb-4">
-              CAPABILITIES
+            <div className="text-[#999999] uppercase tracking-wider mb-4">
+              Capabilities
             </div>
-            <ul className="space-y-3 text-[#F4F1EA]/80">
-              <li>01. UI/UX Design</li>
-              <li>02. Web Development</li>
-              <li>03. Brand Identity</li>
-              <li>04. Digital Strategy</li>
+            <ul className="space-y-2.5 text-[#666666]">
+              <li>UI/UX Design</li>
+              <li>Web Development</li>
+              <li>Brand Identity</li>
+              <li>Digital Strategy</li>
             </ul>
           </div>
 
-          {/* Social Links */}
+          {/* External Archives */}
           <div>
-            <div className="text-[#A6AFBB] uppercase tracking-widest mb-4">
-              ARCHIVES &amp; NETWORK
+            <div className="text-[#999999] uppercase tracking-wider mb-4">
+              Networks
             </div>
-            <ul className="space-y-3">
+            <ul className="space-y-2.5">
               {socialLinks.map((social) => (
                 <li key={social.label}>
                   <a
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-[#F4F1EA] hover:text-[#FF642E] transition-colors"
+                    className="inline-flex items-center gap-1 text-[#666666] hover:text-[#171717] transition-colors"
                   >
                     <span>{social.label}</span>
-                    <ArrowUpRight className="w-3 h-3 text-[#A6AFBB]" />
+                    <ArrowUpRight className="w-3 h-3 text-[#999999]" />
                   </a>
                 </li>
               ))}
@@ -107,29 +106,27 @@ export default function Footer() {
 
           {/* Studio Locations */}
           <div>
-            <div className="text-[#A6AFBB] uppercase tracking-widest mb-4">
-              STUDIO HUBS
+            <div className="text-[#999999] uppercase tracking-wider mb-4">
+              Studio Locations
             </div>
-            <div className="space-y-2 text-[#F4F1EA]/80 leading-relaxed">
-              <div>Zürich: Limmatstrasse 214</div>
+            <div className="space-y-2 text-[#666666]">
+              <div>Zurich: Limmatstrasse 214</div>
               <div>London: 42 Redchurch St</div>
               <div>Tokyo: Minami-Aoyama 5</div>
-              <div className="pt-2 text-[#A6AFBB]">
-                Inquiries: hello@formandfunction.agency
+              <div className="pt-2 text-[#171717]">
+                hello@formandfunction.agency
               </div>
             </div>
           </div>
         </div>
 
         {/* Bottom Attribution */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#A6AFBB]">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#666666]">
           <div>
-            © {new Date().getFullYear()} FORM &amp; FUNCTION Digital Agency Ltd. All rights reserved.
+            © {new Date().getFullYear()} FORM &amp; FUNCTION Studio Ltd. All rights reserved.
           </div>
-          <div className="flex items-center gap-4">
-            <span>Primary: Deep Navy #101B2C</span>
-            <span>•</span>
-            <span className="text-[#FF642E]">Accent: Electric Orange #FF642E</span>
+          <div>
+            Minimal white editorial architecture • Built with Next.js &amp; Tailwind CSS
           </div>
         </div>
       </div>

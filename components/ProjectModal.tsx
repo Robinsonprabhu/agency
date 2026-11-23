@@ -3,7 +3,7 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { X, ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { X, ArrowUpRight } from "lucide-react";
 import { ProjectItem } from "@/types";
 
 interface ProjectModalProps {
@@ -36,26 +36,23 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
     <div
       role="dialog"
       aria-modal="true"
-      aria-labelledby="modal-case-title"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 bg-[#101B2C]/85 backdrop-blur-md"
+      aria-labelledby="modal-project-title"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 bg-black/60 backdrop-blur-sm"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-4xl max-h-[90vh] bg-[#101B2C] border border-[#18263A] text-[#F4F1EA] shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200"
+        className="relative w-full max-w-4xl max-h-[90vh] bg-white border border-[#E5E5E5] text-[#171717] shadow-xl flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Top Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-[#18263A] bg-[#18263A]/50">
-          <div className="flex items-center gap-3">
-            <span className="w-2 h-2 rounded-full bg-[#FF642E]" />
-            <span className="text-xs font-mono uppercase tracking-wider text-[#A6AFBB]">
-              ARCHIVE // {project.category}
-            </span>
+        <div className="flex items-center justify-between px-6 py-4 border-b border-[#E5E5E5] bg-white">
+          <div className="text-xs font-mono uppercase tracking-wider text-[#666666]">
+            Case Archive // {project.category}
           </div>
           <button
             onClick={onClose}
             aria-label="Close project modal"
-            className="p-1.5 text-[#A6AFBB] hover:text-[#F4F1EA] hover:bg-[#18263A] transition-colors"
+            className="p-1.5 text-[#666666] hover:text-[#171717] hover:bg-[#F7F7F5] transition-colors rounded-[2px]"
           >
             <X className="w-5 h-5" />
           </button>
@@ -64,7 +61,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         {/* Modal Scrollable Body */}
         <div className="overflow-y-auto p-6 sm:p-8 space-y-6">
           <div
-            className="relative aspect-[16/9] w-full overflow-hidden bg-[#18263A] border border-white/10"
+            className="relative aspect-[16/9] w-full overflow-hidden bg-[#F7F7F5] border border-[#E5E5E5]"
             style={{ position: "relative" }}
           >
             <Image
@@ -78,76 +75,73 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pt-2">
             <div className="md:col-span-8 space-y-4">
-              <div className="flex items-center gap-3 font-mono text-xs text-[#FF642E]">
-                <span>CASE {project.number}</span>
-                <span>•</span>
-                <span>CONCEPTUAL CASE STUDY</span>
+              <div className="font-mono text-xs text-[#666666]">
+                Case {project.number} • Conceptual Case Study
               </div>
 
               <h2
-                id="modal-case-title"
-                className="font-display text-2xl sm:text-4xl font-bold tracking-tight text-[#F4F1EA]"
+                id="modal-project-title"
+                className="font-serif text-3xl sm:text-4xl font-normal text-[#171717]"
               >
                 {project.title}
               </h2>
 
-              <p className="text-sm sm:text-base text-[#A6AFBB] leading-relaxed">
+              <p className="text-[15px] text-[#666666] leading-relaxed">
                 {project.description}
               </p>
 
               <div className="pt-4">
-                <span className="text-xs font-mono uppercase tracking-widest text-[#A6AFBB] block mb-3">
-                  Delivered Competencies
+                <span className="text-xs font-mono uppercase tracking-wider text-[#666666] block mb-2">
+                  Delivered Scope
                 </span>
-                <div className="flex flex-wrap gap-2">
+                <ul className="flex flex-wrap gap-2">
                   {project.deliverables.map((item) => (
-                    <span
+                    <li
                       key={item}
-                      className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#18263A] text-xs font-mono text-[#F4F1EA]"
+                      className="px-3 py-1 bg-[#F7F7F5] border border-[#E5E5E5] text-xs font-sans text-[#171717]"
                     >
-                      <CheckCircle2 className="w-3 h-3 text-[#FF642E]" />
                       {item}
-                    </span>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             </div>
 
-            <div className="md:col-span-4 bg-[#18263A] p-6 border border-white/10 space-y-4 text-xs font-mono">
+            <div className="md:col-span-4 bg-[#F7F7F5] p-6 border border-[#E5E5E5] space-y-4 text-xs font-mono">
               <div>
-                <span className="text-[#A6AFBB] block mb-1">CLIENT ARCHIVE</span>
-                <span className="text-[#F4F1EA] font-medium">{project.client}</span>
+                <span className="text-[#666666] block mb-1">CLIENT CONTEXT</span>
+                <span className="text-[#171717] font-medium">{project.client}</span>
               </div>
-              <div className="border-t border-white/10 pt-3">
-                <span className="text-[#A6AFBB] block mb-1">DISCIPLINE</span>
-                <span className="text-[#F4F1EA]">{project.category}</span>
+              <div className="border-t border-[#E5E5E5] pt-3">
+                <span className="text-[#666666] block mb-1">DISCIPLINE</span>
+                <span className="text-[#171717]">{project.category}</span>
               </div>
-              <div className="border-t border-white/10 pt-3">
-                <span className="text-[#A6AFBB] block mb-1">CLASSIFICATION</span>
-                <span className="text-[#FF642E]">Original Studio Commission</span>
+              <div className="border-t border-[#E5E5E5] pt-3">
+                <span className="text-[#666666] block mb-1">CLASSIFICATION</span>
+                <span className="text-[#171717]">Original Conceptual Work</span>
               </div>
             </div>
           </div>
         </div>
 
         {/* Modal Bottom Bar */}
-        <div className="px-6 py-4 bg-[#18263A]/40 border-t border-[#18263A] flex flex-wrap items-center justify-between gap-4">
-          <span className="text-xs font-mono text-[#A6AFBB]">
-            CONFIDENTIAL ARCHIVE RECORD
+        <div className="px-6 py-4 bg-[#F7F7F5] border-t border-[#E5E5E5] flex flex-wrap items-center justify-between gap-4">
+          <span className="text-xs font-mono text-[#666666]">
+            FF-ARCHIVE-{project.number}
           </span>
           <div className="flex items-center gap-3">
             <button
               onClick={onClose}
-              className="px-4 py-2 text-xs font-mono uppercase tracking-wider text-[#A6AFBB] hover:text-[#F4F1EA]"
+              className="px-4 py-2 text-xs font-mono uppercase tracking-wider text-[#666666] hover:text-[#171717]"
             >
               Close
             </button>
             <Link
               href="#contact"
               onClick={onClose}
-              className="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-semibold font-display bg-[#FF642E] text-[#101B2C] hover:bg-[#ff7b4d] px-5 py-2.5 transition-colors"
+              className="inline-flex items-center gap-2 text-xs font-medium bg-[#171717] text-white hover:bg-[#333333] px-4 py-2.5 rounded-[2px] transition-colors"
             >
-              <span>Commission Similar Project</span>
+              <span>Discuss similar project</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </Link>
           </div>

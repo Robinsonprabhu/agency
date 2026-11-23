@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter } from "next/font/google";
+import { Instrument_Serif, Inter } from "next/font/google";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-display",
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-serif",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: "400",
+  style: ["normal", "italic"],
 });
 
 const inter = Inter({
-  variable: "--font-body",
+  variable: "--font-sans",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -19,21 +20,19 @@ export const metadata: Metadata = {
   description:
     "We combine strategy, design and technology to create meaningful digital experiences for ambitious brands. Independent digital design and development agency.",
   keywords: [
-    "Design Agency",
-    "Digital Experiences",
+    "Design Studio",
+    "Digital Agency",
     "UI/UX Design",
     "Web Development",
     "Brand Identity",
     "Digital Strategy",
-    "Next.js Agency",
   ],
-  authors: [{ name: "FORM & FUNCTION Studio" }],
+  authors: [{ name: "FORM & FUNCTION" }],
   openGraph: {
-    title: "FORM & FUNCTION — Digital Experiences",
+    title: "FORM & FUNCTION — Digital Agency",
     description:
       "We combine strategy, design and technology to create meaningful digital experiences for ambitious brands.",
     type: "website",
-    locale: "en_US",
   },
 };
 
@@ -45,9 +44,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${inter.variable} scroll-smooth antialiased`}
+      className={`${instrumentSerif.variable} ${inter.variable} scroll-smooth antialiased`}
     >
-      <body className="min-h-screen bg-[#101B2C] text-[#F4F1EA] font-sans selection:bg-[#FF642E] selection:text-[#101B2C] overflow-x-hidden">
+      <body className="min-h-screen bg-[#FFFFFF] text-[#171717] font-sans selection:bg-[#171717] selection:text-[#FFFFFF] overflow-x-hidden">
         {children}
       </body>
     </html>

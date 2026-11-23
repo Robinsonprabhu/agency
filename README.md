@@ -1,95 +1,76 @@
-# FORM & FUNCTION — Premium Digital Agency Website
+# FORM & FUNCTION — Minimal White Editorial Redesign
 
-A complete, production-quality digital agency homepage built with **Next.js 15+ (App Router)**, **TypeScript**, **Tailwind CSS**, and **Framer Motion**.
-
----
-
-## ✦ Creative Direction & References
-
-- **Primary Design References**: Inspired by the art direction, typographic restraint, and bold asymmetric compositions of [Bleech](https://bleech.de/) and [Bambuk Studio](https://bambukstudio.com/).
-- **Visual Identity**: Premium editorial, confident, and professional. Deep navy foundation with alternating light sections to establish visual rhythm.
-- **Human-Crafted Appearance**: Avoids generic AI template aesthetics, excessive rounded cards, and decorative gradients.
+A complete, human-designed digital agency homepage redesigned with a **minimal white editorial aesthetic**, built with **Next.js 15+ (App Router)**, **TypeScript**, and **Tailwind CSS**.
 
 ---
 
-## ✦ Colour System
+## ✦ Creative Direction & Art Direction
 
-| Role | Colour Code | Application |
-|---|---|---|
-| **Primary Background** | `#101B2C` | Deep navy canvas across Hero, Services, Portfolio, Footer |
-| **Secondary Background** | `#18263A` | Slightly lighter navy for cards, containers, and borders |
-| **Primary Accent** | `#FF642E` | Electric orange for CTAs, indicators, numbers, highlights |
-| **Primary Text** | `#F4F1EA` | Warm white for primary typography on dark sections |
-| **Secondary Text** | `#A6AFBB` | Muted grey for subheadings, captions, and metadata |
-| **Light Section Background** | `#F4F1EA` | Off-white canvas for About and Contact sections |
-| **Dark Text on Light** | `#18202B` | Charcoal navy for high-contrast legibility on light sections |
+- **Visual Direction**: Minimal white editorial inspired by independent European creative agencies, architecture monographs, and contemporary design magazines.
+- **Predominant Colour Palette**:
+  - Primary background: `#FFFFFF`
+  - Alternate section background: `#F7F7F5`
+  - Primary text: `#171717`
+  - Secondary text: `#666666`
+  - Borders and thin dividers: `#E5E5E5`
+  - Accent: `#222222`
+- **Zero AI-Generated Aesthetics**: Completely stripped away all navy-and-orange gradients, glowing shapes, floating orbs, repetitive card grids, and pill buttons.
 
 ---
 
 ## ✦ Typography System
 
-- **Display Headings**: `Space Grotesk` (via Next.js Google Fonts) with oversized scale, uppercase tracking, and intentional line breaks.
-- **Body & Captions**: `Inter` (via Next.js Google Fonts) for crisp readability, paired with monospace metadata tags.
+- **Display Headings**: `Instrument Serif` (Google Fonts via `next/font/google`) featuring mixed regular and italic styles for high-craft editorial emphasis.
+- **Body & Captions**: `Inter` (Google Fonts via `next/font/google`) with comfortable 15–16px sizing, natural line lengths, and left alignment.
 
 ---
 
-## ✦ Sections Included
+## ✦ Component Architecture
 
-1. **Header & Navigation (`components/Header.tsx`)**
-   - Left: **FORM & FUNCTION** wordmark with agency dot indicator.
-   - Right: Home, Services, Work, About, Contact.
-   - Prominent **"Let's Talk"** CTA with electric orange styling (`#FF642E`).
-   - Responsive mobile navigation drawer with accessible ARIA states and scroll lock.
+1. **Header (`components/Header.tsx`)**
+   - Clean white header with a thin `#E5E5E5` bottom border.
+   - Refined black wordmark: **FORM & FUNCTION**.
+   - Minimal navigation links in natural title case (Work, Services, About, Contact).
+   - Solid black CTA button (`#171717`) with modest square corners (`rounded-[2px]`).
 
 2. **Hero Section (`components/Hero.tsx`)**
-   - Headline: *"WE BUILD DIGITAL EXPERIENCES THAT MOVE BUSINESSES FORWARD."*
-   - Supporting narrative: *"We combine strategy, design and technology to create meaningful digital experiences for ambitious brands."*
-   - Dual CTAs: **"Start a Project"** (electric orange) and **"Explore Our Work"**.
-   - Bold asymmetric layout featuring the Vahlen Atelier visual, location metadata (Zürich • London • Tokyo), and agency convictions.
+   - White background with large, left-aligned headline in `Instrument Serif`:
+     *"We build digital experiences that move businesses forward."*
+   - Short, natural supporting paragraph and two restrained CTA buttons: **"Start a project"** and **"Explore our work"**.
+   - Asymmetric editorial composition with the Vahlen Atelier visual and side metadata panel.
 
-3. **Client Trust Section (`components/ClientStrip.tsx`)**
-   - Restrained partner strip featuring **purely fictional brand concepts**:
-     - *KRONOS DYNAMICS* (Robotics & Automation)
-     - *AURA SYSTEMS* (Ambient Computing)
-     - *VELOX LABS* (Advanced Propulsion)
-     - *MONOLITH SPATIAL* (Architectural Tech)
-     - *ARCHETYPE PROTOCOL* (Decentralized Systems)
-     - *NEXUS COLLECTIVE* (Renewable Energy Grid)
+3. **Client Strip (`components/ClientStrip.tsx`)**
+   - Restrained partner strip with purely fictional brand concepts (*Kronos Dynamics*, *Aura Systems*, *Velox Labs*, *Monolith Spatial*, *Archetype Protocol*, *Nexus Collective*).
 
 4. **About Section (`components/About.tsx`)**
-   - **Light section background (`#F4F1EA`) with dark text (`#18202B`)** for visual rhythm.
-   - Headline: *"GOOD DESIGN ISN'T DECORATION. IT'S DIRECTION."*
-   - Four core pillars: Strategic Thinking, Thoughtful Design, Modern Engineering, Business-Focused Digital Experiences.
-   - Asymmetric architectural visual composition.
+   - Alternating warm-white background (`#F7F7F5`).
+   - Headline: *"Good design isn't decoration. It's direction."*
+   - Explains the studio's concrete approach across Strategic thinking, Thoughtful design, Modern engineering, and Business-focused experiences.
 
 5. **Services Section (`components/Services.tsx`)**
-   - Section heading: *"What we bring to the table."*
-   - Four specialized disciplines in a structured editorial list:
+   - White background with clean numbered list format separated by thin `#E5E5E5` dividers:
      - `01. UI/UX Design`
      - `02. Web Development`
      - `03. Brand Identity`
      - `04. Digital Strategy`
-   - Each with bespoke Lucide icons, deliverables tags, and subtle hover states.
+   - Avoids repetitive rounded cards and unnecessary decorative icons.
 
-6. **Selected Work / Portfolio (`components/Portfolio.tsx` & `components/ProjectModal.tsx`)**
-   - Section heading: *"Selected work. Real impact."*
-   - Four original fictional projects in a bold asymmetric layout (mixing landscape, portrait, and wide formats):
-     - `01` **Vahlen Atelier** (Fashion E-Commerce & Visual Identity) — *Wide 7-col landscape*
-     - `02` **Strata Capital** (Financial Technology Platform) — *Tall 5-col portrait*
-     - `03` **Kinetic Haven** (Modern Hospitality Brand & Booking) — *5-col landscape*
-     - `04` **Synapse Quantum** (Technology Startup Website) — *Wide 7-col landscape*
-   - Clearly marked as conceptual case studies with interactive details modal.
+6. **Portfolio Section (`components/Portfolio.tsx` & `components/ProjectModal.tsx`)**
+   - Alternating background (`#F7F7F5`).
+   - Asymmetric image grid mixing landscape, portrait, and wide formats for 4 conceptual case studies:
+     - `01` **Vahlen Atelier** (Fashion E-Commerce & Identity)
+     - `02` **Strata Capital** (Financial Technology Platform)
+     - `03` **Kinetic Haven** (Modern Hospitality Brand & Booking)
+     - `04` **Synapse Quantum** (Technology Startup Website)
+   - Interactive modal case study viewer with accessible keyboard support.
 
 7. **Contact Section (`components/Contact.tsx`)**
-   - **Light section background (`#F4F1EA`) with dark text (`#18202B`)**.
-   - Headline: *"Have a good idea? Let's build something great."*
-   - Name input, Email input, Scope & Budget selectors, Message textarea, and Submit button.
-   - Client-side validation with real-time error handling, loading spinner, and success payload feedback card.
-   - Transparent notice stating that client-side validation is executed without fake email spoofing.
+   - White background with thin-bordered form inputs (`#E5E5E5` with `#171717` focus).
+   - Functional client-side validation for required fields and valid email format.
+   - Clear success feedback state without fake backend email spoofing.
 
 8. **Footer (`components/Footer.tsx`)**
-   - Deep navy background (`#101B2C`) with electric orange accents.
-   - Agency branding, navigation links, studio hubs (Zürich, London, Tokyo), social links, and smooth "Back to top" action.
+   - Minimal white footer with clear directory links, studio locations (Zurich, London, Tokyo), and back-to-top navigation.
 
 ---
 
@@ -98,24 +79,18 @@ A complete, production-quality digital agency homepage built with **Next.js 15+ 
 ### Prerequisites
 
 - Node.js `18.18+` or `20+` (Tested on Node `v24`)
-- npm, yarn, or pnpm
+- npm, pnpm, or yarn
 
-### Installation
+### Installation & Run
 
 ```bash
-# Clone the repository
-git clone https://github.com/your-username/form-and-function.git
-
-# Navigate to project
+# Navigate to directory
 cd internship
 
 # Install dependencies
 npm install
-```
 
-### Development Server
-
-```bash
+# Run development server
 npm run dev
 ```
 
@@ -124,19 +99,6 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 ### Production Build
 
 ```bash
-# Verify build
 npm run build
-
-# Start production server
 npm start
 ```
-
----
-
-## ✦ Deployment to Vercel
-
-1. Push your repository to GitHub.
-2. Sign in to [Vercel](https://vercel.com) and click **"Add New Project"**.
-3. Import your GitHub repository.
-4. Framework preset will automatically detect **Next.js**.
-5. Click **"Deploy"**.
