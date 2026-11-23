@@ -2,10 +2,11 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [language, setLanguage] = useState<"EN" | "DE">("EN");
 
   useEffect(() => {
     if (mobileMenuOpen) {
@@ -19,97 +20,141 @@ export default function Header() {
   }, [mobileMenuOpen]);
 
   const navLinks = [
-    { label: "Work", href: "#work" },
+    { label: "Team", href: "#team" },
     { label: "Services", href: "#services" },
-    { label: "About", href: "#about" },
+    { label: "Products", href: "#products" },
+    { label: "Podcast", href: "#podcast" },
+    { label: "Blog", href: "#blog" },
     { label: "Contact", href: "#contact" },
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-[#E5E5E5]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 h-20 flex items-center justify-between">
-        {/* Brand Wordmark */}
-        <Link
-          href="#"
-          className="group flex items-baseline gap-2"
-          aria-label="FORM & FUNCTION Homepage"
-        >
-          <span className="font-sans font-medium text-lg tracking-tight text-[#171717]">
-            FORM &amp; FUNCTION
-          </span>
-          <span className="text-[11px] font-sans text-[#666666] hidden sm:inline">
-            Studio
-          </span>
-        </Link>
+    <>
+      {/* Accessible skip-to-main-content link */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2 focus:bg-[#111111] focus:text-white focus:text-xs font-mono"
+      >
+        Skip to main content
+      </a>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-9 text-[15px] font-normal text-[#666666]">
-          {navLinks.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className="hover:text-[#171717] transition-colors"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-
-        {/* Action Button: Refined Black CTA */}
-        <div className="hidden md:flex items-center space-x-6">
+      <header className="sticky top-0 z-40 bg-white border-b border-[#E5E5E5]">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 h-18 sm:h-20 flex items-center justify-between">
+          {/* Wordmark */}
           <Link
-            href="#contact"
-            className="inline-flex items-center gap-2 text-sm font-medium bg-[#171717] text-white hover:bg-[#333333] px-5 py-2.5 rounded-[2px] transition-colors"
+            href="#"
+            className="flex items-baseline gap-2 font-sans font-medium text-lg tracking-tight text-[#111111] hover:text-[#666666] transition-colors"
+            aria-label="FORM & FUNCTION Homepage"
           >
-            <span>Let&apos;s talk</span>
-            <ArrowUpRight className="w-3.5 h-3.5" />
+            <span>FORM &amp; FUNCTION</span>
           </Link>
-        </div>
 
-        {/* Mobile Hamburger Toggle */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 text-[#171717] hover:text-[#666666] focus:outline-none"
-          aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-          aria-expanded={mobileMenuOpen}
-        >
-          {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-        </button>
-      </div>
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center space-x-8 text-[15px] font-normal text-[#111111]">
+            <nav className="flex items-center space-x-7">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className="text-[#666666] hover:text-[#111111] transition-colors relative py-1 group"
+                >
+                  <span>{link.label}</span>
+                  <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#111111] transition-all duration-200 group-hover:w-full" />
+                </Link>
+              ))}
+            </nav>
 
-      {/* Mobile Navigation Drawer */}
-      {mobileMenuOpen && (
-        <div className="fixed inset-0 top-20 bg-white z-40 md:hidden flex flex-col justify-between px-6 py-10 border-t border-[#E5E5E5] overflow-y-auto">
-          <nav className="flex flex-col space-y-6">
-            {navLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-2xl font-serif text-[#171717] hover:text-[#666666] transition-colors"
+            {/* DE / EN Language Switch */}
+            <div className="flex items-center gap-1.5 pl-6 border-l border-[#E5E5E5] text-xs font-mono">
+              <button
+                type="button"
+                onClick={() => setLanguage("EN")}
+                className={`px-1 py-0.5 transition-colors cursor-pointer ${
+                  language === "EN" ? "text-[#111111] font-semibold underline underline-offset-4" : "text-[#666666] hover:text-[#111111]"
+                }`}
+                aria-label="Switch to English"
               >
-                {link.label}
-              </Link>
-            ))}
-            <div className="pt-4">
-              <Link
-                href="#contact"
-                onClick={() => setMobileMenuOpen(false)}
-                className="inline-flex items-center justify-center gap-2 w-full text-sm font-medium bg-[#171717] text-white hover:bg-[#333333] py-3.5 rounded-[2px] transition-colors"
+                EN
+              </button>
+              <span className="text-[#E5E5E5]">/</span>
+              <button
+                type="button"
+                onClick={() => setLanguage("DE")}
+                className={`px-1 py-0.5 transition-colors cursor-pointer ${
+                  language === "DE" ? "text-[#111111] font-semibold underline underline-offset-4" : "text-[#666666] hover:text-[#111111]"
+                }`}
+                aria-label="Switch to German"
               >
-                <span>Let&apos;s talk</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </Link>
+                DE
+              </button>
             </div>
-          </nav>
+          </div>
 
-          <div className="pt-8 border-t border-[#E5E5E5] text-xs font-mono text-[#666666] space-y-2">
-            <div>hello@formandfunction.agency</div>
-            <div>London • Zurich • Tokyo</div>
-            <div className="text-[#999999] pt-2">© 2026 FORM &amp; FUNCTION</div>
+          {/* Mobile Hamburger & Language */}
+          <div className="flex items-center gap-4 lg:hidden">
+            <div className="flex items-center gap-1 text-xs font-mono text-[#666666]">
+              <button
+                type="button"
+                onClick={() => setLanguage(language === "EN" ? "DE" : "EN")}
+                className="hover:text-[#111111] px-1 py-0.5 cursor-pointer font-medium"
+              >
+                {language}
+              </button>
+            </div>
+
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2 text-[#111111] hover:text-[#666666] focus:outline-none"
+              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileMenuOpen}
+            >
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
           </div>
         </div>
-      )}
-    </header>
+
+        {/* Mobile Navigation Drawer */}
+        {mobileMenuOpen && (
+          <div className="fixed inset-0 top-18 sm:top-20 bg-white z-40 lg:hidden flex flex-col justify-between px-6 py-8 border-t border-[#E5E5E5] overflow-y-auto">
+            <nav className="flex flex-col space-y-5">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-2xl font-serif text-[#111111] hover:text-[#666666] transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+
+            <div className="pt-8 border-t border-[#E5E5E5] space-y-4">
+              <div className="flex items-center gap-2 text-xs font-mono text-[#666666]">
+                <span>Language:</span>
+                <button
+                  type="button"
+                  onClick={() => setLanguage("EN")}
+                  className={`px-1 font-semibold ${language === "EN" ? "text-[#111111] underline" : "text-[#666666]"}`}
+                >
+                  English (EN)
+                </button>
+                <span>/</span>
+                <button
+                  type="button"
+                  onClick={() => setLanguage("DE")}
+                  className={`px-1 font-semibold ${language === "DE" ? "text-[#111111] underline" : "text-[#666666]"}`}
+                >
+                  Deutsch (DE)
+                </button>
+              </div>
+              <div className="text-xs text-[#666666]">
+                FORM &amp; FUNCTION • Independent Digital Studio
+              </div>
+            </div>
+          </div>
+        )}
+      </header>
+    </>
   );
 }

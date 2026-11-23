@@ -10,37 +10,31 @@ export default function Footer() {
   };
 
   const navLinks = [
-    { label: "Work", href: "#work" },
+    { label: "Team", href: "#team" },
     { label: "Services", href: "#services" },
-    { label: "About", href: "#about" },
+    { label: "Products", href: "#products" },
+    { label: "Podcast", href: "#podcast" },
+    { label: "Blog", href: "#blog" },
     { label: "Contact", href: "#contact" },
   ];
 
-  const socialLinks = [
-    { label: "Awwwards", href: "https://awwwards.com" },
-    { label: "Readymag", href: "https://readymag.com" },
-    { label: "LinkedIn", href: "https://linkedin.com" },
-    { label: "GitHub", href: "https://github.com" },
-    { label: "X / Twitter", href: "https://x.com" },
-  ];
-
   return (
-    <footer className="bg-white text-[#171717] pt-20 pb-12 border-t border-[#E5E5E5]">
+    <footer className="bg-white text-[#111111] pt-20 pb-12 border-t border-[#E5E5E5]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Top Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between pb-14 border-b border-[#E5E5E5] gap-8">
           <div>
             <span className="text-xs font-mono uppercase tracking-wider text-[#666666] block mb-3">
-              Independent Digital Studio
+              12 // Studio Footer
             </span>
-            <div className="font-serif text-4xl sm:text-6xl font-normal tracking-[-0.02em] text-[#171717]">
+            <div className="font-serif text-4xl sm:text-6xl font-normal tracking-[-0.02em] text-[#111111]">
               FORM &amp; FUNCTION
             </div>
           </div>
 
           <button
             onClick={scrollToTop}
-            className="self-start md:self-end flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#666666] hover:text-[#171717] border border-[#E5E5E5] hover:border-[#171717] px-4 py-2.5 rounded-[2px] transition-colors cursor-pointer"
+            className="self-start md:self-end flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#666666] hover:text-[#111111] border border-[#E5E5E5] hover:border-[#111111] px-4 py-2.5 rounded-[2px] transition-colors cursor-pointer"
             aria-label="Scroll back to top"
           >
             <span>Back to top</span>
@@ -48,19 +42,19 @@ export default function Footer() {
           </button>
         </div>
 
-        {/* Directory Grid */}
+        {/* Directory & Placeholder Company Coordinates */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 py-14 border-b border-[#E5E5E5] text-xs font-mono">
           {/* Navigation */}
           <div>
             <div className="text-[#999999] uppercase tracking-wider mb-4">
-              Directory
+              Navigation
             </div>
             <ul className="space-y-2.5">
               {navLinks.map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="text-[#666666] hover:text-[#171717] transition-colors"
+                    className="text-[#666666] hover:text-[#111111] transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -69,34 +63,39 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Capabilities */}
+          {/* Contact Coordinates (Strict Placeholder Rule) */}
           <div>
             <div className="text-[#999999] uppercase tracking-wider mb-4">
-              Capabilities
+              Company Coordinates
             </div>
-            <ul className="space-y-2.5 text-[#666666]">
-              <li>UI/UX Design</li>
-              <li>Web Development</li>
-              <li>Brand Identity</li>
-              <li>Digital Strategy</li>
-            </ul>
+            <div className="space-y-2 text-[#666666]">
+              <div>Address: [PLACEHOLDER: Company address]</div>
+              <div>Phone: [PLACEHOLDER: Phone number]</div>
+              <div>Email: [PLACEHOLDER: Official email]</div>
+              <div className="pt-2">
+                <Link
+                  href="#team"
+                  className="text-[#111111] hover:underline"
+                >
+                  Jobs: [PLACEHOLDER: Career openings]
+                </Link>
+              </div>
+            </div>
           </div>
 
-          {/* External Archives */}
+          {/* Social Links & Icons (Placeholder) */}
           <div>
             <div className="text-[#999999] uppercase tracking-wider mb-4">
-              Networks
+              Social Networks
             </div>
             <ul className="space-y-2.5">
-              {socialLinks.map((social) => (
-                <li key={social.label}>
+              {["Platform 01", "Platform 02", "Platform 03", "Platform 04"].map((item) => (
+                <li key={item}>
                   <a
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-[#666666] hover:text-[#171717] transition-colors"
+                    href="#social"
+                    className="inline-flex items-center gap-1 text-[#666666] hover:text-[#111111] transition-colors"
                   >
-                    <span>{social.label}</span>
+                    <span>[PLACEHOLDER: {item}]</span>
                     <ArrowUpRight className="w-3 h-3 text-[#999999]" />
                   </a>
                 </li>
@@ -104,29 +103,38 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Studio Locations */}
+          {/* Legal Information */}
           <div>
             <div className="text-[#999999] uppercase tracking-wider mb-4">
-              Studio Locations
+              Legal &amp; Policy
             </div>
-            <div className="space-y-2 text-[#666666]">
-              <div>Zurich: Limmatstrasse 214</div>
-              <div>London: 42 Redchurch St</div>
-              <div>Tokyo: Minami-Aoyama 5</div>
-              <div className="pt-2 text-[#171717]">
-                hello@formandfunction.agency
-              </div>
-            </div>
+            <ul className="space-y-2 text-[#666666]">
+              <li>
+                <Link href="#privacy" className="hover:text-[#111111] transition-colors">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="#terms" className="hover:text-[#111111] transition-colors">
+                  Terms of Service
+                </Link>
+              </li>
+              <li>
+                <Link href="#legal" className="hover:text-[#111111] transition-colors">
+                  Legal Notice / Impressum
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
 
         {/* Bottom Attribution */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#666666]">
           <div>
-            © {new Date().getFullYear()} FORM &amp; FUNCTION Studio Ltd. All rights reserved.
+            © {new Date().getFullYear()} FORM &amp; FUNCTION Studio. All rights reserved.
           </div>
           <div>
-            Minimal white editorial architecture • Built with Next.js &amp; Tailwind CSS
+            Independent Digital Agency Architecture • Next.js &amp; Tailwind CSS
           </div>
         </div>
       </div>

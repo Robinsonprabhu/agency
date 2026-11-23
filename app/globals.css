@@ -1,35 +1,39 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary-bg: #FFFFFF;
+  --color-main-bg: #FFFFFF;
   --color-alt-bg: #F7F7F5;
-  --color-primary-text: #171717;
+  --color-primary-text: #111111;
   --color-secondary-text: #666666;
   --color-border-subtle: #E5E5E5;
   --color-accent: #222222;
+  --color-btn-bg: #111111;
+  --color-btn-text: #FFFFFF;
 
   --font-serif: var(--font-serif), Georgia, Cambria, "Times New Roman", Times, serif;
   --font-sans: var(--font-sans), Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 :root {
-  --bg-primary: #FFFFFF;
+  --bg-main: #FFFFFF;
   --bg-alt: #F7F7F5;
-  --text-primary: #171717;
+  --text-primary: #111111;
   --text-secondary: #666666;
   --border: #E5E5E5;
   --accent: #222222;
+  --btn-bg: #111111;
+  --btn-text: #FFFFFF;
 }
 
 html {
   scroll-behavior: smooth;
-  background-color: #FFFFFF;
-  color: #171717;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
 }
 
 body {
-  background-color: #FFFFFF;
-  color: #171717;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
   font-family: var(--font-sans), sans-serif;
   overflow-x: hidden;
   font-size: 16px;
@@ -44,7 +48,13 @@ body {
   font-family: var(--font-sans), sans-serif;
 }
 
+/* Subtle focus ring for accessibility */
+*:focus-visible {
+  outline: 2px solid #111111;
+  outline-offset: 2px;
+}
+
 ::selection {
-  background-color: #171717;
+  background-color: #111111;
   color: #FFFFFF;
 }

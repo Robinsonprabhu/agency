@@ -1,18 +1,17 @@
 export interface ServiceItem {
+  id: string;
   number: string;
   title: string;
-  tagline: string;
   description: string;
-  deliverables: string[];
-  icon: string;
+  linkText: string;
 }
 
 export interface ProjectItem {
   number: string;
   title: string;
-  client: string;
   category: string;
-  description: string;
+  shortDescription: string;
+  fullDescription: string;
   deliverables: string[];
   image: string;
   imageAlt: string;
@@ -21,8 +20,33 @@ export interface ProjectItem {
   isConceptual: boolean;
 }
 
-export interface FictionalClient {
-  name: string;
-  industry: string;
-  location: string;
+export interface TestimonialItem {
+  id: string;
+  quote: string;
+  author: string;
+  role: string;
+  company: string;
+}
+
+export interface ProductItem {
+  id: string;
+  title: string;
+  description: string;
+  linkText: string;
+  linkHref: string;
+}
+
+export interface ArticleItem {
+  id: string;
+  title: string;
+  description: string;
+  linkText: string;
+  linkHref: string;
+}
+
+export interface PodcastItem {
+  id: string;
+  title: string;
+  date: string;
+  duration: string;
 }

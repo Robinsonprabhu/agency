@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { PORTFOLIO_PROJECTS } from "@/data/content";
@@ -12,28 +13,37 @@ export default function Portfolio() {
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
 
   return (
-    <section id="work" className="py-24 sm:py-32 bg-[#F7F7F5] border-b border-[#E5E5E5]">
+    <section id="work" className="py-24 sm:py-32 bg-white border-b border-[#E5E5E5]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 md:mb-20 pb-8 border-b border-[#E5E5E5]">
           <div>
             <div className="text-xs font-mono uppercase tracking-wider text-[#666666] mb-4">
-              04 // Selected Work
+              04 // Portfolio
             </div>
-            <h2 className="font-serif text-4xl sm:text-6xl font-normal leading-[1.08] tracking-[-0.02em] text-[#171717]">
-              Selected work. <span className="italic font-normal">Real impact</span>.
+            <h2 className="font-serif text-4xl sm:text-6xl font-normal leading-[1.08] tracking-[-0.02em] text-[#111111]">
+              Selected work.
             </h2>
+            <p className="mt-3 text-[16px] text-[#666666] max-w-xl font-normal leading-relaxed">
+              Explore a selection of digital concepts focused on thoughtful design, usability and modern technology.
+            </p>
           </div>
-          <div className="mt-4 md:mt-0 font-mono text-xs text-[#666666]">
-            Four conceptual case studies • Click to expand
+          <div className="mt-6 md:mt-0 flex items-center gap-6">
+            <Link
+              href="#work"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-[#111111] hover:text-[#666666] border-b border-[#111111] pb-0.5 transition-colors"
+            >
+              <span>Selected work</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </Link>
           </div>
         </div>
 
-        {/* Carefully Composed Asymmetric Image Grid */}
-        <div className="space-y-14 lg:space-y-20">
-          {/* Row 1: Pair 1 (Vahlen Atelier: Wide 7 cols + Strata Capital: Tall 5 cols) */}
+        {/* Large Editorial Portfolio Layout with Varied Image Proportions */}
+        <div className="space-y-16 lg:space-y-24">
+          {/* Pair 1: Project 01 (Wide 7 cols) & Project 02 (Portrait 5 cols) */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-            {/* Project 01: Vahlen Atelier */}
+            {/* Project 01: Premium Fashion E-commerce */}
             {(() => {
               const project = PORTFOLIO_PROJECTS[0];
               return (
@@ -43,11 +53,10 @@ export default function Portfolio() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5 }}
-                  onClick={() => setSelectedProject(project)}
-                  className="lg:col-span-7 group cursor-pointer flex flex-col bg-white border border-[#E5E5E5] hover:border-[#171717] transition-colors duration-200"
+                  className="lg:col-span-7 flex flex-col bg-white border border-[#E5E5E5] hover:border-[#111111] transition-colors duration-200"
                 >
                   <div
-                    className="relative aspect-[16/10] w-full overflow-hidden bg-[#E5E5E5]"
+                    className="relative aspect-[16/10] w-full overflow-hidden bg-[#F7F7F5]"
                     style={{ position: "relative" }}
                   >
                     <Image
@@ -55,11 +64,11 @@ export default function Portfolio() {
                       alt={project.imageAlt}
                       fill
                       sizes="(max-width: 1024px) 100vw, 58vw"
-                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                      className="object-cover transition-transform duration-500 ease-out hover:scale-[1.02]"
                     />
                     <div className="absolute top-4 left-4">
-                      <span className="px-2.5 py-1 bg-white/95 text-[11px] font-mono uppercase tracking-wider text-[#171717] border border-[#E5E5E5]">
-                        {project.category}
+                      <span className="px-2.5 py-1 bg-white text-[11px] font-mono uppercase tracking-wider text-[#111111] border border-[#E5E5E5]">
+                        Conceptual Work
                       </span>
                     </div>
                   </div>
@@ -67,28 +76,32 @@ export default function Portfolio() {
                   <div className="p-7 sm:p-9 flex flex-col justify-between flex-grow">
                     <div>
                       <div className="text-xs font-mono text-[#666666] mb-1">
-                        {project.client}
+                        {project.category}
                       </div>
-                      <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#171717] group-hover:text-[#666666] transition-colors">
+                      <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#111111]">
                         {project.title}
                       </h3>
-                      <p className="mt-3 text-[15px] text-[#666666] leading-relaxed">
-                        {project.description}
+                      <p className="mt-2.5 text-[15px] text-[#666666] leading-relaxed">
+                        {project.shortDescription}
                       </p>
                     </div>
 
-                    <div className="pt-6 mt-6 border-t border-[#E5E5E5] flex items-center justify-between text-xs font-mono text-[#666666]">
-                      <span>{project.deliverables.join(" • ")}</span>
-                      <span className="text-[#171717] font-medium flex items-center gap-1">
-                        View case study <ArrowUpRight className="w-3.5 h-3.5" />
-                      </span>
+                    <div className="pt-6 mt-6 border-t border-[#E5E5E5]">
+                      <button
+                        type="button"
+                        onClick={() => setSelectedProject(project)}
+                        className="inline-flex items-center gap-1.5 text-sm font-medium text-[#111111] hover:text-[#666666] transition-colors cursor-pointer"
+                      >
+                        <span>Read case study</span>
+                        <ArrowUpRight className="w-3.5 h-3.5" />
+                      </button>
                     </div>
                   </div>
                 </motion.article>
               );
             })()}
 
-            {/* Project 02: Strata Capital (Tall Portrait Composition) */}
+            {/* Project 02: Fintech Digital Experience */}
             {(() => {
               const project = PORTFOLIO_PROJECTS[1];
               return (
@@ -98,11 +111,10 @@ export default function Portfolio() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.1 }}
-                  onClick={() => setSelectedProject(project)}
-                  className="lg:col-span-5 group cursor-pointer flex flex-col bg-white border border-[#E5E5E5] hover:border-[#171717] transition-colors duration-200"
+                  className="lg:col-span-5 flex flex-col bg-white border border-[#E5E5E5] hover:border-[#111111] transition-colors duration-200"
                 >
                   <div
-                    className="relative aspect-[4/5] w-full overflow-hidden bg-[#E5E5E5]"
+                    className="relative aspect-[4/5] w-full overflow-hidden bg-[#F7F7F5]"
                     style={{ position: "relative" }}
                   >
                     <Image
@@ -110,11 +122,11 @@ export default function Portfolio() {
                       alt={project.imageAlt}
                       fill
                       sizes="(max-width: 1024px) 100vw, 42vw"
-                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                      className="object-cover transition-transform duration-500 ease-out hover:scale-[1.02]"
                     />
                     <div className="absolute top-4 left-4">
-                      <span className="px-2.5 py-1 bg-white/95 text-[11px] font-mono uppercase tracking-wider text-[#171717] border border-[#E5E5E5]">
-                        {project.category}
+                      <span className="px-2.5 py-1 bg-white text-[11px] font-mono uppercase tracking-wider text-[#111111] border border-[#E5E5E5]">
+                        Conceptual Work
                       </span>
                     </div>
                   </div>
@@ -122,21 +134,25 @@ export default function Portfolio() {
                   <div className="p-7 sm:p-9 flex flex-col justify-between flex-grow">
                     <div>
                       <div className="text-xs font-mono text-[#666666] mb-1">
-                        {project.client}
+                        {project.category}
                       </div>
-                      <h3 className="font-serif text-2xl font-normal text-[#171717] group-hover:text-[#666666] transition-colors">
+                      <h3 className="font-serif text-2xl font-normal text-[#111111]">
                         {project.title}
                       </h3>
-                      <p className="mt-3 text-[15px] text-[#666666] leading-relaxed">
-                        {project.description}
+                      <p className="mt-2.5 text-[15px] text-[#666666] leading-relaxed">
+                        {project.shortDescription}
                       </p>
                     </div>
 
-                    <div className="pt-6 mt-6 border-t border-[#E5E5E5] flex items-center justify-between text-xs font-mono text-[#666666]">
-                      <span>{project.deliverables.slice(0, 2).join(" • ")}</span>
-                      <span className="text-[#171717] font-medium flex items-center gap-1">
-                        View case study <ArrowUpRight className="w-3.5 h-3.5" />
-                      </span>
+                    <div className="pt-6 mt-6 border-t border-[#E5E5E5]">
+                      <button
+                        type="button"
+                        onClick={() => setSelectedProject(project)}
+                        className="inline-flex items-center gap-1.5 text-sm font-medium text-[#111111] hover:text-[#666666] transition-colors cursor-pointer"
+                      >
+                        <span>Read case study</span>
+                        <ArrowUpRight className="w-3.5 h-3.5" />
+                      </button>
                     </div>
                   </div>
                 </motion.article>
@@ -144,9 +160,9 @@ export default function Portfolio() {
             })()}
           </div>
 
-          {/* Row 2: Inverted Asymmetric Pair (Kinetic Haven: 5 cols + Synapse Quantum: 7 cols) */}
+          {/* Pair 2: Project 03 (Landscape 5 cols) & Project 04 (Wide 7 cols) */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-            {/* Project 03: Kinetic Haven */}
+            {/* Project 03: Hospitality Website */}
             {(() => {
               const project = PORTFOLIO_PROJECTS[2];
               return (
@@ -156,11 +172,10 @@ export default function Portfolio() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5 }}
-                  onClick={() => setSelectedProject(project)}
-                  className="lg:col-span-5 group cursor-pointer flex flex-col bg-white border border-[#E5E5E5] hover:border-[#171717] transition-colors duration-200"
+                  className="lg:col-span-5 flex flex-col bg-white border border-[#E5E5E5] hover:border-[#111111] transition-colors duration-200"
                 >
                   <div
-                    className="relative aspect-[16/11] w-full overflow-hidden bg-[#E5E5E5]"
+                    className="relative aspect-[16/11] w-full overflow-hidden bg-[#F7F7F5]"
                     style={{ position: "relative" }}
                   >
                     <Image
@@ -168,11 +183,11 @@ export default function Portfolio() {
                       alt={project.imageAlt}
                       fill
                       sizes="(max-width: 1024px) 100vw, 42vw"
-                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                      className="object-cover transition-transform duration-500 ease-out hover:scale-[1.02]"
                     />
                     <div className="absolute top-4 left-4">
-                      <span className="px-2.5 py-1 bg-white/95 text-[11px] font-mono uppercase tracking-wider text-[#171717] border border-[#E5E5E5]">
-                        {project.category}
+                      <span className="px-2.5 py-1 bg-white text-[11px] font-mono uppercase tracking-wider text-[#111111] border border-[#E5E5E5]">
+                        Conceptual Work
                       </span>
                     </div>
                   </div>
@@ -180,28 +195,32 @@ export default function Portfolio() {
                   <div className="p-7 sm:p-9 flex flex-col justify-between flex-grow">
                     <div>
                       <div className="text-xs font-mono text-[#666666] mb-1">
-                        {project.client}
+                        {project.category}
                       </div>
-                      <h3 className="font-serif text-2xl font-normal text-[#171717] group-hover:text-[#666666] transition-colors">
+                      <h3 className="font-serif text-2xl font-normal text-[#111111]">
                         {project.title}
                       </h3>
-                      <p className="mt-3 text-[15px] text-[#666666] leading-relaxed">
-                        {project.description}
+                      <p className="mt-2.5 text-[15px] text-[#666666] leading-relaxed">
+                        {project.shortDescription}
                       </p>
                     </div>
 
-                    <div className="pt-6 mt-6 border-t border-[#E5E5E5] flex items-center justify-between text-xs font-mono text-[#666666]">
-                      <span>{project.deliverables.slice(0, 2).join(" • ")}</span>
-                      <span className="text-[#171717] font-medium flex items-center gap-1">
-                        View case study <ArrowUpRight className="w-3.5 h-3.5" />
-                      </span>
+                    <div className="pt-6 mt-6 border-t border-[#E5E5E5]">
+                      <button
+                        type="button"
+                        onClick={() => setSelectedProject(project)}
+                        className="inline-flex items-center gap-1.5 text-sm font-medium text-[#111111] hover:text-[#666666] transition-colors cursor-pointer"
+                      >
+                        <span>Read case study</span>
+                        <ArrowUpRight className="w-3.5 h-3.5" />
+                      </button>
                     </div>
                   </div>
                 </motion.article>
               );
             })()}
 
-            {/* Project 04: Synapse Quantum (Wide 7 cols) */}
+            {/* Project 04: Technology Startup Platform */}
             {(() => {
               const project = PORTFOLIO_PROJECTS[3];
               return (
@@ -211,11 +230,10 @@ export default function Portfolio() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.1 }}
-                  onClick={() => setSelectedProject(project)}
-                  className="lg:col-span-7 group cursor-pointer flex flex-col bg-white border border-[#E5E5E5] hover:border-[#171717] transition-colors duration-200"
+                  className="lg:col-span-7 flex flex-col bg-white border border-[#E5E5E5] hover:border-[#111111] transition-colors duration-200"
                 >
                   <div
-                    className="relative aspect-[16/10] w-full overflow-hidden bg-[#E5E5E5]"
+                    className="relative aspect-[16/10] w-full overflow-hidden bg-[#F7F7F5]"
                     style={{ position: "relative" }}
                   >
                     <Image
@@ -223,11 +241,11 @@ export default function Portfolio() {
                       alt={project.imageAlt}
                       fill
                       sizes="(max-width: 1024px) 100vw, 58vw"
-                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                      className="object-cover transition-transform duration-500 ease-out hover:scale-[1.02]"
                     />
                     <div className="absolute top-4 left-4">
-                      <span className="px-2.5 py-1 bg-white/95 text-[11px] font-mono uppercase tracking-wider text-[#171717] border border-[#E5E5E5]">
-                        {project.category}
+                      <span className="px-2.5 py-1 bg-white text-[11px] font-mono uppercase tracking-wider text-[#111111] border border-[#E5E5E5]">
+                        Conceptual Work
                       </span>
                     </div>
                   </div>
@@ -235,21 +253,25 @@ export default function Portfolio() {
                   <div className="p-7 sm:p-9 flex flex-col justify-between flex-grow">
                     <div>
                       <div className="text-xs font-mono text-[#666666] mb-1">
-                        {project.client}
+                        {project.category}
                       </div>
-                      <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#171717] group-hover:text-[#666666] transition-colors">
+                      <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#111111]">
                         {project.title}
                       </h3>
-                      <p className="mt-3 text-[15px] text-[#666666] leading-relaxed">
-                        {project.description}
+                      <p className="mt-2.5 text-[15px] text-[#666666] leading-relaxed">
+                        {project.shortDescription}
                       </p>
                     </div>
 
-                    <div className="pt-6 mt-6 border-t border-[#E5E5E5] flex items-center justify-between text-xs font-mono text-[#666666]">
-                      <span>{project.deliverables.join(" • ")}</span>
-                      <span className="text-[#171717] font-medium flex items-center gap-1">
-                        View case study <ArrowUpRight className="w-3.5 h-3.5" />
-                      </span>
+                    <div className="pt-6 mt-6 border-t border-[#E5E5E5]">
+                      <button
+                        type="button"
+                        onClick={() => setSelectedProject(project)}
+                        className="inline-flex items-center gap-1.5 text-sm font-medium text-[#111111] hover:text-[#666666] transition-colors cursor-pointer"
+                      >
+                        <span>Read case study</span>
+                        <ArrowUpRight className="w-3.5 h-3.5" />
+                      </button>
                     </div>
                   </div>
                 </motion.article>
@@ -258,7 +280,18 @@ export default function Portfolio() {
           </div>
         </div>
 
-        {/* Project Modal */}
+        {/* All case studies link */}
+        <div className="mt-14 pt-8 border-t border-[#E5E5E5] flex justify-center">
+          <Link
+            href="#work"
+            className="inline-flex items-center gap-2 text-sm font-medium bg-[#111111] text-white hover:bg-[#333333] px-8 py-3.5 rounded-[2px] transition-colors"
+          >
+            <span>All case studies</span>
+            <ArrowUpRight className="w-4 h-4" />
+          </Link>
+        </div>
+
+        {/* Case Study Modal */}
         <ProjectModal
           project={selectedProject}
           onClose={() => setSelectedProject(null)}

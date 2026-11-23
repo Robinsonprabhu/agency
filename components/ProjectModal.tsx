@@ -41,7 +41,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-4xl max-h-[90vh] bg-white border border-[#E5E5E5] text-[#171717] shadow-xl flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200"
+        className="relative w-full max-w-4xl max-h-[90vh] bg-white border border-[#E5E5E5] text-[#111111] shadow-xl flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Top Header */}
@@ -52,7 +52,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           <button
             onClick={onClose}
             aria-label="Close project modal"
-            className="p-1.5 text-[#666666] hover:text-[#171717] hover:bg-[#F7F7F5] transition-colors rounded-[2px]"
+            className="p-1.5 text-[#666666] hover:text-[#111111] hover:bg-[#F7F7F5] transition-colors rounded-[2px] cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -81,13 +81,13 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
               <h2
                 id="modal-project-title"
-                className="font-serif text-3xl sm:text-4xl font-normal text-[#171717]"
+                className="font-serif text-3xl sm:text-4xl font-normal text-[#111111]"
               >
                 {project.title}
               </h2>
 
               <p className="text-[15px] text-[#666666] leading-relaxed">
-                {project.description}
+                {project.fullDescription}
               </p>
 
               <div className="pt-4">
@@ -98,7 +98,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                   {project.deliverables.map((item) => (
                     <li
                       key={item}
-                      className="px-3 py-1 bg-[#F7F7F5] border border-[#E5E5E5] text-xs font-sans text-[#171717]"
+                      className="px-3 py-1 bg-[#F7F7F5] border border-[#E5E5E5] text-xs font-sans text-[#111111]"
                     >
                       {item}
                     </li>
@@ -110,15 +110,15 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             <div className="md:col-span-4 bg-[#F7F7F5] p-6 border border-[#E5E5E5] space-y-4 text-xs font-mono">
               <div>
                 <span className="text-[#666666] block mb-1">CLIENT CONTEXT</span>
-                <span className="text-[#171717] font-medium">{project.client}</span>
+                <span className="text-[#111111] font-medium">Conceptual Studio Exploration</span>
               </div>
               <div className="border-t border-[#E5E5E5] pt-3">
                 <span className="text-[#666666] block mb-1">DISCIPLINE</span>
-                <span className="text-[#171717]">{project.category}</span>
+                <span className="text-[#111111]">{project.category}</span>
               </div>
               <div className="border-t border-[#E5E5E5] pt-3">
                 <span className="text-[#666666] block mb-1">CLASSIFICATION</span>
-                <span className="text-[#171717]">Original Conceptual Work</span>
+                <span className="text-[#111111]">Original Conceptual Work</span>
               </div>
             </div>
           </div>
@@ -132,14 +132,14 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           <div className="flex items-center gap-3">
             <button
               onClick={onClose}
-              className="px-4 py-2 text-xs font-mono uppercase tracking-wider text-[#666666] hover:text-[#171717]"
+              className="px-4 py-2 text-xs font-mono uppercase tracking-wider text-[#666666] hover:text-[#111111] cursor-pointer"
             >
               Close
             </button>
             <Link
               href="#contact"
               onClick={onClose}
-              className="inline-flex items-center gap-2 text-xs font-medium bg-[#171717] text-white hover:bg-[#333333] px-4 py-2.5 rounded-[2px] transition-colors"
+              className="inline-flex items-center gap-2 text-xs font-medium bg-[#111111] text-white hover:bg-[#333333] px-4 py-2.5 rounded-[2px] transition-colors"
             >
               <span>Discuss similar project</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
